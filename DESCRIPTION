@@ -3,7 +3,7 @@ Title: Macroscale Structural Connectomes via Tractography
 Version: 0.0.0.9000
 Authors@R: 
     c(person("Aymeric", "Stamm", role = c("aut", "cre"), 
-             email = "aymeric.stamm@math.cnrs.fr", 
+             email = "aymeric.stamm@cnrs.fr", 
              comment = c(ORCID = "0000-0002-8725-3654")),
       person("Fang-Cheng", "Yeh", role = "ctb",
              comment = "Author of the HCP-YA842 and HCP-YA1065 atlas"),
@@ -26,14 +26,11 @@ Description: This is a data package providing access to recent macroscale
     through diffusion modeling and subsequent so-called tractography.
 License: CC BY 4.0
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
 URL: https://github.com/astamm/mascot
 BugReports: https://github.com/astamm/mascot/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
 LazyData: true
 LazyDataCompression: xz
-Suggests: 
-    fs,
-    riot
+Config/roxygen2/version: 8.0.0
+Config/roxygen2/markdown: TRUE
