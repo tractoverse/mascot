@@ -9,7 +9,7 @@
 #'   downloaded from the HCP website (it is free, but you have to register to
 #'   get access).
 #'
-#' @inheritSection HCP-YA842 details
+#' @inherit HCP-YA1065
 #'
 #' @source \url{https://zenodo.org/record/1477956#.Yo4XMy8RrrB}
 #' @references Wasserthal, J., Neher, P., & Maier-Hein, K. H. (2018).

@@ -5,7 +5,7 @@
 \alias{HCP_YA1065_CPT_F_L}
 \title{HCP-YA1065 Left Frontal Corticopontine Tract}
 \format{
-An object of class \code{maf_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 244410 rows and 5 columns.
+An object of class \code{fiber::bundle} (inherits from \code{S7_object}) of length 1038.
 }
 \source{
 \url{https://brain.labsolver.org/hcp_trk_atlas.html}
@@ -15,29 +15,35 @@ HCP_YA1065_CPT_F_L
 }
 \description{
 HCP-YA1065 atlas is an updated atlas from HCP-YA842 atlas. The
-new atlas is based on \href{https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009}{ICBM 2009a Nonlinear Asymmetric}
-space, whereas HCP-YA842 is based on FSL’s FA map (58 FA images averaged to
-old MNI152). The new atlas further provides subcomponents for cingulum,
-SLF, corticopontine track, corticostriatal track, corticothalamic track
-(renamed as thalamic radiation).
+new atlas relies on 1,065 subjects and is based on \href{https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009}{ICBM 2009a Nonlinear Asymmetric}
+space, whereas HCP-YA842 relied on 842 subjects and was based on FSL’s FA
+map (58 FA images averaged to old MNI152). The new atlas further provides
+subcomponents for cingulum, SLF, corticopontine track, corticostriatal
+track, corticothalamic track (renamed as thalamic radiation).
 }
 \details{
-In R, fascicles are stored as an object of class \code{maf_df} which
-inherits from \code{tbl_df}, \code{tbl} and \code{data.frame} and stores, in each row,
-information about a single 3D point. At a bare minimum, 5 variables are
-stored for each point:
+The included bundles are stored as objects of class \code{bundle} as
+defined in the \href{https://tractoverse.github.io/fiber/}{fiber} package. A
+\code{bundle} object is an S7 class which has two slots: \verb{@streamlines} and
+\verb{@bundle_data}, where:
 \itemize{
-\item \code{X}, \code{Y}, \code{Z}: 3D coordinates of the current point;
-\item \code{PointId}: Identification number of the current point among all points of
-the streamline it belongs to;
-\item \code{StreamlineId}: Identification number of the streamline which the current
-point belongs to.
+\item \verb{@streamlines} is a list of \code{streamline} objects, which, in turn, are
+S7 classes with slots \verb{@points}, \verb{@point_data} and \verb{@streamline_data}.
+\item \verb{@bundle_data} is a list of metadata about the bundle, such as its name,
+where it was extracted from, etc.
 }
+
+More details about the format of the data can be found in the documentation
+of the \href{https://tractoverse.github.io/fiber/}{fiber} package.
 }
 \references{
-Yeh FC, Panesar S, Fernandes D, Meola A, Yoshino M,
-Fernandez-Miranda JC, Vettel JM, Verstynen T. Population-averaged atlas of
-the macroscale human structural connectome and its network topology.
-Neuroimage. 2018 Sep 1;178:57-68. (original data)
+\itemize{
+\item Yeh, Fang-Cheng, et al. "Population-averaged atlas of the macroscale
+human structural connectome and its network topology." Neuroimage 178 (2018):
+57-68. https://doi.org/10.1016/j.neuroimage.2018.05.027
+\item Yeh, Fang-Cheng. "Population-based tract-to-region connectome of
+the human brain and its hierarchical topology." Nature communications 13.1
+(2022): 4933. https://doi.org/10.1038/s41467-022-32595-4
+}
 }
 \keyword{datasets}
