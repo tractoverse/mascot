@@ -10,19 +10,25 @@ import_bundle(dataset, bundle)
 \item{dataset}{A string specifying the dataset to import the bundle from. Currently only \code{"HCP1065"} is supported.}
 
 \item{bundle}{A string specifying the bundle to import. Must be one of the names of the bundles in the specified
-dataset. See \code{available_bundles(dataset)} for the list of available bundles in the specified dataset.}
+dataset. See \code{\link[=available_bundles]{available_bundles()}} for the list of available bundles in the specified dataset.}
 }
 \value{
-An object of class \code{bundle} containing the streamlines for the specified bundle.
+An object of class \link[fiber:bundle]{fiber::bundle} containing the streamlines for the specified bundle.
 }
 \description{
 This function allows you to import a bundle from one of the available datasets by specifying
-the dataset and the bundle name. Available datasets can be queried using \code{available_datasets()}.
-Available bundles for a given dataset can be queried using \code{available_bundles(dataset)}, which
+the dataset and the bundle name. Available datasets can be queried using \code{\link[=available_datasets]{available_datasets()}}.
+Available bundles for a given dataset can be queried using \code{\link[=available_bundles]{available_bundles()}}, which
 will return the list of bundles in the specified dataset. The function will return an object of
 class \code{bundle} containing the streamlines for the specified bundle. The \code{bundle} S7 class is
 defined in the fiber package.
 }
+\section{HCP1065}{
+
+A population-averaged tractography atlas based on 1,065 HCP subjects.
+See \link{HCP1065} for full details, source, and references.
+}
+
 \examples{
-import_bundle("HCP1065", "Left Cranial Nerve VII")
+bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
 }

@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @importFrom fiber streamline bundle
 "_PACKAGE"
 
 ## usethis namespace: start

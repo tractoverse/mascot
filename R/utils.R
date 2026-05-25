@@ -1,10 +1,74 @@
+#' List available datasets
+#'
+#' Returns the names of all tractography atlas datasets that can be accessed
+#' via [import_bundle()].
+#'
+#' @returns A character vector of dataset names.
+#'
+#' @export
+#' @examples
+#' available_datasets()
 available_datasets <- function() {
   return(c("HCP1065"))
 }
 
+# Internal helpers: use cli when available, otherwise fall back to base R.
+# cli supports named-vector bullet formatting and glue-style interpolation;
+# the fallback collapses everything into a plain message.
+.mascot_abort <- function(msg, call = sys.call(-1)) {
+  if (requireNamespace("cli", quietly = TRUE)) {
+    cli::cli_abort(msg, call = call)
+  } else {
+    if (length(msg) > 1) {
+      # Named elements ("i", "*", etc.) become indented lines
+      prefixes <- names(msg)
+      lines <- mapply(function(prefix, text) {
+        text <- .mascot_interp(text)
+        if (!is.null(prefix) && nchar(prefix) > 0) {
+          paste0(prefix, " ", text)
+        } else {
+          text
+        }
+      }, prefixes, msg)
+      stop(paste(lines, collapse = "\n"), call. = FALSE)
+    } else {
+      stop(.mascot_interp(msg), call. = FALSE)
+    }
+  }
+}
+
+# Minimal glue-style interpolation using the caller's environment.
+.mascot_interp <- function(msg) {
+  env <- parent.frame(2)
+  gsub("\\{[.]val \\{([^}]+)\\}\\}", function(m) {
+    var <- sub("^\\{[.]val \\{(.*)\\}\\}$", "\\1", m)
+    paste(eval(parse(text = var), envir = env), collapse = ", ")
+  }, gsub("\\{([^}]+)\\}", function(m) {
+    var <- sub("^\\{(.*)\\}$", "\\1", m)
+    tryCatch(
+      paste(eval(parse(text = var), envir = env), collapse = ", "),
+      error = function(e) m
+    )
+  }, msg, perl = TRUE), perl = TRUE)
+}
+
+#' List available bundles for a dataset
+#'
+#' Returns the full names of all white-matter bundles available in the
+#' specified dataset. The returned names are the values to supply to the
+#' `bundle` argument of [import_bundle()].
+#'
+#' @param dataset A string naming the dataset. Must be one of the values
+#'   returned by [available_datasets()].
+#'
+#' @returns A character vector of bundle names.
+#'
+#' @export
+#' @examples
+#' available_bundles("HCP1065")
 available_bundles <- function(dataset) {
   if (!(dataset %in% available_datasets())) {
-    cli::cli_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
+    .mascot_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
   }
 
   switch(dataset,

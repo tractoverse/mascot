@@ -2,13 +2,9 @@
 % Please edit documentation in R/HCP1065.R
 \name{HCP1065}
 \alias{HCP1065}
-\alias{HCP1065_AC}
 \title{HCP1065 Population-Averaged Tractography Atlas}
 \source{
 \url{https://brain.labsolver.org/hcp_trk_atlas.html}
-}
-\usage{
-HCP1065_AC()
 }
 \description{
 The HCP1065 population-averaged tractography atlas is an
@@ -22,13 +18,12 @@ corticopontine tract, corticostriatal tract, and corticothalamic tract
 (renamed as thalamic radiation).
 }
 \details{
-The included bundles are stored as objects of class \code{bundle} as
-defined in the \href{https://tractoverse.github.io/fiber/}{fiber} package. A
-\code{bundle} object is an S7 class which has two slots: \verb{@streamlines} and
-\verb{@bundle_data}, where:
+The included bundles are stored as objects of class \link[fiber:bundle]{fiber::bundle}.
+A \link[fiber:bundle]{fiber::bundle} object is an S7 class which has two slots: \verb{@streamlines}
+and \verb{@bundle_data}, where:
 \itemize{
-\item \verb{@streamlines} is a list of \code{streamline} objects, which, in turn, are
-S7 classes with slots \verb{@points}, \verb{@point_data} and \verb{@streamline_data}.
+\item \verb{@streamlines} is a list of \link[fiber:streamline]{fiber::streamline} objects, which, in turn,
+are S7 classes with slots \verb{@points}, \verb{@point_data} and \verb{@streamline_data}.
 \item \verb{@bundle_data} is a list of metadata about the bundle, such as its name,
 where it was extracted from, etc.
 }
@@ -36,6 +31,12 @@ where it was extracted from, etc.
 More details about the format of the data can be found in the documentation
 of the \href{https://tractoverse.github.io/fiber/}{fiber} package.
 }
+\section{HCP1065}{
+
+A population-averaged tractography atlas based on 1,065 HCP subjects.
+See \link{HCP1065} for full details, source, and references.
+}
+
 \references{
 \itemize{
 \item Yeh, Fang-Cheng, et al. "Population-averaged atlas of the macroscale
@@ -44,5 +45,8 @@ human structural connectome and its network topology." Neuroimage 178 (2018):
 \item Yeh, Fang-Cheng. "Population-based tract-to-region connectome of
 the human brain and its hierarchical topology." Nature communications 13.1
 (2022): 4933. https://doi.org/10.1038/s41467-022-32595-4
+\item Yeh, Fang-Cheng. "DSI Studio: an integrated tractography platform and fiber
+data hub for accelerating brain research." Nature methods 22.8 (2025):
+1617-1619. https://doi.org/10.1038/s41592-025-02762-8
 }
 }

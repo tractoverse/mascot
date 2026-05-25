@@ -44,6 +44,16 @@ jobs:
             > [!NOTE]
             > This is a **data release** and does not correspond to any version of the `mascot` R package.
 
+            ## Attribution and redistribution
+
+            The HCP1065 population-averaged tractography atlas is the work of Frank Yeh and is distributed via [DSI Studio](https://dsi-studio.labsolver.org). The `.rds` files in this release are a redistribution of that atlas in a format convenient for R users — no scientific modifications have been made to the underlying data.
+
+            **Users of this data must cite the original work:**
+
+            > Yeh, FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. *Nat Commun* **13**, 4933 (2022). <https://doi.org/10.1038/s41467-022-32595-4>
+
+            Please also acknowledge DSI Studio (<https://dsi-studio.labsolver.org>) and the original atlas source (<https://brain.labsolver.org/hcp_trk_atlas.html>) in any publication or derivative work.
+
             ## List of available bundles
 
             ### Association fibers

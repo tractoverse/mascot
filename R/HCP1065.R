@@ -10,18 +10,21 @@
 #' corticopontine tract, corticostriatal tract, and corticothalamic tract
 #' (renamed as thalamic radiation).
 #'
-#' @details The included bundles are stored as objects of class `bundle` as
-#'  defined in the [fiber](https://tractoverse.github.io/fiber/) package. A
-#'  `bundle` object is an S7 class which has two slots: `@streamlines` and
-#'  `@bundle_data`, where:
+#' @details The included bundles are stored as objects of class [fiber::bundle].
+#'  A [fiber::bundle] object is an S7 class which has two slots: `@streamlines`
+#'  and `@bundle_data`, where:
 #'  
-#'  - `@streamlines` is a list of `streamline` objects, which, in turn, are
-#'  S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
+#'  - `@streamlines` is a list of [fiber::streamline] objects, which, in turn,
+#'  are S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
 #'  - `@bundle_data` is a list of metadata about the bundle, such as its name,
 #'  where it was extracted from, etc.
 #' 
 #' More details about the format of the data can be found in the documentation
 #' of the [fiber](https://tractoverse.github.io/fiber/) package.
+#'
+#' @section HCP1065:
+#' A population-averaged tractography atlas based on 1,065 HCP subjects.
+#' See [HCP1065] for full details, source, and references.
 #'
 #' @source \url{https://brain.labsolver.org/hcp_trk_atlas.html}
 #' @references
@@ -31,11 +34,14 @@
 #'   - Yeh, Fang-Cheng. "Population-based tract-to-region connectome of
 #'   the human brain and its hierarchical topology." Nature communications 13.1
 #'   (2022): 4933. https://doi.org/10.1038/s41467-022-32595-4
+#'   - Yeh, Fang-Cheng. "DSI Studio: an integrated tractography platform and fiber
+#'   data hub for accelerating brain research." Nature methods 22.8 (2025):
+#'   1617-1619. https://doi.org/10.1038/s41592-025-02762-8
 #' @name HCP1065
 NULL
 
 #' HCP1065 Anterior Commissure
-#' @rdname HCP1065
+#' @inherit HCP1065 description details source references
 #' @export
 HCP1065_AC <- function() {
   import_bundle("HCP1065", "Anterior Commissure")

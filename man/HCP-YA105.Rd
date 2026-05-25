@@ -17,13 +17,12 @@ downloaded from the HCP website (it is free, but you have to register to
 get access).
 }
 \details{
-The included bundles are stored as objects of class \code{bundle} as
-defined in the \href{https://tractoverse.github.io/fiber/}{fiber} package. A
-\code{bundle} object is an S7 class which has two slots: \verb{@streamlines} and
-\verb{@bundle_data}, where:
+The included bundles are stored as objects of class \link[fiber:bundle]{fiber::bundle}.
+A \link[fiber:bundle]{fiber::bundle} object is an S7 class which has two slots: \verb{@streamlines}
+and \verb{@bundle_data}, where:
 \itemize{
-\item \verb{@streamlines} is a list of \code{streamline} objects, which, in turn, are
-S7 classes with slots \verb{@points}, \verb{@point_data} and \verb{@streamline_data}.
+\item \verb{@streamlines} is a list of \link[fiber:streamline]{fiber::streamline} objects, which, in turn,
+are S7 classes with slots \verb{@points}, \verb{@point_data} and \verb{@streamline_data}.
 \item \verb{@bundle_data} is a list of metadata about the bundle, such as its name,
 where it was extracted from, etc.
 }
