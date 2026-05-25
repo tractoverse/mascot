@@ -1,0 +1,135 @@
+on:
+  workflow_dispatch:
+
+name: Release HCP1065 Data
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
+      - name: Install R dependencies
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/stable/")
+          pak::pkg_install(c("fs", "cli", "tractoverse/riot", "tractoverse/fiber"))
+        shell: Rscript {0}
+
+      - name: Generate HCP1065 bundles
+        env:
+          HCP1065_OUT_DIR: ${{ runner.temp }}/hcp1065
+        run: Rscript data-raw/hcp1065.R
+
+      - name: Create GitHub release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: hcp1065
+          name: HCP1065 Population-Averaged Tractography Atlas
+          body: |
+            This release contains the 87 bundles elaborated out of the 2017 Q4 release of 1,200 subjects from the [Human Connectome Project (HCP)](https://www.humanconnectome.org). The methodology that led to this data is described in Yeh, FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. *Nat Commun* **13**, 4933 (2022). <https://doi.org/10.1038/s41467-022-32595-4>. Raw data can be found at <https://brain.labsolver.org/hcp_trk_atlas.html>.
+
+            > [!NOTE]
+            > This is a **data release** and does not correspond to any version of the `mascot` R package.
+
+            ### List of available bundles
+
+            - Anterior Commissure
+            - Left Arcuate Fasciculus
+            - Right Arcuate Fasciculus
+            - Left Acoustic Radiation
+            - Right Acoustic Radiation
+            - Left Frontal Parietal Cingulum
+            - Right Frontal Parietal Cingulum
+            - Left Frontal Parahippocampal Cingulum
+            - Right Frontal Parahippocampal Cingulum
+            - Left Parahippocampal Cingulum
+            - Right Parahippocampal Cingulum
+            - Left Parahippocampal Parietal Cingulum
+            - Right Parahippocampal Parietal Cingulum
+            - Left Parolfactory Cingulum
+            - Right Parolfactory Cingulum
+            - Left Cerebellum
+            - Right Cerebellum
+            - Left Corticobulbar Tract
+            - Right Corticobulbar Tract
+            - Corpus Callosum
+            - Left Cranial Nerve II
+            - Right Cranial Nerve II
+            - Left Cranial Nerve III
+            - Right Cranial Nerve III
+            - Left Cranial Nerve V
+            - Right Cranial Nerve V
+            - Left Cranial Nerve VII
+            - Right Cranial Nerve VII
+            - Left Cranial Nerve VIII
+            - Right Cranial Nerve VIII
+            - Left Frontal Corticopontine Tract
+            - Right Frontal Corticopontine Tract
+            - Left Occipital Corticopontine Tract
+            - Right Occipital Corticopontine Tract
+            - Left Parietal Corticopontine Tract
+            - Right Parietal Corticopontine Tract
+            - Left Anterior Corticostriatal Tract
+            - Right Anterior Corticostriatal Tract
+            - Left Posterior Corticostriatal Tract
+            - Right Posterior Corticostriatal Tract
+            - Left Superior Corticostriatal Tract
+            - Right Superior Corticostriatal Tract
+            - Left Corticospinal Tract
+            - Right Corticospinal Tract
+            - Left Dentatorubrothalamic Tract
+            - Right Dentatorubrothalamic Tract
+            - Left Extreme Capsule
+            - Right Extreme Capsule
+            - Left Fornix
+            - Right Fornix
+            - Left Frontal Aslant Tract
+            - Right Frontal Aslant Tract
+            - Left Inferior Cerebellar Peduncle
+            - Right Inferior Cerebellar Peduncle
+            - Left Inferior Fronto-Occipital Fasciculus
+            - Right Inferior Fronto-Occipital Fasciculus
+            - Left Inferior Longitudinal Fasciculus
+            - Right Inferior Longitudinal Fasciculus
+            - Middle Cerebellar Peduncle
+            - Left Middle Longitudinal Fasciculus
+            - Right Middle Longitudinal Fasciculus
+            - Left Medial Lemniscus
+            - Right Medial Lemniscus
+            - Left Optic Radiation
+            - Right Optic Radiation
+            - Left Parietal Aslant Tract
+            - Right Parietal Aslant Tract
+            - Left Reticulospinal Tract
+            - Right Reticulospinal Tract
+            - Superior Cerebellar Peduncle
+            - Left Superior Longitudinal Fasciculus I
+            - Right Superior Longitudinal Fasciculus I
+            - Left Superior Longitudinal Fasciculus II
+            - Right Superior Longitudinal Fasciculus II
+            - Left Superior Longitudinal Fasciculus III
+            - Right Superior Longitudinal Fasciculus III
+            - Left Anterior Thalamic Radiation
+            - Right Anterior Thalamic Radiation
+            - Left Posterior Thalamic Radiation
+            - Right Posterior Thalamic Radiation
+            - Left Superior Thalamic Radiation
+            - Right Superior Thalamic Radiation
+            - Left Uncinate Fasciculus
+            - Right Uncinate Fasciculus
+            - Vermis
+            - Left Vertical Occipital Fasciculus
+            - Right Vertical Occipital Fasciculus
+          files: ${{ runner.temp }}/hcp1065/HCP1065_*.rds
+          make_latest: false

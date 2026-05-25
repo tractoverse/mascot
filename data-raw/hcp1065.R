@@ -10,12 +10,15 @@ utils::download.file(
 )
 utils::unzip(zipfile, exdir = "data-raw/HCP1065")
 
+out_dir <- Sys.getenv("HCP1065_OUT_DIR", unset = "inst/extdata")
+fs::dir_create(out_dir)
+
 for (f in list.files("data-raw/HCP1065", recursive = TRUE, full.names = TRUE, include.dirs = FALSE)) {
   # Setup bundle name
   l <- strsplit(f, "/")[[1]]
   bundle_name <- l[[length(l)]]
   bundle_name <- strsplit(bundle_name, "\\.")[[1]][[1]]
-  bundle_name <- paste0("HCP_YA1065_", bundle_name)
+  bundle_name <- paste0("HCP1065_", bundle_name)
   cli::cli_alert_info("Processing {bundle_name} tract...")
 
   # Grab the data
@@ -26,7 +29,7 @@ for (f in list.files("data-raw/HCP1065", recursive = TRUE, full.names = TRUE, in
 
   # Save the data
   assign(bundle_name, bdl)
-  do.call("use_data", list(as.name(bundle_name), overwrite = TRUE, compress = "xz", version = 3))
+  do.call("saveRDS", list(as.name(bundle_name), file.path(out_dir, paste0(bundle_name, ".rds")), compress = "xz", version = 3))
   cli::cli_alert_success("-------------- Finished processing {bundle_name} tract! --------------")
 }
 
