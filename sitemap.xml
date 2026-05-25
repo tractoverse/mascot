@@ -1,528 +1,98 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP-YA1065.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP-YA842.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_AC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_AF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_AF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_AR_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_AR_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CBT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CBT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CB_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CB_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNIII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNIII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNVIII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNVIII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNVII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNVII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNV_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CNV_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_F_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_F_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_O_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_O_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_P_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CPT_P_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CST_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CST_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_A_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_A_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_P_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_P_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_S_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_CS_S_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_FPH_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_FPH_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_FP_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_FP_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PHP_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PHP_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PH_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PH_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PO_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_C_PO_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_DRTT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_DRTT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_EMC_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_EMC_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_FAT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_FAT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_F_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_F_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ICP_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ICP_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_IFOF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_IFOF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ILF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ILF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_MCP.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ML_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_ML_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_MdLF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_MdLF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_OR_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_OR_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_PAT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_PAT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_RST_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_RST_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SCP.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF1_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF1_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF2_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF2_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF3_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_SLF3_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_A_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_A_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_P_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_P_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_S_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_TR_S_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_UF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_UF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_V.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_VOF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA1065_VOF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_AC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_AF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_AF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_AR_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_AR_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CB_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CB_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNIII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNIII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNIV_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNIV_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNVIII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNVIII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNVII_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNVII_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNV_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNV_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNX_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CNX_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CST_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CST_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CS_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CS_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CTT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CTT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_CT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_C_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_C_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_DLF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_DLF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_EMC_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_EMC_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_FAT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_FAT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_FPT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_FPT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_F_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_F_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ICP_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ICP_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_IFOF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_IFOF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ILF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ILF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_LL_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_LL_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_MCP.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_MLF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_MLF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ML_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_ML_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_MdLF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_MdLF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_OPT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_OPT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_OR_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_OR_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_PC.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_PPT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_PPT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_RST_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_RST_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_SCP.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_SLF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_SLF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_STT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_STT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_TPT_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_TPT_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_UF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_UF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_U_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_U_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_V.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_VOF_L.html</loc>
-  </url>
-  <url>
-    <loc>/reference/HCP_YA842_VOF_R.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mascot-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://tractoverse.github.io/mascot/404.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/LICENSE.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/authors.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/index.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP-YA105.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AR_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AR_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CBT_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CBT_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CB_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CB_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CC.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNII_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNII_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNV_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CNV_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CST_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CST_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_EMC_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_EMC_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_FAT_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_FAT_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_F_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_F_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ICP_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ICP_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ILF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ILF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_MCP.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ML_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_ML_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_OR_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_OR_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_PAT_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_PAT_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_RST_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_RST_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SCP.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_UF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_UF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_V.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_VOF_L.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/import_bundle.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/index.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/mascot-package.html</loc></url>
 </urlset>
+

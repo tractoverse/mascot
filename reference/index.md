@@ -1,0 +1,182 @@
+# Package index
+
+## All functions
+
+- [`HCP-YA105`](https://tractoverse.github.io/mascot/reference/HCP-YA105.md)
+  : HCP-YA105 Tractography Atlas
+- [`HCP1065_AC()`](https://tractoverse.github.io/mascot/reference/HCP1065.md)
+  : HCP1065 Population-Averaged Tractography Atlas
+- [`HCP1065_AF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_L.md)
+  : HCP1065 Left Arcuate Fasciculus
+- [`HCP1065_AF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_R.md)
+  : HCP1065 Right Arcuate Fasciculus
+- [`HCP1065_AR_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_AR_L.md)
+  : HCP1065 Left Acoustic Radiation
+- [`HCP1065_AR_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_AR_R.md)
+  : HCP1065 Right Acoustic Radiation
+- [`HCP1065_CBT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CBT_L.md)
+  : HCP1065 Left Corticobulbar Tract
+- [`HCP1065_CBT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CBT_R.md)
+  : HCP1065 Right Corticobulbar Tract
+- [`HCP1065_CB_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CB_L.md)
+  : HCP1065 Left Cerebellum
+- [`HCP1065_CB_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CB_R.md)
+  : HCP1065 Right Cerebellum
+- [`HCP1065_CC()`](https://tractoverse.github.io/mascot/reference/HCP1065_CC.md)
+  : HCP1065 Corpus Callosum
+- [`HCP1065_CNIII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_L.md)
+  : HCP1065 Left Cranial Nerve III
+- [`HCP1065_CNIII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_R.md)
+  : HCP1065 Right Cranial Nerve III
+- [`HCP1065_CNII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNII_L.md)
+  : HCP1065 Left Cranial Nerve II
+- [`HCP1065_CNII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNII_R.md)
+  : HCP1065 Right Cranial Nerve II
+- [`HCP1065_CNVIII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_L.md)
+  : HCP1065 Left Cranial Nerve VIII
+- [`HCP1065_CNVIII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_R.md)
+  : HCP1065 Right Cranial Nerve VIII
+- [`HCP1065_CNVII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_L.md)
+  : HCP1065 Left Cranial Nerve VII
+- [`HCP1065_CNVII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_R.md)
+  : HCP1065 Right Cranial Nerve VII
+- [`HCP1065_CNV_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNV_L.md)
+  : HCP1065 Left Cranial Nerve V
+- [`HCP1065_CNV_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNV_R.md)
+  : HCP1065 Right Cranial Nerve V
+- [`HCP1065_CPT_F_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_L.md)
+  : HCP1065 Left Frontal Corticopontine Tract
+- [`HCP1065_CPT_F_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_R.md)
+  : HCP1065 Right Frontal Corticopontine Tract
+- [`HCP1065_CPT_O_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_L.md)
+  : HCP1065 Left Occipital Corticopontine Tract
+- [`HCP1065_CPT_O_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_R.md)
+  : HCP1065 Right Occipital Corticopontine Tract
+- [`HCP1065_CPT_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_L.md)
+  : HCP1065 Left Parietal Corticopontine Tract
+- [`HCP1065_CPT_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_R.md)
+  : HCP1065 Right Parietal Corticopontine Tract
+- [`HCP1065_CST_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CST_L.md)
+  : HCP1065 Left Corticospinal Tract
+- [`HCP1065_CST_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CST_R.md)
+  : HCP1065 Right Corticospinal Tract
+- [`HCP1065_CS_A_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_L.md)
+  : HCP1065 Left Anterior Corticostriatal Tract
+- [`HCP1065_CS_A_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_R.md)
+  : HCP1065 Right Anterior Corticostriatal Tract
+- [`HCP1065_CS_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_L.md)
+  : HCP1065 Left Posterior Corticostriatal Tract
+- [`HCP1065_CS_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_R.md)
+  : HCP1065 Right Posterior Corticostriatal Tract
+- [`HCP1065_CS_S_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_L.md)
+  : HCP1065 Left Superior Corticostriatal Tract
+- [`HCP1065_CS_S_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_R.md)
+  : HCP1065 Right Superior Corticostriatal Tract
+- [`HCP1065_C_FPH_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_L.md)
+  : HCP1065 Left Frontal Parahippocampal Cingulum
+- [`HCP1065_C_FPH_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_R.md)
+  : HCP1065 Right Frontal Parahippocampal Cingulum
+- [`HCP1065_C_FP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_L.md)
+  : HCP1065 Left Frontal Parietal Cingulum
+- [`HCP1065_C_FP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_R.md)
+  : HCP1065 Right Frontal Parietal Cingulum
+- [`HCP1065_C_PHP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_L.md)
+  : HCP1065 Left Parahippocampal Parietal Cingulum
+- [`HCP1065_C_PHP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_R.md)
+  : HCP1065 Right Parahippocampal Parietal Cingulum
+- [`HCP1065_C_PH_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_L.md)
+  : HCP1065 Left Parahippocampal Cingulum
+- [`HCP1065_C_PH_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_R.md)
+  : HCP1065 Right Parahippocampal Cingulum
+- [`HCP1065_C_PO_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_L.md)
+  : HCP1065 Left Parolfactory Cingulum
+- [`HCP1065_C_PO_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_R.md)
+  : HCP1065 Right Parolfactory Cingulum
+- [`HCP1065_DRTT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_L.md)
+  : HCP1065 Left Dentatorubrothalamic Tract
+- [`HCP1065_DRTT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_R.md)
+  : HCP1065 Right Dentatorubrothalamic Tract
+- [`HCP1065_EMC_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_EMC_L.md)
+  : HCP1065 Left Extreme Capsule
+- [`HCP1065_EMC_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_EMC_R.md)
+  : HCP1065 Right Extreme Capsule
+- [`HCP1065_FAT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_FAT_L.md)
+  : HCP1065 Left Frontal Aslant Tract
+- [`HCP1065_FAT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_FAT_R.md)
+  : HCP1065 Right Frontal Aslant Tract
+- [`HCP1065_F_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_F_L.md)
+  : HCP1065 Left Fornix
+- [`HCP1065_F_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_F_R.md)
+  : HCP1065 Right Fornix
+- [`HCP1065_ICP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ICP_L.md)
+  : HCP1065 Left Inferior Cerebellar Peduncle
+- [`HCP1065_ICP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ICP_R.md)
+  : HCP1065 Right Inferior Cerebellar Peduncle
+- [`HCP1065_IFOF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_L.md)
+  : HCP1065 Left Inferior Fronto-Occipital Fasciculus
+- [`HCP1065_IFOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_R.md)
+  : HCP1065 Right Inferior Fronto-Occipital Fasciculus
+- [`HCP1065_ILF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ILF_L.md)
+  : HCP1065 Left Inferior Longitudinal Fasciculus
+- [`HCP1065_ILF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ILF_R.md)
+  : HCP1065 Right Inferior Longitudinal Fasciculus
+- [`HCP1065_MCP()`](https://tractoverse.github.io/mascot/reference/HCP1065_MCP.md)
+  : HCP1065 Middle Cerebellar Peduncle
+- [`HCP1065_ML_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ML_L.md)
+  : HCP1065 Left Medial Lemniscus
+- [`HCP1065_ML_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ML_R.md)
+  : HCP1065 Right Medial Lemniscus
+- [`HCP1065_MdLF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_L.md)
+  : HCP1065 Left Middle Longitudinal Fasciculus
+- [`HCP1065_MdLF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_R.md)
+  : HCP1065 Right Middle Longitudinal Fasciculus
+- [`HCP1065_OR_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_OR_L.md)
+  : HCP1065 Left Optic Radiation
+- [`HCP1065_OR_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_OR_R.md)
+  : HCP1065 Right Optic Radiation
+- [`HCP1065_PAT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_PAT_L.md)
+  : HCP1065 Left Parietal Aslant Tract
+- [`HCP1065_PAT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_PAT_R.md)
+  : HCP1065 Right Parietal Aslant Tract
+- [`HCP1065_RST_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_RST_L.md)
+  : HCP1065 Left Reticulospinal Tract
+- [`HCP1065_RST_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_RST_R.md)
+  : HCP1065 Right Reticulospinal Tract
+- [`HCP1065_SCP()`](https://tractoverse.github.io/mascot/reference/HCP1065_SCP.md)
+  : HCP1065 Superior Cerebellar Peduncle
+- [`HCP1065_SLF1_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_L.md)
+  : HCP1065 Left Superior Longitudinal Fasciculus I
+- [`HCP1065_SLF1_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_R.md)
+  : HCP1065 Right Superior Longitudinal Fasciculus I
+- [`HCP1065_SLF2_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_L.md)
+  : HCP1065 Left Superior Longitudinal Fasciculus II
+- [`HCP1065_SLF2_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_R.md)
+  : HCP1065 Right Superior Longitudinal Fasciculus II
+- [`HCP1065_SLF3_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_L.md)
+  : HCP1065 Left Superior Longitudinal Fasciculus III
+- [`HCP1065_SLF3_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_R.md)
+  : HCP1065 Right Superior Longitudinal Fasciculus III
+- [`HCP1065_TR_A_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_L.md)
+  : HCP1065 Left Anterior Thalamic Radiation
+- [`HCP1065_TR_A_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_R.md)
+  : HCP1065 Right Anterior Thalamic Radiation
+- [`HCP1065_TR_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_L.md)
+  : HCP1065 Left Posterior Thalamic Radiation
+- [`HCP1065_TR_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_R.md)
+  : HCP1065 Right Posterior Thalamic Radiation
+- [`HCP1065_TR_S_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_L.md)
+  : HCP1065 Left Superior Thalamic Radiation
+- [`HCP1065_TR_S_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_R.md)
+  : HCP1065 Right Superior Thalamic Radiation
+- [`HCP1065_UF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_UF_L.md)
+  : HCP1065 Left Uncinate Fasciculus
+- [`HCP1065_UF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_UF_R.md)
+  : HCP1065 Right Uncinate Fasciculus
+- [`HCP1065_V()`](https://tractoverse.github.io/mascot/reference/HCP1065_V.md)
+  : HCP1065 Vermis
+- [`HCP1065_VOF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_L.md)
+  : HCP1065 Left Vertical Occipital Fasciculus
+- [`HCP1065_VOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.md)
+  : HCP1065 Right Vertical Occipital Fasciculus
+- [`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md)
+  : Import a bundle hosted in GitHub releases
