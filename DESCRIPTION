@@ -35,6 +35,7 @@ Config/roxygen2/markdown: TRUE
 Imports: 
     fiber
 Suggests:
-    cli
+    cli,
+    tinytest
 Remotes:
     tractoverse/fiber

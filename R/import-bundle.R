@@ -33,13 +33,11 @@ import_bundle <- function(dataset, bundle) {
 
   short_bundle <- HCP1065_ACRONYM_LIST[[bundle]]
   tf <- tempfile(fileext = ".rds")
-  download.file(
+  .mascot_download_file(
     url = paste0("https://github.com/tractoverse/mascot/releases/download/hcp1065/HCP1065_", short_bundle, ".rds"),
-    destfile = tf, 
-    mode = "wb"
+    destfile = tf
   )
   bdl <- readRDS(tf)
   unlink(tf)
   bdl
-  # readRDS(system.file("extdata", paste0("HCP1065_", bundle, ".rds"), package = "mascot"))
 }

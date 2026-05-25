@@ -15,41 +15,68 @@ available_datasets <- function() {
 # Internal helpers: use cli when available, otherwise fall back to base R.
 # cli supports named-vector bullet formatting and glue-style interpolation;
 # the fallback collapses everything into a plain message.
-.mascot_abort <- function(msg, call = sys.call(-1)) {
-  if (requireNamespace("cli", quietly = TRUE)) {
-    cli::cli_abort(msg, call = call)
+# Base-R fallback used when cli is not available. Extracted to a named
+# function so it can be tested independently for coverage.
+.mascot_abort_base <- function(msg, env) {
+  if (length(msg) > 1) {
+    prefixes <- names(msg)
+    lines <- mapply(function(prefix, text) {
+      text <- .mascot_interp(text, env = env)
+      if (!is.null(prefix) && nchar(prefix) > 0) {
+        paste0(prefix, " ", text)
+      } else {
+        text
+      }
+    }, prefixes, msg)
+    stop(paste(lines, collapse = "\n"), call. = FALSE)
   } else {
-    if (length(msg) > 1) {
-      # Named elements ("i", "*", etc.) become indented lines
-      prefixes <- names(msg)
-      lines <- mapply(function(prefix, text) {
-        text <- .mascot_interp(text)
-        if (!is.null(prefix) && nchar(prefix) > 0) {
-          paste0(prefix, " ", text)
-        } else {
-          text
-        }
-      }, prefixes, msg)
-      stop(paste(lines, collapse = "\n"), call. = FALSE)
-    } else {
-      stop(.mascot_interp(msg), call. = FALSE)
-    }
+    stop(.mascot_interp(msg, env = env), call. = FALSE)
   }
 }
 
-# Minimal glue-style interpolation using the caller's environment.
-.mascot_interp <- function(msg) {
-  env <- parent.frame(2)
-  gsub("\\{[.]val \\{([^}]+)\\}\\}", function(m) {
-    var <- sub("^\\{[.]val \\{(.*)\\}\\}$", "\\1", m)
-    paste(eval(parse(text = var), envir = env), collapse = ", ")
-  }, gsub("\\{([^}]+)\\}", function(m) {
-    var <- sub("^\\{(.*)\\}$", "\\1", m)
-    tryCatch(
-      paste(eval(parse(text = var), envir = env), collapse = ", "),
-      error = function(e) m
-    )
-  }, msg, perl = TRUE), perl = TRUE)
+.mascot_abort <- function(msg, call = sys.call(-1)) {
+  use_cli <- !isTRUE(getOption("mascot.no_cli")) &&
+    requireNamespace("cli", quietly = TRUE)
+  if (use_cli) {
+    cli::cli_abort(msg, call = call)
+  } else {
+    .mascot_abort_base(msg, env = parent.frame())
+  }
+}
+
+# Minimal glue-style interpolation using the supplied environment.
+.mascot_interp <- function(msg, env = parent.frame()) {
+  result <- character(length(msg))
+  for (i in seq_along(msg)) {
+    text <- msg[i]
+    # Step 1: {.val {varname}} (cli-style quoted value)
+    hits <- regmatches(text, gregexpr("\\{[.]val \\{([^}]+)\\}\\}", text, perl = TRUE))[[1]]
+    for (hit in unique(hits)) {
+      var <- sub("^\\{[.]val \\{(.*)\\}\\}$", "\\1", hit)
+      val <- tryCatch(
+        paste(eval(parse(text = var), envir = env), collapse = ", "),
+        error = function(e) hit
+      )
+      text <- gsub(hit, val, text, fixed = TRUE)
+    }
+    # Step 2: simple {expr}
+    hits2 <- regmatches(text, gregexpr("\\{([^{}]+)\\}", text, perl = TRUE))[[1]]
+    for (hit in unique(hits2)) {
+      expr_str <- sub("^\\{(.*)\\}$", "\\1", hit)
+      val <- tryCatch(
+        paste(eval(parse(text = expr_str), envir = env), collapse = ", "),
+        error = function(e) hit
+      )
+      text <- gsub(hit, val, text, fixed = TRUE)
+    }
+    result[i] <- text
+  }
+  result
+}
+
+# Thin wrapper around download.file; separated so tests can mock it.
+.mascot_download_file <- function(url, destfile) {
+  download.file(url = url, destfile = destfile, mode = "wb")
 }
 
 #' List available bundles for a dataset
