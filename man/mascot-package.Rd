@@ -27,14 +27,14 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Fang-Cheng Yeh (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Sandip Panesar (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item David Fernandes (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Antonio Meola (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Masanori Yoshino (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Juan C. Fernandez-Miranda (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Jean M. Vettel (Author of the HCP842 and HCP1065 atlas) [contributor]
-  \item Timothy Verstynen (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Fang-Cheng Yeh (Author of the HCP1065 atlas) [contributor]
+  \item Sandip Panesar (Author of the HCP1065 atlas) [contributor]
+  \item David Fernandes (Author of the HCP1065 atlas) [contributor]
+  \item Antonio Meola (Author of the HCP1065 atlas) [contributor]
+  \item Masanori Yoshino (Author of the HCP1065 atlas) [contributor]
+  \item Juan C. Fernandez-Miranda (Author of the HCP1065 atlas) [contributor]
+  \item Jean M. Vettel (Author of the HCP1065 atlas) [contributor]
+  \item Timothy Verstynen (Author of the HCP1065 atlas) [contributor]
 }
 
 }

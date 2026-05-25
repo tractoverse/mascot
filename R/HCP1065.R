@@ -38,533 +38,521 @@ NULL
 #' @rdname HCP1065
 #' @export
 HCP1065_AC <- function() {
-  # readRDS(system.file("extdata", "HCP1065_AC.rds", package = "mascot"))
   import_bundle("HCP1065", "Anterior Commissure")
 }
 
 #' HCP1065 Left Arcuate Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_AF_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_AF_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Arcuate Fasciculus")
 }
 
 #' HCP1065 Right Arcuate Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_AF_R <- function() {
-  # readRDS(system.file("extdata", "HCP1065_AF_R.rds", package = "mascot"))
   import_bundle("HCP1065", "Right Arcuate Fasciculus")
 }
 
 #' HCP1065 Left Acoustic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_AR_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_AR_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Acoustic Radiation")
 }
 
 #' HCP1065 Right Acoustic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_AR_R <- function() {
-  # readRDS(system.file("extdata", "HCP1065_AR_R.rds", package = "mascot"))
   import_bundle("HCP1065", "Right Acoustic Radiation")
 }
 
 #' HCP1065 Left Frontal Parietal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_FP_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_FP_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Frontal Parietal Cingulum")
 }
 
 #' HCP1065 Right Frontal Parietal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_FP_R <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_FP_R.rds", package = "mascot"))
   import_bundle("HCP1065", "Right Frontal Parietal Cingulum")
 }
 
 #' HCP1065 Left Frontal Parahippocampal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_FPH_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_FPH_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Frontal Parahippocampal Cingulum")
 }
 
 #' HCP1065 Right Frontal Parahippocampal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_FPH_R <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_FPH_R.rds", package = "mascot"))
   import_bundle("HCP1065", "Right Frontal Parahippocampal Cingulum")
 }
 
 #' HCP1065 Left Parahippocampal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PH_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_PH_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Parahippocampal Cingulum")
 }
 
 #' HCP1065 Right Parahippocampal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PH_R <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_PH_R.rds", package = "mascot"))
   import_bundle("HCP1065", "Right Parahippocampal Cingulum")
 }
 
 #' HCP1065 Left Parahippocampal Parietal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PHP_L <- function() {
-  # readRDS(system.file("extdata", "HCP1065_C_PHP_L.rds", package = "mascot"))
   import_bundle("HCP1065", "Left Parahippocampal Parietal Cingulum")
 }
 
 #' HCP1065 Right Parahippocampal Parietal Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PHP_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_C_PHP_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Parahippocampal Parietal Cingulum")
 }
 
 #' HCP1065 Left Parolfactory Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PO_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_C_PO_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Parolfactory Cingulum")
 }
 
 #' HCP1065 Right Parolfactory Cingulum
 #' @inherit HCP1065 description details source references
 HCP1065_C_PO_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_C_PO_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Parolfactory Cingulum")
 }
 
 #' HCP1065 Left Cerebellum
 #' @inherit HCP1065 description details source references
 HCP1065_CB_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CB_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cerebellum")
 }
 
 #' HCP1065 Right Cerebellum
 #' @inherit HCP1065 description details source references
 HCP1065_CB_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CB_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cerebellum")
 }
 
 #' HCP1065 Left Corticobulbar Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CBT_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CBT_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Corticobulbar Tract")
 }
 
 #' HCP1065 Right Corticobulbar Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CBT_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CBT_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Corticobulbar Tract")
 }
 
 #' HCP1065 Corpus Callosum
 #' @inherit HCP1065 description details source references
 HCP1065_CC <- function() {
-  readRDS(system.file("extdata", "HCP1065_CC.rds", package = "mascot"))
+  import_bundle("HCP1065", "Corpus Callosum")
 }
 
 #' HCP1065 Left Cranial Nerve II
 #' @inherit HCP1065 description details source references
 HCP1065_CNII_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNII_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cranial Nerve II")
 }
 
 #' HCP1065 Right Cranial Nerve II
 #' @inherit HCP1065 description details source references
 HCP1065_CNII_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNII_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cranial Nerve II")
 }
 
 #' HCP1065 Left Cranial Nerve III
 #' @inherit HCP1065 description details source references
 HCP1065_CNIII_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNIII_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cranial Nerve III")
 }
 
 #' HCP1065 Right Cranial Nerve III
 #' @inherit HCP1065 description details source references
 HCP1065_CNIII_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNIII_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cranial Nerve III")
 }
 
 #' HCP1065 Left Cranial Nerve V
 #' @inherit HCP1065 description details source references
 HCP1065_CNV_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNV_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cranial Nerve V")
 }
 
 #' HCP1065 Right Cranial Nerve V
 #' @inherit HCP1065 description details source references
 HCP1065_CNV_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNV_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cranial Nerve V")
 }
 
 #' HCP1065 Left Cranial Nerve VII
 #' @inherit HCP1065 description details source references
 HCP1065_CNVII_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNVII_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cranial Nerve VII")
 }
 
 #' HCP1065 Right Cranial Nerve VII
 #' @inherit HCP1065 description details source references
 HCP1065_CNVII_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNVII_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cranial Nerve VII")
 }
 
 #' HCP1065 Left Cranial Nerve VIII
 #' @inherit HCP1065 description details source references
 HCP1065_CNVIII_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNVIII_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Cranial Nerve VIII")
 }
 
 #' HCP1065 Right Cranial Nerve VIII
 #' @inherit HCP1065 description details source references
 HCP1065_CNVIII_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CNVIII_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Cranial Nerve VIII")
 }
 
 #' HCP1065 Left Frontal Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_F_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_F_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Frontal Corticopontine Tract")
 }
 
 #' HCP1065 Right Frontal Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_F_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_F_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Frontal Corticopontine Tract")
 }
 
 #' HCP1065 Left Occipital Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_O_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_O_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Occipital Corticopontine Tract")
 }
 
 #' HCP1065 Right Occipital Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_O_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_O_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Occipital Corticopontine Tract")
 }
 
 #' HCP1065 Left Parietal Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_P_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_P_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Parietal Corticopontine Tract")
 }
 
 #' HCP1065 Right Parietal Corticopontine Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CPT_P_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CPT_P_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Parietal Corticopontine Tract")
 }
 
 #' HCP1065 Left Anterior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_A_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_A_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Anterior Corticostriatal Tract")
 }
 
 #' HCP1065 Right Anterior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_A_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_A_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Anterior Corticostriatal Tract")
 }
 
 #' HCP1065 Left Posterior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_P_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_P_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Posterior Corticostriatal Tract")
 }
 
 #' HCP1065 Right Posterior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_P_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_P_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Posterior Corticostriatal Tract")
 }
 
 #' HCP1065 Left Superior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_S_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_S_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Superior Corticostriatal Tract")
 }
 
 #' HCP1065 Right Superior Corticostriatal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CS_S_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CS_S_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Superior Corticostriatal Tract")
 }
 
 #' HCP1065 Left Corticospinal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CST_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_CST_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Corticospinal Tract")
 }
 
 #' HCP1065 Right Corticospinal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_CST_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_CST_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Corticospinal Tract")
 }
 
 #' HCP1065 Left Dentatorubrothalamic Tract
 #' @inherit HCP1065 description details source references
 HCP1065_DRTT_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_DRTT_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Dentatorubrothalamic Tract")
 }
 
 #' HCP1065 Right Dentatorubrothalamic Tract
 #' @inherit HCP1065 description details source references
 HCP1065_DRTT_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_DRTT_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Dentatorubrothalamic Tract")
 }
 
 #' HCP1065 Left Extreme Capsule
 #' @inherit HCP1065 description details source references
 HCP1065_EMC_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_EMC_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Extreme Capsule")
 }
 
 #' HCP1065 Right Extreme Capsule
 #' @inherit HCP1065 description details source references
 HCP1065_EMC_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_EMC_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Extreme Capsule")
 }
 
 #' HCP1065 Left Fornix
 #' @inherit HCP1065 description details source references
 HCP1065_F_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_F_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Fornix")
 }
 
 #' HCP1065 Right Fornix
 #' @inherit HCP1065 description details source references
 HCP1065_F_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_F_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Fornix")
 }
 
 #' HCP1065 Left Frontal Aslant Tract
 #' @inherit HCP1065 description details source references
 HCP1065_FAT_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_FAT_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Frontal Aslant Tract")
 }
 
 #' HCP1065 Right Frontal Aslant Tract
 #' @inherit HCP1065 description details source references
 HCP1065_FAT_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_FAT_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Frontal Aslant Tract")
 }
 
 #' HCP1065 Left Inferior Cerebellar Peduncle
 #' @inherit HCP1065 description details source references
 HCP1065_ICP_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_ICP_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Inferior Cerebellar Peduncle")
 }
 
 #' HCP1065 Right Inferior Cerebellar Peduncle
 #' @inherit HCP1065 description details source references
 HCP1065_ICP_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_ICP_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Inferior Cerebellar Peduncle")
 }
 
 #' HCP1065 Left Inferior Fronto-Occipital Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_IFOF_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_IFOF_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Inferior Fronto-Occipital Fasciculus")
 }
 
 #' HCP1065 Right Inferior Fronto-Occipital Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_IFOF_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_IFOF_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Inferior Fronto-Occipital Fasciculus")
 }
 
 #' HCP1065 Left Inferior Longitudinal Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_ILF_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_ILF_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Inferior Longitudinal Fasciculus")
 }
 
 #' HCP1065 Right Inferior Longitudinal Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_ILF_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_ILF_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Inferior Longitudinal Fasciculus")
 }
 
 #' HCP1065 Middle Cerebellar Peduncle
 #' @inherit HCP1065 description details source references
 HCP1065_MCP <- function() {
-  readRDS(system.file("extdata", "HCP1065_MCP.rds", package = "mascot"))
+  import_bundle("HCP1065", "Middle Cerebellar Peduncle")
 }
 
 #' HCP1065 Left Middle Longitudinal Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_MdLF_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_MdLF_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Middle Longitudinal Fasciculus")
 }
 
 #' HCP1065 Right Middle Longitudinal Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_MdLF_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_MdLF_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Middle Longitudinal Fasciculus")
 }
 
 #' HCP1065 Left Medial Lemniscus
 #' @inherit HCP1065 description details source references
 HCP1065_ML_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_ML_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Medial Lemniscus")
 }
 
 #' HCP1065 Right Medial Lemniscus
 #' @inherit HCP1065 description details source references
 HCP1065_ML_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_ML_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Medial Lemniscus")
 }
 
 #' HCP1065 Left Optic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_OR_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_OR_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Optic Radiation")
 }
 
 #' HCP1065 Right Optic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_OR_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_OR_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Optic Radiation")
 }
 
 #' HCP1065 Left Parietal Aslant Tract
 #' @inherit HCP1065 description details source references
 HCP1065_PAT_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_PAT_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Parietal Aslant Tract")
 }
 
 #' HCP1065 Right Parietal Aslant Tract
 #' @inherit HCP1065 description details source references
 HCP1065_PAT_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_PAT_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Parietal Aslant Tract")
 }
 
 #' HCP1065 Left Reticulospinal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_RST_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_RST_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Reticulospinal Tract")
 }
 
 #' HCP1065 Right Reticulospinal Tract
 #' @inherit HCP1065 description details source references
 HCP1065_RST_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_RST_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Reticulospinal Tract")
 }
 
 #' HCP1065 Superior Cerebellar Peduncle
 #' @inherit HCP1065 description details source references
 HCP1065_SCP <- function() {
-  readRDS(system.file("extdata", "HCP1065_SCP.rds", package = "mascot"))
+  import_bundle("HCP1065", "Superior Cerebellar Peduncle")
 }
 
 #' HCP1065 Left Superior Longitudinal Fasciculus I
 #' @inherit HCP1065 description details source references
 HCP1065_SLF1_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF1_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Superior Longitudinal Fasciculus I")
 }
 
 #' HCP1065 Right Superior Longitudinal Fasciculus I
 #' @inherit HCP1065 description details source references
 HCP1065_SLF1_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF1_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Superior Longitudinal Fasciculus I")
 }
 
 #' HCP1065 Left Superior Longitudinal Fasciculus II
 #' @inherit HCP1065 description details source references
 HCP1065_SLF2_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF2_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Superior Longitudinal Fasciculus II")
 }
 
 #' HCP1065 Right Superior Longitudinal Fasciculus II
 #' @inherit HCP1065 description details source references
 HCP1065_SLF2_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF2_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Superior Longitudinal Fasciculus II")
 }
 
 #' HCP1065 Left Superior Longitudinal Fasciculus III
 #' @inherit HCP1065 description details source references
 HCP1065_SLF3_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF3_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Superior Longitudinal Fasciculus III")
 }
 
 #' HCP1065 Right Superior Longitudinal Fasciculus III
 #' @inherit HCP1065 description details source references
 HCP1065_SLF3_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_SLF3_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Superior Longitudinal Fasciculus III")
 }
 
 #' HCP1065 Left Anterior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_A_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_A_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Anterior Thalamic Radiation")
 }
 
 #' HCP1065 Right Anterior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_A_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_A_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Anterior Thalamic Radiation")
 }
 
 #' HCP1065 Left Posterior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_P_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_P_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Posterior Thalamic Radiation")
 }
 
 #' HCP1065 Right Posterior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_P_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_P_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Posterior Thalamic Radiation")
 }
 
 #' HCP1065 Left Superior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_S_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_S_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Superior Thalamic Radiation")
 }
 
 #' HCP1065 Right Superior Thalamic Radiation
 #' @inherit HCP1065 description details source references
 HCP1065_TR_S_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_TR_S_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Superior Thalamic Radiation")
 }
 
 #' HCP1065 Left Uncinate Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_UF_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_UF_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Uncinate Fasciculus")
 }
 
 #' HCP1065 Right Uncinate Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_UF_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_UF_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Uncinate Fasciculus")
 }
 
 #' HCP1065 Vermis
 #' @inherit HCP1065 description details source references
 HCP1065_V <- function() {
-  readRDS(system.file("extdata", "HCP1065_V.rds", package = "mascot"))
+  import_bundle("HCP1065", "Vermis")
 }
 
 #' HCP1065 Left Vertical Occipital Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_VOF_L <- function() {
-  readRDS(system.file("extdata", "HCP1065_VOF_L.rds", package = "mascot"))
+  import_bundle("HCP1065", "Left Vertical Occipital Fasciculus")
 }
 
 #' HCP1065 Right Vertical Occipital Fasciculus
 #' @inherit HCP1065 description details source references
 HCP1065_VOF_R <- function() {
-  readRDS(system.file("extdata", "HCP1065_VOF_R.rds", package = "mascot"))
+  import_bundle("HCP1065", "Right Vertical Occipital Fasciculus")
 }

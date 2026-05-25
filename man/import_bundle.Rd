@@ -24,5 +24,5 @@ class \code{bundle} containing the streamlines for the specified bundle. The \co
 defined in the fiber package.
 }
 \examples{
-import_bundle("HCP1065", "Right Arcuate Fasciculus")
+import_bundle("HCP1065", "Left Cranial Nerve VII")
 }

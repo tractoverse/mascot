@@ -15,7 +15,7 @@
 #' 
 #' @export
 #' @examples
-#' import_bundle("HCP1065", "Right Arcuate Fasciculus")
+#' import_bundle("HCP1065", "Left Cranial Nerve VII")
 import_bundle <- function(dataset, bundle) {
   if (!dataset %in% available_datasets()) {
     cli::cli_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
