@@ -15,20 +15,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# fiber
+# mascot
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/tractoverse/mascot/graph/badge.svg)](https://app.codecov.io/gh/tractoverse/mascot)
 [![pkgdown](https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/mascot)](https://CRAN.R-project.org/package=mascot)
-<!-- badges: end -->
-
-# mascot
-
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/astamm/mascot/workflows/R-CMD-check/badge.svg)](https://github.com/astamm/mascot/actions)
-[![pkgdown](https://github.com/astamm/mascot/workflows/pkgdown/badge.svg)](https://github.com/astamm/mascot/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/mascot)](https://CRAN.R-project.org/package=mascot)
 <!-- badges: end -->
 
@@ -50,7 +42,7 @@ remotes::install_github("astamm/mascot")
 
 Currently, the package contains:
 
-- the HCP-YA1065 tractography atlases from Yeh FC, Panesar S,
+- the HCP1065 tractography atlases from Yeh FC, Panesar S,
 Fernandes D, Meola A, Yoshino M, Fernandez-Miranda JC, Vettel JM, Verstynen T.
 Population-averaged atlas of the macroscale human structural connectome and its
 network topology. Neuroimage. 2018 Sep 1;178:57-68 (2021 update).

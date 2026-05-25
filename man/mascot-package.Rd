@@ -12,6 +12,7 @@ This is a data package providing access to recent macroscale structural connecto
 Useful links:
 \itemize{
   \item \url{https://github.com/astamm/mascot}
+  \item \url{https://tractoverse.github.io/mascot/}
   \item Report bugs at \url{https://github.com/astamm/mascot/issues}
 }
 
@@ -26,14 +27,14 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Fang-Cheng Yeh (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Sandip Panesar (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item David Fernandes (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Antonio Meola (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Masanori Yoshino (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Juan C. Fernandez-Miranda (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Jean M. Vettel (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
-  \item Timothy Verstynen (Author of the HCP-YA842 and HCP-YA1065 atlas) [contributor]
+  \item Fang-Cheng Yeh (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Sandip Panesar (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item David Fernandes (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Antonio Meola (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Masanori Yoshino (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Juan C. Fernandez-Miranda (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Jean M. Vettel (Author of the HCP842 and HCP1065 atlas) [contributor]
+  \item Timothy Verstynen (Author of the HCP842 and HCP1065 atlas) [contributor]
 }
 
 }

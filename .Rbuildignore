@@ -5,3 +5,7 @@
 ^\.github$
 ^README\.Rmd$
 ^README\.qmd$
+^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

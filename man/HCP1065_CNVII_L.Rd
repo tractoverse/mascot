@@ -2,7 +2,7 @@
 % Please edit documentation in R/HCP1065.R
 \name{HCP1065_CNVII_L}
 \alias{HCP1065_CNVII_L}
-\title{HCP-YA1065 Left Cranial Nerve VII}
+\title{HCP1065 Left Cranial Nerve VII}
 \source{
 \url{https://brain.labsolver.org/hcp_trk_atlas.html}
 }
@@ -10,12 +10,15 @@
 HCP1065_CNVII_L()
 }
 \description{
-HCP-YA1065 atlas is an updated atlas from HCP-YA842 atlas. The
-new atlas relies on 1,065 subjects and is based on \href{https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009}{ICBM 2009a Nonlinear Asymmetric}
-space, whereas HCP-YA842 relied on 842 subjects and was based on FSL’s FA
-map (58 FA images averaged to old MNI152). The new atlas further provides
-subcomponents for cingulum, SLF, corticopontine track, corticostriatal
-track, corticothalamic track (renamed as thalamic radiation).
+The HCP1065 population-averaged tractography atlas is an
+updated atlas from the HCP842 version. The new atlas relies on 1,065
+subjects and is based on
+\href{https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009}{ICBM 2009a Nonlinear Asymmetric}
+space, whereas HCP842 relied on 842 subjects and was based on FSL’s
+FA map (58 FA images averaged to old MNI152). The new atlas further
+provides subcomponents for cingulum, superior longitudinal fasciculus,
+corticopontine tract, corticostriatal tract, and corticothalamic tract
+(renamed as thalamic radiation).
 }
 \details{
 The included bundles are stored as objects of class \code{bundle} as

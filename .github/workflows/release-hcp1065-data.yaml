@@ -37,18 +37,19 @@ jobs:
           tag_name: hcp1065
           name: HCP1065 Population-Averaged Tractography Atlas
           body: |
+            ## Overview
+
             This release contains the 87 bundles elaborated out of the 2017 Q4 release of 1,200 subjects from the [Human Connectome Project (HCP)](https://www.humanconnectome.org). The methodology that led to this data is described in Yeh, FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. *Nat Commun* **13**, 4933 (2022). <https://doi.org/10.1038/s41467-022-32595-4>. Raw data can be found at <https://brain.labsolver.org/hcp_trk_atlas.html>.
 
             > [!NOTE]
             > This is a **data release** and does not correspond to any version of the `mascot` R package.
 
-            ### List of available bundles
+            ## List of available bundles
 
-            - Anterior Commissure
+            ### Association fibers
+
             - Left Arcuate Fasciculus
             - Right Arcuate Fasciculus
-            - Left Acoustic Radiation
-            - Right Acoustic Radiation
             - Left Frontal Parietal Cingulum
             - Right Frontal Parietal Cingulum
             - Left Frontal Parahippocampal Cingulum
@@ -59,11 +60,46 @@ jobs:
             - Right Parahippocampal Parietal Cingulum
             - Left Parolfactory Cingulum
             - Right Parolfactory Cingulum
+            - Left Extreme Capsule
+            - Right Extreme Capsule
+            - Left Frontal Aslant Tract
+            - Right Frontal Aslant Tract
+            - Left Inferior Fronto-Occipital Fasciculus
+            - Right Inferior Fronto-Occipital Fasciculus
+            - Left Inferior Longitudinal Fasciculus
+            - Right Inferior Longitudinal Fasciculus
+            - Left Middle Longitudinal Fasciculus
+            - Right Middle Longitudinal Fasciculus
+            - Left Parietal Aslant Tract
+            - Right Parietal Aslant Tract
+            - Left Superior Longitudinal Fasciculus I
+            - Right Superior Longitudinal Fasciculus I
+            - Left Superior Longitudinal Fasciculus II
+            - Right Superior Longitudinal Fasciculus II
+            - Left Superior Longitudinal Fasciculus III
+            - Right Superior Longitudinal Fasciculus III
+            - Left Uncinate Fasciculus
+            - Right Uncinate Fasciculus
+            - Left Vertical Occipital Fasciculus
+            - Right Vertical Occipital Fasciculus
+
+            ### Cerebellar fibers
+
             - Left Cerebellum
             - Right Cerebellum
-            - Left Corticobulbar Tract
-            - Right Corticobulbar Tract
+            - Left Inferior Cerebellar Peduncle
+            - Right Inferior Cerebellar Peduncle
+            - Middle Cerebellar Peduncle
+            - Superior Cerebellar Peduncle
+            - Vermis
+
+            ### Commissural fibers
+
+            - Anterior Commissure
             - Corpus Callosum
+
+            ### Cranial nerves
+
             - Left Cranial Nerve II
             - Right Cranial Nerve II
             - Left Cranial Nerve III
@@ -74,6 +110,13 @@ jobs:
             - Right Cranial Nerve VII
             - Left Cranial Nerve VIII
             - Right Cranial Nerve VIII
+
+            ### Projection fibers
+
+            - Left Acoustic Radiation
+            - Right Acoustic Radiation            
+            - Left Corticobulbar Tract
+            - Right Corticobulbar Tract
             - Left Frontal Corticopontine Tract
             - Right Frontal Corticopontine Tract
             - Left Occipital Corticopontine Tract
@@ -90,46 +133,19 @@ jobs:
             - Right Corticospinal Tract
             - Left Dentatorubrothalamic Tract
             - Right Dentatorubrothalamic Tract
-            - Left Extreme Capsule
-            - Right Extreme Capsule
             - Left Fornix
             - Right Fornix
-            - Left Frontal Aslant Tract
-            - Right Frontal Aslant Tract
-            - Left Inferior Cerebellar Peduncle
-            - Right Inferior Cerebellar Peduncle
-            - Left Inferior Fronto-Occipital Fasciculus
-            - Right Inferior Fronto-Occipital Fasciculus
-            - Left Inferior Longitudinal Fasciculus
-            - Right Inferior Longitudinal Fasciculus
-            - Middle Cerebellar Peduncle
-            - Left Middle Longitudinal Fasciculus
-            - Right Middle Longitudinal Fasciculus
             - Left Medial Lemniscus
             - Right Medial Lemniscus
             - Left Optic Radiation
             - Right Optic Radiation
-            - Left Parietal Aslant Tract
-            - Right Parietal Aslant Tract
             - Left Reticulospinal Tract
             - Right Reticulospinal Tract
-            - Superior Cerebellar Peduncle
-            - Left Superior Longitudinal Fasciculus I
-            - Right Superior Longitudinal Fasciculus I
-            - Left Superior Longitudinal Fasciculus II
-            - Right Superior Longitudinal Fasciculus II
-            - Left Superior Longitudinal Fasciculus III
-            - Right Superior Longitudinal Fasciculus III
             - Left Anterior Thalamic Radiation
             - Right Anterior Thalamic Radiation
             - Left Posterior Thalamic Radiation
             - Right Posterior Thalamic Radiation
             - Left Superior Thalamic Radiation
             - Right Superior Thalamic Radiation
-            - Left Uncinate Fasciculus
-            - Right Uncinate Fasciculus
-            - Vermis
-            - Left Vertical Occipital Fasciculus
-            - Right Vertical Occipital Fasciculus
           files: ${{ runner.temp }}/hcp1065/HCP1065_*.rds
           make_latest: false

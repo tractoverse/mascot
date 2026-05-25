@@ -1,40 +1,23 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # mascot
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/astamm/mascot/workflows/R-CMD-check/badge.svg)](https://github.com/astamm/mascot/actions)
-[![pkgdown](https://github.com/astamm/mascot/workflows/pkgdown/badge.svg)](https://github.com/astamm/mascot/actions)
+[![R-CMD-check](https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/tractoverse/mascot/graph/badge.svg)](https://app.codecov.io/gh/tractoverse/mascot)
+[![pkgdown](https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mascot)](https://CRAN.R-project.org/package=mascot)
 <!-- badges: end -->
 
-The goal of [**mascot**](https://astamm.github.io/mascot/) is to provide
-easy access to recent macroscale structural connectomes of the Human
-brain obtained from diffusion MRI data through diffusion modeling and
-subsequent so-called tractography.
-
-## Datasets
-
-Currently, the package contains:
-
--   the HCP-YA845 and HCP-YA1065 tractography atlases from Yeh FC,
-    Panesar S, Fernandes D, Meola A, Yoshino M, Fernandez-Miranda JC,
-    Vettel JM, Verstynen T. Population-averaged atlas of the macroscale
-    human structural connectome and its network topology. Neuroimage.
-    2018 Sep 1;178:57-68 (2021 update).
-
-Each white matter fascicle comes in the form of a
-[tibble](https://tibble.tidyverse.org) in which each row is a point
-characterized by the following five variables:
-
--   `X`, `Y`, `Z`: 3D coordinates of the current point;
--   `PointId`: Identification number of the current point among all
-    points of the streamline it belongs to;
--   `StreamlineId`: Identification number of the streamline which the
-    current point belongs to.
+The goal of [**mascot**](https://tractoverse.github.io/mascot/) is to
+provide easy access to recent macroscale structural connectomes of the
+Human brain obtained from diffusion MRI data through diffusion modeling
+and subsequent so-called tractography.
 
 ## Installation
 
@@ -45,3 +28,27 @@ You can install the development version of mascot from
 # install.packages("remotes")
 remotes::install_github("astamm/mascot")
 ```
+
+## Datasets
+
+Currently, the package contains:
+
+- the HCP1065 tractography atlases from Yeh FC, Panesar S, Fernandes D,
+  Meola A, Yoshino M, Fernandez-Miranda JC, Vettel JM, Verstynen T.
+  Population-averaged atlas of the macroscale human structural
+  connectome and its network topology. Neuroimage. 2018 Sep 1;178:57-68
+  (2021 update).
+
+The included bundles are stored as objects of class `bundle` as defined
+in the [fiber](https://tractoverse.github.io/fiber/) package. A `bundle`
+object is an S7 class which has two slots: `@streamlines` and
+`@bundle_data`, where:
+
+- `@streamlines` is a list of `streamline` objects, which, in turn, are
+  S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
+- `@bundle_data` is a list of metadata about the bundle, such as its
+  name, where it was extracted from, etc.
+
+More details about the format of the data can be found in the
+documentation of the [fiber](https://tractoverse.github.io/fiber/)
+package.
