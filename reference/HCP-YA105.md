@@ -14,13 +14,17 @@ to register to get access).
 
 ## Details
 
-The included bundles are stored as objects of class `bundle` as defined
-in the [fiber](https://tractoverse.github.io/fiber/) package. A `bundle`
+The included bundles are stored as objects of class
+[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html).
+A
+[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
 object is an S7 class which has two slots: `@streamlines` and
 `@bundle_data`, where:
 
-- `@streamlines` is a list of `streamline` objects, which, in turn, are
-  S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
+- `@streamlines` is a list of
+  [fiber::streamline](https://tractoverse.github.io/fiber/reference/streamline.html)
+  objects, which, in turn, are S7 classes with slots `@points`,
+  `@point_data` and `@streamline_data`.
 
 - `@bundle_data` is a list of metadata about the bundle, such as its
   name, where it was extracted from, etc.

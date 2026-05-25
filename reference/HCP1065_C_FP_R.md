@@ -22,13 +22,17 @@ HCP1065_C_FP_R()
 
 ## Details
 
-The included bundles are stored as objects of class `bundle` as defined
-in the [fiber](https://tractoverse.github.io/fiber/) package. A `bundle`
+The included bundles are stored as objects of class
+[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html).
+A
+[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
 object is an S7 class which has two slots: `@streamlines` and
 `@bundle_data`, where:
 
-- `@streamlines` is a list of `streamline` objects, which, in turn, are
-  S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
+- `@streamlines` is a list of
+  [fiber::streamline](https://tractoverse.github.io/fiber/reference/streamline.html)
+  objects, which, in turn, are S7 classes with slots `@points`,
+  `@point_data` and `@streamline_data`.
 
 - `@bundle_data` is a list of metadata about the bundle, such as its
   name, where it was extracted from, etc.
@@ -46,3 +50,7 @@ package.
 - Yeh, Fang-Cheng. "Population-based tract-to-region connectome of the
   human brain and its hierarchical topology." Nature communications 13.1
   (2022): 4933. https://doi.org/10.1038/s41467-022-32595-4
+
+- Yeh, Fang-Cheng. "DSI Studio: an integrated tractography platform and
+  fiber data hub for accelerating brain research." Nature methods 22.8
+  (2025): 1617-1619. https://doi.org/10.1038/s41592-025-02762-8

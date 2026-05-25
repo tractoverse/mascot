@@ -4,8 +4,10 @@
 
 - [`HCP-YA105`](https://tractoverse.github.io/mascot/reference/HCP-YA105.md)
   : HCP-YA105 Tractography Atlas
-- [`HCP1065_AC()`](https://tractoverse.github.io/mascot/reference/HCP1065.md)
+- [`HCP1065`](https://tractoverse.github.io/mascot/reference/HCP1065.md)
   : HCP1065 Population-Averaged Tractography Atlas
+- [`HCP1065_AC()`](https://tractoverse.github.io/mascot/reference/HCP1065_AC.md)
+  : HCP1065 Anterior Commissure
 - [`HCP1065_AF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_L.md)
   : HCP1065 Left Arcuate Fasciculus
 - [`HCP1065_AF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_R.md)
@@ -178,5 +180,9 @@
   : HCP1065 Left Vertical Occipital Fasciculus
 - [`HCP1065_VOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.md)
   : HCP1065 Right Vertical Occipital Fasciculus
+- [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md)
+  : List available bundles for a dataset
+- [`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md)
+  : List available datasets
 - [`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md)
   : Import a bundle hosted in GitHub releases

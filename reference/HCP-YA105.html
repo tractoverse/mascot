@@ -64,11 +64,10 @@ get access).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The included bundles are stored as objects of class <code>bundle</code> as
-defined in the <a href="https://tractoverse.github.io/fiber/" class="external-link">fiber</a> package. A
-<code>bundle</code> object is an S7 class which has two slots: <code>@streamlines</code> and
-<code>@bundle_data</code>, where:</p><ul><li><p><code>@streamlines</code> is a list of <code>streamline</code> objects, which, in turn, are
-S7 classes with slots <code>@points</code>, <code>@point_data</code> and <code>@streamline_data</code>.</p></li>
+    <p>The included bundles are stored as objects of class <a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a>.
+A <a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a> object is an S7 class which has two slots: <code>@streamlines</code>
+and <code>@bundle_data</code>, where:</p><ul><li><p><code>@streamlines</code> is a list of <a href="https://tractoverse.github.io/fiber/reference/streamline.html" class="external-link">fiber::streamline</a> objects, which, in turn,
+are S7 classes with slots <code>@points</code>, <code>@point_data</code> and <code>@streamline_data</code>.</p></li>
 <li><p><code>@bundle_data</code> is a list of metadata about the bundle, such as its name,
 where it was extracted from, etc.</p></li>
 </ul><p>More details about the format of the data can be found in the documentation

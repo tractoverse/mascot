@@ -5,6 +5,7 @@
 <url><loc>https://tractoverse.github.io/mascot/index.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP-YA105.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AC.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AF_L.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AF_R.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_AR_L.html</loc></url>
@@ -91,6 +92,8 @@
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_V.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_VOF_L.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/available_bundles.html</loc></url>
+<url><loc>https://tractoverse.github.io/mascot/reference/available_datasets.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/import_bundle.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/index.html</loc></url>
 <url><loc>https://tractoverse.github.io/mascot/reference/mascot-package.html</loc></url>

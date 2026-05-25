@@ -1,4 +1,4 @@
-# HCP1065 Right Cranial Nerve III
+# HCP1065 Anterior Commissure
 
 The HCP1065 population-averaged tractography atlas is an updated atlas
 from the HCP842 version. The new atlas relies on 1,065 subjects and is
@@ -13,7 +13,7 @@ corticopontine tract, corticostriatal tract, and corticothalamic tract
 ## Usage
 
 ``` r
-HCP1065_CNIII_R()
+HCP1065_AC()
 ```
 
 ## Source
