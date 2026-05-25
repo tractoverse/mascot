@@ -36,3 +36,5 @@ Imports:
     fiber
 Suggests:
     cli
+Remotes:
+    tractoverse/fiber
