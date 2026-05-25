@@ -1,7 +1,3 @@
-# Files are also here:
-# https://pitt-my.sharepoint.com/:f:/g/personal/yehfc_pitt_edu/Ek0DdO67iQ9NvkJUci91lzMBXCVBq926QXTTY7JK6LIjgw?e=jvydcC
-library(usethis)
-
 zipfile <- "data-raw/hcp1065_avg_tracts_trk.zip"
 utils::download.file(
   url = "https://github.com/data-others/atlas/releases/download/hcp1065/hcp1065_avg_tracts_trk.zip",
