@@ -4,24 +4,38 @@
 \alias{import_bundle}
 \title{Import a bundle hosted in GitHub releases}
 \usage{
-import_bundle(dataset, bundle)
+import_bundle(dataset, bundle, subjects = NULL)
 }
 \arguments{
-\item{dataset}{A string specifying the dataset to import the bundle from. Currently only \code{"HCP1065"} is supported.}
+\item{dataset}{A string specifying the dataset to import the bundle from. Currently
+\code{"HCP1065"} and \code{"TractSeg"} are supported.}
 
-\item{bundle}{A string specifying the bundle to import. Must be one of the names of the bundles in the specified
-dataset. See \code{\link[=available_bundles]{available_bundles()}} for the list of available bundles in the specified dataset.}
+\item{bundle}{A string specifying the bundle to import. Must be one of the names returned by
+\code{\link[=available_bundles]{available_bundles()}} for the chosen dataset.}
+
+\item{subjects}{Controls which subjects are loaded for multi-subject datasets (ignored for
+\code{"HCP1065"}). Three forms are accepted:
+\describe{
+\item{\code{NULL} (default)}{All available subjects are loaded and returned as a named list
+whose names are the subject IDs.}
+\item{An integer scalar \code{n}}{\code{n} subjects are drawn at random (without replacement) and
+returned as a named list.}
+\item{A character string}{The bundle for that single subject ID is returned directly as a
+\link[fiber:bundle]{fiber::bundle} object (not wrapped in a list).}
+}}
 }
 \value{
-An object of class \link[fiber:bundle]{fiber::bundle} containing the streamlines for the specified bundle.
+For \code{"HCP1065"}, or for \code{"TractSeg"} with a character \code{subjects} value: an object
+of class \link[fiber:bundle]{fiber::bundle}. For \code{"TractSeg"} with \code{subjects = NULL} or an integer: a named
+list of \link[fiber:bundle]{fiber::bundle} objects, one per subject.
 }
 \description{
 This function allows you to import a bundle from one of the available datasets by specifying
 the dataset and the bundle name. Available datasets can be queried using \code{\link[=available_datasets]{available_datasets()}}.
 Available bundles for a given dataset can be queried using \code{\link[=available_bundles]{available_bundles()}}, which
-will return the list of bundles in the specified dataset. The function will return an object of
-class \code{bundle} containing the streamlines for the specified bundle. The \code{bundle} S7 class is
-defined in the fiber package.
+will return the list of bundles in the specified dataset. For multi-subject datasets (e.g.
+\code{"TractSeg"}), the \code{subjects} argument controls which subjects are loaded. For single-atlas
+datasets (e.g. \code{"HCP1065"}), \code{subjects} is ignored.
 }
 \section{HCP1065}{
 
@@ -31,4 +45,12 @@ See \link{HCP1065} for full details, source, and references.
 
 \examples{
 bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
+
+\dontrun{
+# Single subject
+bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
+
+# Random sample of 10 subjects
+bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+}
 }

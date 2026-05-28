@@ -1,0 +1,62 @@
+on:
+  workflow_dispatch:
+
+name: Release TractSeg Data
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
+      - name: Install R dependencies
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/stable/")
+          pak::pkg_install(c("fs", "cli", "curl", "tractoverse/riot", "tractoverse/fiber"))
+        shell: Rscript {0}
+
+      - name: Generate TractSeg bundle archives
+        env:
+          TRACTSEG_OUT_DIR: ${{ runner.temp }}/tractseg
+        run: Rscript data-raw/tractseg.R
+
+      - name: Create per-bundle GitHub releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for zip_file in ${{ runner.temp }}/tractseg/TractSeg_*.zip; do
+            filename=$(basename "$zip_file")
+            bundle="${filename#TractSeg_}"
+            bundle="${bundle%.zip}"
+            tag="tractseg-${bundle}"
+            echo "Processing release $tag ..."
+            # Unzip the file to include the individual .rds files in the release assets
+            unzip -q "$zip_file" -d "${zip_file%.zip}"
+            n_files=$(ls "${zip_file%.zip}"/*.rds | wc -l)
+            echo "Unzipped $n_files .rds files for bundle $bundle"
+            rm "$zip_file"
+            files=("${zip_file%.zip}"/*.rds)
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+              gh release upload "$tag" "${files[@]}" \
+                --repo "$GITHUB_REPOSITORY" \
+                --clobber
+            else
+              gh release create "$tag" \
+                --title "TractSeg – ${bundle}" \
+                --notes "$(printf '## Overview\n\nPer-subject TractSeg bundle for **%s** from %s HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## Attribution\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data: <https://zenodo.org/records/1477956>\n\n**Users of this data must cite the original work listed above.**' "$bundle" "$n_files")" \
+                --repo "$GITHUB_REPOSITORY" \
+                --latest=false \
+                "${files[@]}"
+            fi
+          done
