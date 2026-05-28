@@ -36,6 +36,8 @@ cli::cli_alert_info(
 
 rds_paths <- character(length(trk_files))
 
+n_skipped <- 0L
+
 for (i in seq_along(trk_files)) {
   f <- trk_files[[i]]
   # fetch_bundle.py names files  <subject_id>_<bundle>.trk
@@ -43,12 +45,25 @@ for (i in seq_along(trk_files)) {
   rds_name   <- paste0("TractSeg_", subject_id, "_", bundle, ".rds")
   rds_path   <- file.path(out_dir, rds_name)
 
+  # A TRK file whose size equals exactly the 1000-byte header has zero
+  # streamlines; riot::read_trk would crash with "subscript out of bounds".
+  if (file.size(f) <= 1000L) {
+    cli::cli_alert_warning(
+      "[{i}/{length(trk_files)}] {subject_id}: empty TRK (no streamlines), skipping."
+    )
+    n_skipped <- n_skipped + 1L
+    rds_paths[[i]] <- NA_character_
+    next
+  }
+
   bdl <- riot::read_bundle(f)
   saveRDS(bdl, rds_path, compress = "xz", version = 3)
   rds_paths[[i]] <- rds_path
   cli::cli_alert_success("[{i}/{length(trk_files)}] {rds_name}")
 }
 
+rds_paths <- rds_paths[!is.na(rds_paths)]
+
 cli::cli_alert_success(
-  "Bundle {.val {bundle}}: {length(rds_paths)} RDS file(s) written to {.path {out_dir}}"
+  "Bundle {.val {bundle}}: {length(rds_paths)} RDS file(s) written to {.path {out_dir}}{if (n_skipped > 0) paste0(' (', n_skipped, ' empty TRK skipped)') else ''}"
 )
