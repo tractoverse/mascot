@@ -20,4 +20,5 @@ specified dataset. The returned names are the values to supply to the
 }
 \examples{
 available_bundles("HCP1065")
+available_bundles("TractSeg")
 }
