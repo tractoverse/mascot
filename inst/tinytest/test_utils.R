@@ -5,8 +5,8 @@ library(mascot)
 # ---------------------------------------------------------------------------
 expect_equal(
   available_datasets(),
-  "HCP1065",
-  info = "available_datasets returns the HCP1065 dataset name"
+  c("HCP1065", "TractSeg"),
+  info = "available_datasets returns HCP1065 and TractSeg dataset names"
 )
 
 # ---------------------------------------------------------------------------
@@ -34,6 +34,52 @@ expect_true(
 expect_error(
   available_bundles("unknown"),
   info = "unsupported dataset triggers an error"
+)
+
+# TractSeg bundles
+ts_bundles <- available_bundles("TractSeg")
+expect_true(
+  is.character(ts_bundles),
+  info = "available_bundles('TractSeg') returns a character vector"
+)
+expect_equal(
+  length(ts_bundles), 72L,
+  info = "TractSeg has 72 bundles"
+)
+expect_true(
+  "Left Arcuate Fasciculus" %in% ts_bundles,
+  info = "Left Arcuate Fasciculus is listed in TractSeg"
+)
+expect_true(
+  "Corpus Callosum" %in% ts_bundles,
+  info = "Corpus Callosum is listed in TractSeg"
+)
+
+# ---------------------------------------------------------------------------
+# .tractseg_subject_list() – network mocked via assignInNamespace on url()
+# ---------------------------------------------------------------------------
+# Mock by patching .tractseg_subject_list directly
+orig_tsl <- get(".tractseg_subject_list", envir = asNamespace("mascot"))
+assignInNamespace(
+  ".tractseg_subject_list",
+  function(bundle_stem) c("100307", "100408", "101006"),
+  ns = "mascot"
+)
+
+subjects <- mascot:::.tractseg_subject_list("AF_left")
+expect_equal(
+  subjects,
+  c("100307", "100408", "101006"),
+  info = ".tractseg_subject_list returns mocked subject IDs"
+)
+
+assignInNamespace(".tractseg_subject_list", orig_tsl, ns = "mascot")
+
+# Real call to a non-existent release should return character(0) (not error)
+result_missing <- mascot:::.tractseg_subject_list("BUNDLE_DOES_NOT_EXIST_XYZ")
+expect_equal(
+  result_missing, character(0L),
+  info = ".tractseg_subject_list returns character(0) when release does not exist"
 )
 
 # ---------------------------------------------------------------------------

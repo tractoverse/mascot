@@ -76,7 +76,7 @@ available_datasets <- function() {
 
 # Thin wrapper around download.file; separated so tests can mock it.
 .mascot_download_file <- function(url, destfile) {
-  download.file(url = url, destfile = destfile, mode = "wb")
+  utils::download.file(url = url, destfile = destfile, mode = "wb")
 }
 
 #' List available bundles for a dataset
@@ -280,16 +280,14 @@ TractSeg_BUNDLE_LIST <- c(
     "https://api.github.com/repos/tractoverse/mascot/releases/tags/tractseg-",
     bundle_stem
   )
-  con <- url(api_url)
-  json_lines <- tryCatch(
-    readLines(con, warn = FALSE),
-    error = function(e) {
-      close(con)
-      stop(e)
-    }
-  )
-  close(con)
-  json_text <- paste(json_lines, collapse = "")
+  json_text <- tryCatch({
+    con <- url(api_url)
+    on.exit(close(con), add = TRUE)
+    paste(readLines(con, warn = FALSE), collapse = "")
+  }, warning = function(w) NULL, error = function(e) NULL)
+
+  # Return empty vector for any connection/HTTP error (e.g. release not yet published).
+  if (is.null(json_text)) return(character(0L))
 
   # Extract matching asset names with a targeted regex — no jsonlite needed.
   rds_pattern <- paste0("TractSeg_[^\"]+_", bundle_stem, "\\.rds")

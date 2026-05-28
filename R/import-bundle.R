@@ -32,11 +32,13 @@
 #' @examples
 #' bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
 #' 
+#' \dontrun{
 #' # Single subject
 #' bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
 #' 
 #' # Random sample of 10 subjects
 #' bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+#' }
 import_bundle <- function(dataset, bundle, subjects = NULL) {
   if (!dataset %in% available_datasets()) {
     .mascot_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
@@ -66,17 +68,13 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
 
   # Discover available subject IDs for this bundle via a single GitHub API
   # call — avoids per-subject URL probing entirely.
-  subject_names <- tryCatch(
-    .tractseg_subject_list(bundle_stem),
-    error = function(e) {
-      .mascot_abort(c(
-        "Could not retrieve subject list for bundle {.val {bundle}}.",
-        "x" = conditionMessage(e)
-      ))
-    }
-  )
+  subject_names <- .tractseg_subject_list(bundle_stem)
   if (length(subject_names) == 0L) {
-    .mascot_abort("No subjects found for bundle {.val {bundle}}. The release may not have been published yet.")
+    .mascot_abort(c(
+      "No subjects found for bundle {.val {bundle}}.",
+      "i" = "The GitHub release \"tractseg-{bundle_stem}\" may not have been published yet.",
+      "i" = "Run the \"Release TractSeg Data\" GitHub Actions workflow to generate the release assets."
+    ))
   }
 
   if (is.null(subjects)) {

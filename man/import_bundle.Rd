@@ -46,9 +46,11 @@ See \link{HCP1065} for full details, source, and references.
 \examples{
 bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
 
+\dontrun{
 # Single subject
 bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
 
 # Random sample of 10 subjects
 bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+}
 }
