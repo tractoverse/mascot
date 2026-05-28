@@ -44,8 +44,6 @@ package.
 
 ## All functions
 
-- [`HCP-YA105`](https://tractoverse.github.io/mascot/reference/HCP-YA105.md)
-  : HCP-YA105 Tractography Atlas
 - [`HCP1065`](https://tractoverse.github.io/mascot/reference/HCP1065.md)
   : HCP1065 Population-Averaged Tractography Atlas
 - [`HCP1065_AC()`](https://tractoverse.github.io/mascot/reference/HCP1065_AC.md)
@@ -222,6 +220,152 @@ package.
   : HCP1065 Left Vertical Occipital Fasciculus
 - [`HCP1065_VOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.md)
   : HCP1065 Right Vertical Occipital Fasciculus
+- [`TractSeg`](https://tractoverse.github.io/mascot/reference/TractSeg.md)
+  : TractSeg High-Quality White Matter Reference Tracts
+- [`TractSeg_AF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_AF_left.md)
+  : TractSeg Left Arcuate Fasciculus
+- [`TractSeg_AF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_AF_right.md)
+  : TractSeg Right Arcuate Fasciculus
+- [`TractSeg_ATR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ATR_left.md)
+  : TractSeg Left Anterior Thalamic Radiation
+- [`TractSeg_ATR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ATR_right.md)
+  : TractSeg Right Anterior Thalamic Radiation
+- [`TractSeg_CA()`](https://tractoverse.github.io/mascot/reference/TractSeg_CA.md)
+  : TractSeg Commissure Anterior
+- [`TractSeg_CC()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC.md)
+  : TractSeg Corpus Callosum
+- [`TractSeg_CC_1()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_1.md)
+  : TractSeg Corpus Callosum Rostrum
+- [`TractSeg_CC_2()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_2.md)
+  : TractSeg Corpus Callosum Genu
+- [`TractSeg_CC_3()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_3.md)
+  : TractSeg Corpus Callosum Rostral Body
+- [`TractSeg_CC_4()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_4.md)
+  : TractSeg Corpus Callosum Anterior Midbody
+- [`TractSeg_CC_5()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_5.md)
+  : TractSeg Corpus Callosum Posterior Midbody
+- [`TractSeg_CC_6()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_6.md)
+  : TractSeg Corpus Callosum Isthmus
+- [`TractSeg_CC_7()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_7.md)
+  : TractSeg Corpus Callosum Splenium
+- [`TractSeg_CG_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_CG_left.md)
+  : TractSeg Left Cingulum
+- [`TractSeg_CG_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_CG_right.md)
+  : TractSeg Right Cingulum
+- [`TractSeg_CST_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_CST_left.md)
+  : TractSeg Left Corticospinal Tract
+- [`TractSeg_CST_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_CST_right.md)
+  : TractSeg Right Corticospinal Tract
+- [`TractSeg_FPT_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_FPT_left.md)
+  : TractSeg Left Fronto-Pontine Tract
+- [`TractSeg_FPT_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_FPT_right.md)
+  : TractSeg Right Fronto-Pontine Tract
+- [`TractSeg_FX_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_FX_left.md)
+  : TractSeg Left Fornix
+- [`TractSeg_FX_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_FX_right.md)
+  : TractSeg Right Fornix
+- [`TractSeg_ICP_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ICP_left.md)
+  : TractSeg Left Inferior Cerebellar Peduncle
+- [`TractSeg_ICP_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ICP_right.md)
+  : TractSeg Right Inferior Cerebellar Peduncle
+- [`TractSeg_IFO_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_IFO_left.md)
+  : TractSeg Left Inferior Fronto-Occipital Fasciculus
+- [`TractSeg_IFO_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_IFO_right.md)
+  : TractSeg Right Inferior Fronto-Occipital Fasciculus
+- [`TractSeg_ILF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ILF_left.md)
+  : TractSeg Left Inferior Longitudinal Fasciculus
+- [`TractSeg_ILF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ILF_right.md)
+  : TractSeg Right Inferior Longitudinal Fasciculus
+- [`TractSeg_MCP()`](https://tractoverse.github.io/mascot/reference/TractSeg_MCP.md)
+  : TractSeg Middle Cerebellar Peduncle
+- [`TractSeg_MLF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_MLF_left.md)
+  : TractSeg Left Middle Longitudinal Fasciculus
+- [`TractSeg_MLF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_MLF_right.md)
+  : TractSeg Right Middle Longitudinal Fasciculus
+- [`TractSeg_OR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_OR_left.md)
+  : TractSeg Left Optic Radiation
+- [`TractSeg_OR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_OR_right.md)
+  : TractSeg Right Optic Radiation
+- [`TractSeg_POPT_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_POPT_left.md)
+  : TractSeg Left Parieto-Occipital Pontine Tract
+- [`TractSeg_POPT_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_POPT_right.md)
+  : TractSeg Right Parieto-Occipital Pontine Tract
+- [`TractSeg_SCP_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SCP_left.md)
+  : TractSeg Left Superior Cerebellar Peduncle
+- [`TractSeg_SCP_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SCP_right.md)
+  : TractSeg Right Superior Cerebellar Peduncle
+- [`TractSeg_SLF_III_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_III_left.md)
+  : TractSeg Left Superior Longitudinal Fasciculus III
+- [`TractSeg_SLF_III_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_III_right.md)
+  : TractSeg Right Superior Longitudinal Fasciculus III
+- [`TractSeg_SLF_II_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_II_left.md)
+  : TractSeg Left Superior Longitudinal Fasciculus II
+- [`TractSeg_SLF_II_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_II_right.md)
+  : TractSeg Right Superior Longitudinal Fasciculus II
+- [`TractSeg_SLF_I_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_I_left.md)
+  : TractSeg Left Superior Longitudinal Fasciculus I
+- [`TractSeg_SLF_I_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_I_right.md)
+  : TractSeg Right Superior Longitudinal Fasciculus I
+- [`TractSeg_STR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_STR_left.md)
+  : TractSeg Left Superior Thalamic Radiation
+- [`TractSeg_STR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_STR_right.md)
+  : TractSeg Right Superior Thalamic Radiation
+- [`TractSeg_ST_FO_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_FO_left.md)
+  : TractSeg Left Striato-Fronto-Orbital Tract
+- [`TractSeg_ST_FO_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_FO_right.md)
+  : TractSeg Right Striato-Fronto-Orbital Tract
+- [`TractSeg_ST_OCC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_OCC_left.md)
+  : TractSeg Left Striato-Occipital Tract
+- [`TractSeg_ST_OCC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_OCC_right.md)
+  : TractSeg Right Striato-Occipital Tract
+- [`TractSeg_ST_PAR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PAR_left.md)
+  : TractSeg Left Striato-Parietal Tract
+- [`TractSeg_ST_PAR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PAR_right.md)
+  : TractSeg Right Striato-Parietal Tract
+- [`TractSeg_ST_POSTC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_POSTC_left.md)
+  : TractSeg Left Striato-Postcentral Tract
+- [`TractSeg_ST_POSTC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_POSTC_right.md)
+  : TractSeg Right Striato-Postcentral Tract
+- [`TractSeg_ST_PREC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREC_left.md)
+  : TractSeg Left Striato-Precentral Tract
+- [`TractSeg_ST_PREC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREC_right.md)
+  : TractSeg Right Striato-Precentral Tract
+- [`TractSeg_ST_PREF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREF_left.md)
+  : TractSeg Left Striato-Prefrontal Tract
+- [`TractSeg_ST_PREF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREF_right.md)
+  : TractSeg Right Striato-Prefrontal Tract
+- [`TractSeg_ST_PREM_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREM_left.md)
+  : TractSeg Left Striato-Premotor Tract
+- [`TractSeg_ST_PREM_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREM_right.md)
+  : TractSeg Right Striato-Premotor Tract
+- [`TractSeg_T_OCC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_OCC_left.md)
+  : TractSeg Left Thalamo-Occipital Tract
+- [`TractSeg_T_OCC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_OCC_right.md)
+  : TractSeg Right Thalamo-Occipital Tract
+- [`TractSeg_T_PAR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PAR_left.md)
+  : TractSeg Left Thalamo-Parietal Tract
+- [`TractSeg_T_PAR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PAR_right.md)
+  : TractSeg Right Thalamo-Parietal Tract
+- [`TractSeg_T_POSTC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_POSTC_left.md)
+  : TractSeg Left Thalamo-Postcentral Tract
+- [`TractSeg_T_POSTC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_POSTC_right.md)
+  : TractSeg Right Thalamo-Postcentral Tract
+- [`TractSeg_T_PREC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREC_left.md)
+  : TractSeg Left Thalamo-Precentral Tract
+- [`TractSeg_T_PREC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREC_right.md)
+  : TractSeg Right Thalamo-Precentral Tract
+- [`TractSeg_T_PREF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREF_left.md)
+  : TractSeg Left Thalamo-Prefrontal Tract
+- [`TractSeg_T_PREF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREF_right.md)
+  : TractSeg Right Thalamo-Prefrontal Tract
+- [`TractSeg_T_PREM_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREM_left.md)
+  : TractSeg Left Thalamo-Premotor Tract
+- [`TractSeg_T_PREM_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREM_right.md)
+  : TractSeg Right Thalamo-Premotor Tract
+- [`TractSeg_UF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_UF_left.md)
+  : TractSeg Left Uncinate Fasciculus
+- [`TractSeg_UF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_UF_right.md)
+  : TractSeg Right Uncinate Fasciculus
 - [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md)
   : List available bundles for a dataset
 - [`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md)

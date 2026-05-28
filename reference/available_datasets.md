@@ -18,5 +18,5 @@ A character vector of dataset names.
 
 ``` r
 available_datasets()
-#> [1] "HCP1065"
+#> [1] "HCP1065"  "TractSeg"
 ```

@@ -6,15 +6,15 @@ datasets can be queried using
 [`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md).
 Available bundles for a given dataset can be queried using
 [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md),
-which will return the list of bundles in the specified dataset. The
-function will return an object of class `bundle` containing the
-streamlines for the specified bundle. The `bundle` S7 class is defined
-in the fiber package.
+which will return the list of bundles in the specified dataset. For
+multi-subject datasets (e.g. `"TractSeg"`), the `subjects` argument
+controls which subjects are loaded. For single-atlas datasets (e.g.
+`"HCP1065"`), `subjects` is ignored.
 
 ## Usage
 
 ``` r
-import_bundle(dataset, bundle)
+import_bundle(dataset, bundle, subjects = NULL)
 ```
 
 ## Arguments
@@ -22,20 +22,44 @@ import_bundle(dataset, bundle)
 - dataset:
 
   A string specifying the dataset to import the bundle from. Currently
-  only `"HCP1065"` is supported.
+  `"HCP1065"` and `"TractSeg"` are supported.
 
 - bundle:
 
-  A string specifying the bundle to import. Must be one of the names of
-  the bundles in the specified dataset. See
+  A string specifying the bundle to import. Must be one of the names
+  returned by
   [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md)
-  for the list of available bundles in the specified dataset.
+  for the chosen dataset.
+
+- subjects:
+
+  Controls which subjects are loaded for multi-subject datasets (ignored
+  for `"HCP1065"`). Three forms are accepted:
+
+  `NULL` (default)
+
+  :   All available subjects are loaded and returned as a named list
+      whose names are the subject IDs.
+
+  An integer scalar `n`
+
+  :   `n` subjects are drawn at random (without replacement) and
+      returned as a named list.
+
+  A character string
+
+  :   The bundle for that single subject ID is returned directly as a
+      [fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
+      object (not wrapped in a list).
 
 ## Value
 
-An object of class
+For `"HCP1065"`, or for `"TractSeg"` with a character `subjects` value:
+an object of class
+[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html).
+For `"TractSeg"` with `subjects = NULL` or an integer: a named list of
 [fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
-containing the streamlines for the specified bundle.
+objects, one per subject.
 
 ## HCP1065
 
@@ -47,4 +71,12 @@ for full details, source, and references.
 
 ``` r
 bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
+
+if (FALSE) { # \dontrun{
+# Single subject
+bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
+
+# Random sample of 10 subjects
+bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+} # }
 ```
