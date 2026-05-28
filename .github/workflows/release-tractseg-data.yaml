@@ -3,9 +3,61 @@ on:
 
 name: Release TractSeg Data
 
+# The Zenodo archive URL is defined once here and inherited by all jobs.
+env:
+  ZENODO_URL: "https://zenodo.org/record/1477956/files/HCP105_Zenodo_NewTrkFormat.zip?download=1"
+
 jobs:
-  build-and-release:
+  # ---------------------------------------------------------------------------
+  # Job 1 – parse the remote ZIP central directory (no download needed)
+  # ---------------------------------------------------------------------------
+  build-index:
     runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse ZIP central directory
+        # zip_index.py uses only the Python standard library – no pip install needed.
+        # It issues two HTTP range requests (tail + central directory) and writes
+        # a JSON index mapping each bundle name to its per-subject file entries
+        # (local header offset + compressed size + compression method).
+        run: python3 data-raw/zip_index.py "$ZENODO_URL" zip-index.json
+
+      - name: Upload index as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-index
+          path: zip-index.json
+          retention-days: 1
+
+      - name: Set matrix
+        id: set-matrix
+        run: |
+          python3 - <<'EOF'
+          import json, os
+          with open("zip-index.json") as fh:
+              index = json.load(fh)
+          bundles = sorted(index.keys())
+          matrix = {"include": [{"bundle": b} for b in bundles]}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write("matrix=" + json.dumps(matrix) + "\n")
+          print(f"Matrix set: {len(bundles)} bundles")
+          EOF
+
+  # ---------------------------------------------------------------------------
+  # Job 2 – one runner per bundle (up to 72 parallel jobs)
+  # ---------------------------------------------------------------------------
+  process-bundle:
+    needs: build-index
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJSON(needs.build-index.outputs.matrix) }}
+      fail-fast: false    # let other bundles finish even if one fails
 
     permissions:
       contents: write
@@ -13,50 +65,79 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Download ZIP index artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: zip-index
+
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
+      # Cache the R package library so repeated re-runs and the 72 parallel
+      # runners share a warm cache (keyed by the lock file / R version).
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: r-tractseg-${{ runner.os }}-${{ hashFiles('DESCRIPTION') }}
+          restore-keys: r-tractseg-${{ runner.os }}-
+
       - name: Install system dependencies
-        run: sudo apt-get install -y libcurl4-openssl-dev
+        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev
 
       - name: Install R dependencies
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/stable/")
-          pak::pkg_install(c("fs", "cli", "curl", "tractoverse/riot", "tractoverse/fiber"))
+          pak::pkg_install(c("fs", "cli", "tractoverse/riot", "tractoverse/fiber"))
         shell: Rscript {0}
 
-      - name: Generate TractSeg bundle archives
+      # fetch_bundle.py uses only the Python standard library.
+      # It issues one HTTP range request per TRK file (local header + payload)
+      # and writes decompressed .trk files to TRACTSEG_TRK_DIR.
+      - name: Fetch TRK files for bundle "${{ matrix.bundle }}"
+        run: |
+          python3 data-raw/fetch_bundle.py \
+            "$ZENODO_URL" \
+            zip-index.json \
+            "${{ matrix.bundle }}" \
+            "${{ runner.temp }}/trk/${{ matrix.bundle }}"
+
+      - name: Convert TRK → RDS
         env:
-          TRACTSEG_OUT_DIR: ${{ runner.temp }}/tractseg
+          TRACTSEG_BUNDLE:  ${{ matrix.bundle }}
+          TRACTSEG_TRK_DIR: ${{ runner.temp }}/trk/${{ matrix.bundle }}
+          TRACTSEG_OUT_DIR: ${{ runner.temp }}/rds/${{ matrix.bundle }}
         run: Rscript data-raw/tractseg.R
 
-      - name: Create per-bundle GitHub releases
+      # Free up disk space before uploading (TRK files no longer needed).
+      - name: Remove TRK files
+        run: rm -rf "${{ runner.temp }}/trk"
+
+      - name: Create or update GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
+          BUNDLE:   ${{ matrix.bundle }}
+          RDS_DIR:  ${{ runner.temp }}/rds/${{ matrix.bundle }}
         run: |
-          for zip_file in ${{ runner.temp }}/tractseg/TractSeg_*.zip; do
-            filename=$(basename "$zip_file")
-            bundle="${filename#TractSeg_}"
-            bundle="${bundle%.zip}"
-            tag="tractseg-${bundle}"
-            echo "Processing release $tag ..."
-            # Unzip the file to include the individual .rds files in the release assets
-            unzip -q "$zip_file" -d "${zip_file%.zip}"
-            n_files=$(ls "${zip_file%.zip}"/*.rds | wc -l)
-            echo "Unzipped $n_files .rds files for bundle $bundle"
-            rm "$zip_file"
-            files=("${zip_file%.zip}"/*.rds)
-            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
-              gh release upload "$tag" "${files[@]}" \
-                --repo "$GITHUB_REPOSITORY" \
-                --clobber
-            else
-              gh release create "$tag" \
-                --title "TractSeg – ${bundle}" \
-                --notes "$(printf '## Overview\n\nPer-subject TractSeg bundle for **%s** from %s HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## Attribution\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data: <https://zenodo.org/records/1477956>\n\n**Users of this data must cite the original work listed above.**' "$bundle" "$n_files")" \
-                --repo "$GITHUB_REPOSITORY" \
-                --latest=false \
-                "${files[@]}"
-            fi
-          done
+          tag="tractseg-${BUNDLE}"
+          mapfile -t files < <(ls "$RDS_DIR"/*.rds)
+          n_files=${#files[@]}
+          echo "Uploading ${n_files} RDS files to release ${tag} …"
+
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            gh release upload "$tag" "${files[@]}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          else
+            notes="$(printf \
+              '## Overview\n\nPer-subject TractSeg bundle for **%s** from %s HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## Attribution\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data: <https://zenodo.org/records/1477956>\n\n**Users of this data must cite the original work listed above.**' \
+              "$BUNDLE" "$n_files")"
+
+            gh release create "$tag" \
+              --title "TractSeg – ${BUNDLE}" \
+              --notes "$notes" \
+              --repo "$GITHUB_REPOSITORY" \
+              --latest=false \
+              "${files[@]}"
+          fi
