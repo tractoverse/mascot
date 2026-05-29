@@ -11,7 +11,11 @@ for *bundle_name*, and for each subject:
 No full ZIP download is ever needed.
 
 Usage:
-    python3 fetch_bundle.py <url> <index.json> <bundle_name> <out_dir>
+    python3 fetch_bundle.py <url> <index.json> <bundle_name> <out_dir> [workers]
+
+The optional *workers* argument (default: 16) controls how many TRK files are
+downloaded concurrently.  Increasing it speeds up the fetch step further, but
+be mindful of the remote server's rate limits.
 """
 
 import json
@@ -21,6 +25,7 @@ import sys
 import time
 import urllib.request
 import zlib
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 # ---------------------------------------------------------------------------
@@ -94,10 +99,45 @@ def fetch_and_decompress(
 # Main
 # ---------------------------------------------------------------------------
 
+def fetch_entry(url: str, entry: dict, out_dir: str, bundle_name: str, index: int, total: int) -> str:
+    """Fetch, decompress and write one TRK file.  Returns a status string."""
+    subject  = entry["subject"]
+    out_path = os.path.join(out_dir, f"{subject}_{bundle_name}.trk")
+
+    if os.path.exists(out_path):
+        expected = entry["uncompressed_size"]
+        if os.path.getsize(out_path) == expected:
+            return f"[{index}/{total}] {subject}: already exists, skipping."
+        os.remove(out_path)
+
+    data = fetch_and_decompress(
+        url,
+        entry["local_header_offset"],
+        entry["compressed_size"],
+        entry["compression"],
+        entry["uncompressed_size"],
+    )
+
+    with open(out_path, "wb") as fh:
+        fh.write(data)
+
+    actual   = len(data)
+    expected = entry["uncompressed_size"]
+    if actual != expected:
+        return (
+            f"[{index}/{total}] {subject}: WARNING wrote {actual} B "
+            f"but index says {expected} B"
+        )
+    return (
+        f"[{index}/{total}] {subject}: ✓ "
+        f"({entry['compressed_size']:,} → {actual:,} B)"
+    )
+
+
 def main():
-    if len(sys.argv) != 5:
+    if len(sys.argv) not in (5, 6):
         print(
-            f"Usage: {sys.argv[0]} <url> <index.json> <bundle_name> <out_dir>",
+            f"Usage: {sys.argv[0]} <url> <index.json> <bundle_name> <out_dir> [workers]",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -106,6 +146,7 @@ def main():
     index_file  = sys.argv[2]
     bundle_name = sys.argv[3]
     out_dir     = sys.argv[4]
+    workers     = int(sys.argv[5]) if len(sys.argv) == 6 else 16
 
     with open(index_file) as fh:
         index = json.load(fh)
@@ -120,49 +161,40 @@ def main():
 
     files = index[bundle_name]
     os.makedirs(out_dir, exist_ok=True)
+    total = len(files)
 
-    print(f"Fetching {len(files)} TRK files for bundle '{bundle_name}'…",
-          flush=True)
+    print(
+        f"Fetching {total} TRK files for bundle '{bundle_name}' "
+        f"({workers} parallel workers)…",
+        flush=True,
+    )
 
-    for i, entry in enumerate(files, 1):
-        subject  = entry["subject"]
-        out_path = os.path.join(out_dir, f"{subject}_{bundle_name}.trk")
+    errors = []
+    completed = 0
 
-        if os.path.exists(out_path):
-            expected = entry["uncompressed_size"]
-            if os.path.getsize(out_path) == expected:
-                print(f"[{i}/{len(files)}] {subject}: already exists, skipping.",
-                      flush=True)
-                continue
-            # Wrong size → discard and re-download
-            os.remove(out_path)
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {
+            pool.submit(fetch_entry, url, entry, out_dir, bundle_name, i, total): entry
+            for i, entry in enumerate(files, 1)
+        }
+        for future in as_completed(futures):
+            completed += 1
+            try:
+                msg = future.result()
+                print(msg, flush=True)
+            except Exception as exc:
+                entry = futures[future]
+                msg = f"ERROR {entry['subject']}: {exc}"
+                errors.append(msg)
+                print(msg, flush=True)
 
-        print(f"[{i}/{len(files)}] {subject}: downloading "
-              f"({entry['compressed_size']:,} → {entry['uncompressed_size']:,} B)…",
-              flush=True)
+    if errors:
+        print(f"\n{len(errors)} file(s) failed:", file=sys.stderr, flush=True)
+        for e in errors:
+            print(f"  {e}", file=sys.stderr)
+        sys.exit(1)
 
-        data = fetch_and_decompress(
-            url,
-            entry["local_header_offset"],
-            entry["compressed_size"],
-            entry["compression"],
-            entry["uncompressed_size"],
-        )
-
-        with open(out_path, "wb") as fh:
-            fh.write(data)
-
-        actual = len(data)
-        expected = entry["uncompressed_size"]
-        if actual != expected:
-            print(
-                f"  WARNING: wrote {actual} B but index says {expected} B",
-                flush=True,
-            )
-        else:
-            print(f"  ✓ {out_path}", flush=True)
-
-    print(f"\nDone. {len(files)} files in {out_dir}", flush=True)
+    print(f"\nDone. {total} files in {out_dir}", flush=True)
 
 
 if __name__ == "__main__":
