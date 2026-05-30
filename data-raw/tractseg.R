@@ -34,11 +34,10 @@ cli::cli_alert_info(
   "Bundle {.val {bundle}}: converting {length(trk_files)} TRK file(s) \u2192 RDS \u2026"
 )
 
-rds_paths <- character(length(trk_files))
+n_cores <- max(1L, parallel::detectCores())
+cli::cli_alert_info("Using {n_cores} parallel worker(s).")
 
-n_skipped <- 0L
-
-for (i in seq_along(trk_files)) {
+convert_one <- function(i) {
   f <- trk_files[[i]]
   # fetch_bundle.py names files  <subject_id>_<bundle>.trk
   subject_id <- sub(paste0("_", bundle, "\\.trk$"), "", basename(f))
@@ -48,21 +47,35 @@ for (i in seq_along(trk_files)) {
   # A TRK file whose size equals exactly the 1000-byte header has zero
   # streamlines; riot::read_trk would crash with "subscript out of bounds".
   if (file.size(f) <= 1000L) {
-    cli::cli_alert_warning(
-      "[{i}/{length(trk_files)}] {subject_id}: empty TRK (no streamlines), skipping."
-    )
-    n_skipped <- n_skipped + 1L
-    rds_paths[[i]] <- NA_character_
-    next
+    message(sprintf("[%d/%d] %s: empty TRK (no streamlines), skipping.",
+                    i, length(trk_files), subject_id))
+    return(NA_character_)
   }
 
   bdl <- riot::read_bundle(f)
-  saveRDS(bdl, rds_path, compress = "xz", version = 3)
-  rds_paths[[i]] <- rds_path
-  cli::cli_alert_success("[{i}/{length(trk_files)}] {rds_name}")
+  saveRDS(bdl, rds_path, compress = "gz", version = 3)
+  message(sprintf("[%d/%d] %s", i, length(trk_files), rds_name))
+  rds_path
 }
 
-rds_paths <- rds_paths[!is.na(rds_paths)]
+results <- parallel::mclapply(
+  seq_along(trk_files),
+  convert_one,
+  mc.cores = n_cores,
+  mc.preschedule = FALSE   # let each worker pick up the next job as soon as it is free
+)
+
+# mclapply returns an "error" condition for any failed child process
+failed <- vapply(results, inherits, logical(1L), "error")
+if (any(failed)) {
+  for (idx in which(failed)) {
+    cli::cli_alert_danger("Subject {idx} failed: {conditionMessage(results[[idx]])}")
+  }
+  stop("One or more subjects failed to convert.")
+}
+
+rds_paths <- Filter(Negate(is.na), unlist(results, use.names = FALSE))
+n_skipped  <- sum(vapply(results, function(x) identical(x, NA_character_), logical(1L)))
 
 cli::cli_alert_success(
   "Bundle {.val {bundle}}: {length(rds_paths)} RDS file(s) written to {.path {out_dir}}{if (n_skipped > 0) paste0(' (', n_skipped, ' empty TRK skipped)') else ''}"
