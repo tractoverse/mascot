@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mascot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,15 +33,15 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="mascot-development-version">mascot (development version)<a class="anchor" aria-label="anchor" href="#mascot-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.0" id="mascot-010">mascot 0.1.0<a class="anchor" aria-label="anchor" href="#mascot-010"></a></h2>
 <div class="section level3">
-<h3 id="hcp1065-atlas--license-correction-and-asset-generation-notes-development-version">HCP1065 atlas – license correction and asset-generation notes<a class="anchor" aria-label="anchor" href="#hcp1065-atlas--license-correction-and-asset-generation-notes-development-version"></a></h3>
+<h3 id="hcp1065-atlas-0-1-0">HCP1065 atlas<a class="anchor" aria-label="anchor" href="#hcp1065-atlas-0-1-0"></a></h3>
 <div class="section level4">
-<h4 id="license-correction-development-version">License correction<a class="anchor" aria-label="anchor" href="#license-correction-development-version"></a></h4>
+<h4 id="license-correction-0-1-0">License correction<a class="anchor" aria-label="anchor" href="#license-correction-0-1-0"></a></h4>
 <p>The HCP1065 population-averaged tractography atlas is published by Fang-Cheng Yeh under the <strong>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</strong> license (<a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link uri">https://creativecommons.org/licenses/by-sa/4.0/</a>), not CC BY 4.0 as previously documented. <code>DESCRIPTION</code>, the roxygen block in <a href="R/HCP1065.R"><code>R/HCP1065.R</code></a>, and the GitHub release notes for the <code>hcp1065</code> tag have all been corrected accordingly. A no-endorsement disclaimer has also been added to the release notes.</p>
 </div>
 <div class="section level4">
-<h4 id="attribution-and-citation-development-version">Attribution and citation<a class="anchor" aria-label="anchor" href="#attribution-and-citation-development-version"></a></h4>
+<h4 id="attribution-and-citation-0-1-0">Attribution and citation<a class="anchor" aria-label="anchor" href="#attribution-and-citation-0-1-0"></a></h4>
 <p>Please cite the original work when using HCP1065 data:</p>
 <blockquote>
 <p>Yeh FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. <em>Nat Commun</em> <strong>13</strong>, 4933 (2022). <a href="https://doi.org/10.1038/s41467-022-32595-4" class="external-link uri">https://doi.org/10.1038/s41467-022-32595-4</a></p>
@@ -49,7 +49,7 @@
 <p>The atlas originates from the Human Connectome Project Young Adult dataset; users must also comply with the applicable <a href="https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms" class="external-link">HCP data-use terms</a>.</p>
 </div>
 <div class="section level4">
-<h4 id="asset-generation-design-notes-development-version">Asset-generation design notes<a class="anchor" aria-label="anchor" href="#asset-generation-design-notes-development-version"></a></h4>
+<h4 id="asset-generation-design-notes-0-1-0">Asset-generation design notes<a class="anchor" aria-label="anchor" href="#asset-generation-design-notes-0-1-0"></a></h4>
 <p>The 87 HCP1065 bundles are all published in a <strong>single GitHub release</strong> (<code>hcp1065</code>), each as one <code>.rds</code> file. Key choices:</p>
 <ul><li><p><strong>One release, 87 assets.</strong> The atlas is population-averaged (one streamline set per bundle, no per-subject variation), so the total file count is small enough to fit comfortably in a single release without hitting GitHub’s 2 GB per-file or 2 GB per-release soft limits.</p></li>
 <li><p><strong><code>compress = "xz"</code></strong> (LZMA). Because the job runs sequentially on a single runner and the file count is low, we can afford the slower but space-optimal XZ compression (typically 10–30 % smaller than gzip at comparable decompression speed). Download time for end users is therefore minimised.</p></li>
@@ -57,14 +57,14 @@
 </ul><hr></div>
 </div>
 <div class="section level3">
-<h3 id="tractseg-data-redistribution--license-attribution-and-asset-generation-notes-development-version">TractSeg data redistribution – license, attribution, and asset-generation notes<a class="anchor" aria-label="anchor" href="#tractseg-data-redistribution--license-attribution-and-asset-generation-notes-development-version"></a></h3>
+<h3 id="tractseg-data-redistribution-0-1-0">TractSeg data redistribution<a class="anchor" aria-label="anchor" href="#tractseg-data-redistribution-0-1-0"></a></h3>
 <p>The TractSeg per-subject bundle data (72 white matter tracts, 105 HCP Young Adult subjects) are redistributed from the Zenodo archive (<a href="https://zenodo.org/records/1477956" class="external-link uri">https://zenodo.org/records/1477956</a>, DOI: 10.5281/zenodo.1477956) with the explicit permission of the original authors.</p>
 <div class="section level4">
-<h4 id="license-development-version">License<a class="anchor" aria-label="anchor" href="#license-development-version"></a></h4>
+<h4 id="license-0-1-0">License<a class="anchor" aria-label="anchor" href="#license-0-1-0"></a></h4>
 <p><strong>Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)</strong> — non-commercial use only. See <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="external-link uri">https://creativecommons.org/licenses/by-nc/4.0/</a>.</p>
 </div>
 <div class="section level4">
-<h4 id="attribution-and-citation-development-version-1">Attribution and citation<a class="anchor" aria-label="anchor" href="#attribution-and-citation-development-version-1"></a></h4>
+<h4 id="attribution-and-citation-0-1-0-1">Attribution and citation<a class="anchor" aria-label="anchor" href="#attribution-and-citation-0-1-0-1"></a></h4>
 <p>Please cite the original TractSeg publication:</p>
 <blockquote>
 <p>Wasserthal J, Neher P, Maier-Hein KH. TractSeg — Fast and accurate white matter tract segmentation. <em>NeuroImage</em> <strong>183</strong>, 239–253 (2018). <a href="https://doi.org/10.1016/j.neuroimage.2018.07.070" class="external-link uri">https://doi.org/10.1016/j.neuroimage.2018.07.070</a></p>
@@ -73,11 +73,11 @@
 <p>The source tractograms are derived from the Human Connectome Project Young Adult dataset; users must comply with the applicable <a href="https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms" class="external-link">HCP data-use terms</a>.</p>
 </div>
 <div class="section level4">
-<h4 id="disclaimer-development-version">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer-development-version"></a></h4>
+<h4 id="disclaimer-0-1-0">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer-0-1-0"></a></h4>
 <p>This redistribution does not imply endorsement by the original authors, DKFZ, Zenodo, HCP, or any affiliated institution. Jakob Wasserthal, Peter Neher, and Klaus H. Maier-Hein are listed as contributors (<code>ctb</code>) in <code>DESCRIPTION</code> to acknowledge their authorship of the source data; this does not imply their endorsement of the <code>mascot</code> package.</p>
 </div>
 <div class="section level4">
-<h4 id="asset-generation-design-notes-development-version-1">Asset-generation design notes<a class="anchor" aria-label="anchor" href="#asset-generation-design-notes-development-version-1"></a></h4>
+<h4 id="asset-generation-design-notes-0-1-0-1">Asset-generation design notes<a class="anchor" aria-label="anchor" href="#asset-generation-design-notes-0-1-0-1"></a></h4>
 <p>The 72 × 105 = 7,560 per-subject bundle files present very different constraints from the HCP1065 atlas. Key design choices and trade-offs:</p>
 <ul><li><p><strong>One release per bundle (72 releases, <code>tractseg-&lt;bundle_name&gt;</code>).</strong> Putting all 7,560 files in a single release would be unwieldy (GitHub UI, API pagination, accidental full-release downloads). One release per bundle gives users a clean, addressable unit and enables partial re-runs when only specific bundles need to be updated.</p></li>
 <li><p><strong>GitHub Actions matrix parallelism (up to 72 concurrent jobs).</strong> Each runner processes exactly one bundle end-to-end (fetch → convert → upload), so the full 72-bundle conversion completes in roughly the time of the slowest single bundle rather than 72 × that time.</p></li>
@@ -87,7 +87,15 @@
 <li><p><strong>Empty-TRK guard.</strong> A TRK file whose size is ≤ 1,000 bytes contains only a header with no streamlines. Such files are silently skipped rather than producing a corrupt <code>.rds</code>, keeping the subject count accurate.</p></li>
 </ul></div>
 <div class="section level4">
-<h4 id="comparison-with-hcp1065-development-version">Comparison with HCP1065<a class="anchor" aria-label="anchor" href="#comparison-with-hcp1065-development-version"></a></h4>
+<h4 id="workflow-reliability-improvements-0-1-0">Workflow reliability improvements<a class="anchor" aria-label="anchor" href="#workflow-reliability-improvements-0-1-0"></a></h4>
+<p>The GitHub Actions workflow that publishes the 72 per-bundle TractSeg releases has been hardened against Zenodo rate-limiting:</p>
+<ul><li><p><strong>429 retry floor.</strong> <code>data-raw/fetch_bundle.py</code> now enforces a minimum back-off of 30 × (attempt + 1) seconds on every HTTP 429 response, regardless of the value in the <code>Retry-After</code> header. Zenodo occasionally returns <code>Retry-After: 0</code> on repeated throttling responses, which previously caused instant-retry thundering herds that exhausted the retry budget within seconds. The floor prevents this.</p></li>
+<li><p><strong>Reduced concurrency.</strong> The matrix is capped at <code>max-parallel: 5</code> (down from the original 72) and each job uses 2 parallel download workers (down from 16), keeping peak simultaneous Zenodo connections at ≤ 10.</p></li>
+<li><p><strong>Release notes always refreshed.</strong> When a <code>tractseg-&lt;bundle&gt;</code> release already exists, the workflow now calls <code>gh release edit</code> to update the title and notes before uploading assets, so re-runs keep release metadata in sync.</p></li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="comparison-with-hcp1065-0-1-0">Comparison with HCP1065<a class="anchor" aria-label="anchor" href="#comparison-with-hcp1065-0-1-0"></a></h3>
 <table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr><th>Aspect</th>
 <th>HCP1065</th>
 <th>TractSeg</th>
@@ -119,7 +127,6 @@
 <td>CC BY-SA 4.0</td>
 <td>CC BY-NC 4.0</td>
 </tr></tbody></table></div>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

@@ -44,13 +44,13 @@ Source:
 [`DESCRIPTION`](https://github.com/astamm/mascot/blob/master/DESCRIPTION)
 
 Stamm A (2026). *mascot: Macroscale Structural Connectomes via
-Tractography*. R package version 0.0.0.9000,
+Tractography*. R package version 0.1.0,
 <https://github.com/astamm/mascot>.
 
     @Manual{,
       title = {mascot: Macroscale Structural Connectomes via Tractography},
       author = {Aymeric Stamm},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.1.0},
       url = {https://github.com/astamm/mascot},
     }

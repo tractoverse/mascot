@@ -18,24 +18,86 @@ remotes::install_github("astamm/mascot")
 
 ## Datasets
 
-Currently, the package contains:
+**mascot** provides access to two large white matter tractography
+datasets, both stored as
+[`fiber::bundle`](https://tractoverse.github.io/fiber/) objects and
+fetched on demand — no bulky data files are bundled with the package
+itself.
 
-- the HCP1065 tractography atlases from Yeh FC, Panesar S, Fernandes D,
-  Meola A, Yoshino M, Fernandez-Miranda JC, Vettel JM, Verstynen T.
-  Population-averaged atlas of the macroscale human structural
-  connectome and its network topology. Neuroimage. 2018 Sep 1;178:57-68
-  (2021 update).
+### HCP1065 population-averaged atlas
 
-The included bundles are stored as objects of class `bundle` as defined
-in the [fiber](https://tractoverse.github.io/fiber/) package. A `bundle`
-object is an S7 class which has two slots: `@streamlines` and
-`@bundle_data`, where:
+A whole-brain tractography atlas averaged across 1,065 healthy adults
+from the [Human Connectome
+Project](https://www.humanconnectome.org/study/hcp-young-adult). It
+contains 87 white matter bundles, each represented as a single
+population-level streamline set.
 
-- `@streamlines` is a list of `streamline` objects, which, in turn, are
-  S7 classes with slots `@points`, `@point_data` and `@streamline_data`.
-- `@bundle_data` is a list of metadata about the bundle, such as its
-  name, where it was extracted from, etc.
+``` r
 
-More details about the format of the data can be found in the
-documentation of the [fiber](https://tractoverse.github.io/fiber/)
-package.
+library(mascot)
+
+# List all available bundles
+available_bundles("HCP1065")
+
+# Load one bundle directly by name
+cst_left <- HCP1065_CST_L()
+```
+
+**License:** [CC BY-SA
+4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+**Citation:**
+
+> Yeh FC. Population-based tract-to-region connectome of the human brain
+> and its hierarchical topology. *Nat Commun* **13**, 4933 (2022).
+> <https://doi.org/10.1038/s41467-022-32595-4>
+
+Users must also comply with the [HCP data-use
+terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms).
+
+### TractSeg per-subject bundles
+
+72 white matter tracts segmented in each of 105 HCP Young Adult subjects
+using [TractSeg](https://github.com/MIC-DKFZ/TractSeg), redistributed
+from the [Zenodo archive](https://zenodo.org/records/1477956) (DOI:
+[10.5281/zenodo.1477956](https://doi.org/10.5281/zenodo.1477956)). Each
+bundle is downloaded on first use and cached locally.
+
+``` r
+
+library(mascot)
+
+# List all available TractSeg bundles
+available_bundles("TractSeg")
+
+# Import one bundle (downloads on first call, cached afterwards)
+cst_left <- import_bundle("TractSeg", "CST_left")
+```
+
+**License:** [CC BY-NC
+4.0](https://creativecommons.org/licenses/by-nc/4.0/) — **non-commercial
+use only.**
+
+**Citation:**
+
+> Wasserthal J, Neher P, Maier-Hein KH. TractSeg — Fast and accurate
+> white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018).
+> <https://doi.org/10.1016/j.neuroimage.2018.07.070>
+
+Users must also comply with the [HCP data-use
+terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms).
+
+### Bundle objects
+
+All bundles are returned as
+[`fiber::bundle`](https://tractoverse.github.io/fiber/reference/bundle.html)
+objects with two slots:
+
+- `@streamlines` — a list of `streamline` objects, each carrying
+  `@points`, `@point_data`, and `@streamline_data`.
+- `@bundle_data` — metadata about the bundle (name, source dataset,
+  etc.).
+
+See the [fiber package
+documentation](https://tractoverse.github.io/fiber/) for full details on
+working with these objects.

@@ -1,8 +1,8 @@
 # Changelog
 
-## mascot (development version)
+## mascot 0.1.0
 
-### HCP1065 atlas – license correction and asset-generation notes
+### HCP1065 atlas
 
 #### License correction
 
@@ -51,7 +51,7 @@ The 87 HCP1065 bundles are all published in a **single GitHub release**
 
 ------------------------------------------------------------------------
 
-### TractSeg data redistribution – license, attribution, and asset-generation notes
+### TractSeg data redistribution
 
 The TractSeg per-subject bundle data (72 white matter tracts, 105 HCP
 Young Adult subjects) are redistributed from the Zenodo archive
@@ -128,7 +128,29 @@ constraints from the HCP1065 atlas. Key design choices and trade-offs:
   rather than producing a corrupt `.rds`, keeping the subject count
   accurate.
 
-#### Comparison with HCP1065
+#### Workflow reliability improvements
+
+The GitHub Actions workflow that publishes the 72 per-bundle TractSeg
+releases has been hardened against Zenodo rate-limiting:
+
+- **429 retry floor.** `data-raw/fetch_bundle.py` now enforces a minimum
+  back-off of 30 × (attempt + 1) seconds on every HTTP 429 response,
+  regardless of the value in the `Retry-After` header. Zenodo
+  occasionally returns `Retry-After: 0` on repeated throttling
+  responses, which previously caused instant-retry thundering herds that
+  exhausted the retry budget within seconds. The floor prevents this.
+
+- **Reduced concurrency.** The matrix is capped at `max-parallel: 5`
+  (down from the original 72) and each job uses 2 parallel download
+  workers (down from 16), keeping peak simultaneous Zenodo connections
+  at ≤ 10.
+
+- **Release notes always refreshed.** When a `tractseg-<bundle>` release
+  already exists, the workflow now calls `gh release edit` to update the
+  title and notes before uploading assets, so re-runs keep release
+  metadata in sync.
+
+### Comparison with HCP1065
 
 | Aspect                | HCP1065              | TractSeg                       |
 |-----------------------|----------------------|--------------------------------|
