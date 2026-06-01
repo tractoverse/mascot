@@ -44,15 +44,32 @@ jobs:
             > [!NOTE]
             > This is a **data release** and does not correspond to any version of the `mascot` R package.
 
-            ## Attribution and redistribution
+            ## License
 
-            The HCP1065 population-averaged tractography atlas is the work of Frank Yeh and is distributed via [DSI Studio](https://dsi-studio.labsolver.org). The `.rds` files in this release are a redistribution of that atlas in a format convenient for R users — no scientific modifications have been made to the underlying data.
+            The HCP1065 data are redistributed under the **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** license, as specified by the original DSI Studio / Fiber Data Hub release.
+            See <https://creativecommons.org/licenses/by-sa/4.0/>.
 
-            **Users of this data must cite the original work:**
+            ## Attribution and Citation
+
+            The HCP1065 population-averaged tractography atlas is the work of Fang-Cheng (Frank) Yeh and is distributed via [DSI Studio](https://dsi-studio.labsolver.org). The `.rds` files in this release are a redistribution of that atlas in a format convenient for R users — no spatial or statistical modifications have been made to the streamline data.
+
+            **Please cite the original work:**
 
             > Yeh, FC. Population-based tract-to-region connectome of the human brain and its hierarchical topology. *Nat Commun* **13**, 4933 (2022). <https://doi.org/10.1038/s41467-022-32595-4>
 
             Please also acknowledge DSI Studio (<https://dsi-studio.labsolver.org>) and the original atlas source (<https://brain.labsolver.org/hcp_trk_atlas.html>) in any publication or derivative work.
+
+            ## HCP Data Terms
+
+            The atlas is derived from the **Human Connectome Project Young Adult** dataset. Users must comply with the applicable [HCP data-use terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms) and acknowledgment requirements.
+
+            ## Modifications
+
+            The original `.trk` streamline files from the Zenodo / Fiber Data Hub release have been converted to R `fiber::bundle` objects and serialised as `.rds` files using the [`mascot`](https://tractoverse.github.io/mascot/) R package. Files are compressed with `xz` (LZMA) for maximum size reduction. No spatial or statistical modifications were made to the streamline data.
+
+            ## Disclaimer
+
+            This redistribution does not imply endorsement by Fang-Cheng Yeh, DSI Studio, the Human Connectome Project, or any affiliated institution.
 
             ## List of available bundles
 

@@ -36,6 +36,53 @@ Per-subject white matter bundle segmentations generated with TractSeg from
 \verb{TractSeg_<subject_id>_<bundle_name>.rds}.
 }
 
+\section{License}{
+
+The TractSeg data are redistributed under the
+\strong{Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)}
+license, consistent with the original Zenodo dataset.
+\strong{Non-commercial use only.}
+See \url{https://creativecommons.org/licenses/by-nc/4.0/}.
+}
+
+\section{Attribution and Citation}{
+
+Please cite the original TractSeg publication when using or redistributing
+this data:
+
+Wasserthal, J., Neher, P., & Maier-Hein, K. H. (2018). TractSeg -- Fast and
+accurate white matter tract segmentation. \emph{NeuroImage}, 183, 239–253.
+\url{https://doi.org/10.1016/j.neuroimage.2018.07.070}
+
+Raw data archived at Zenodo: \url{https://zenodo.org/records/1477956}
+(DOI: 10.5281/zenodo.1477956).
+}
+
+\section{HCP Data Terms}{
+
+The source tractograms are derived from the \strong{Human Connectome Project
+Young Adult} dataset. Users must comply with the applicable
+\href{https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms}{HCP data-use terms}
+and acknowledgment requirements.
+}
+
+\section{Modifications}{
+
+The original \code{.trk} streamline files from the Zenodo archive have been
+converted to R \code{fiber::bundle} objects and serialised as \code{.rds} files using
+the \code{mascot} package pipeline. No spatial or statistical modifications were
+made to the streamline data. Bundles are split one per GitHub release tag.
+}
+
+\section{Disclaimer}{
+
+This redistribution does not imply endorsement by the original authors,
+DKFZ, Zenodo, HCP, or any affiliated institution. The original authors are
+listed as contributors (\code{ctb}) in the package \code{DESCRIPTION} to acknowledge
+their authorship of the source data; this does not imply their endorsement
+of the \code{mascot} package.
+}
+
 \references{
 Wasserthal, J., Neher, P., & Maier-Hein, K. H. (2018).
 TractSeg -- Fast and accurate white matter tract segmentation.

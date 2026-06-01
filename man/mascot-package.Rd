@@ -6,7 +6,7 @@
 \alias{mascot-package}
 \title{mascot: Macroscale Structural Connectomes via Tractography}
 \description{
-This is a data package providing access to recent macroscale structural connectomes of the Human brain obtained from diffusion MRI data through diffusion modeling and subsequent so-called tractography.
+A data package providing access to macroscale structural connectomes of the human brain derived from diffusion MRI via tractography. Includes two datasets: (1) the HCP1065 population-averaged tractography atlas (Yeh 2022, CC BY-SA 4.0) and (2) per-subject TractSeg white matter bundle segmentations from 105 HCP Young Adult subjects (Wasserthal et al. 2018, CC BY-NC 4.0 -- non-commercial use only). Both datasets originate from the Human Connectome Project and are subject to the applicable HCP data-use terms. Source TRK files have been converted to R fiber::bundle objects (.rds); no spatial modifications were made to the streamline data.
 }
 \seealso{
 Useful links:
@@ -35,6 +35,9 @@ Other contributors:
   \item Juan C. Fernandez-Miranda (Author of the HCP1065 atlas) [contributor]
   \item Jean M. Vettel (Author of the HCP1065 atlas) [contributor]
   \item Timothy Verstynen (Author of the HCP1065 atlas) [contributor]
+  \item Jakob Wasserthal (Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)) [contributor]
+  \item Peter Neher (Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)) [contributor]
+  \item Klaus H. Maier-Hein (Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)) [contributor]
 }
 
 }

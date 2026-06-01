@@ -37,6 +37,31 @@ A population-averaged tractography atlas based on 1,065 HCP subjects.
 See \link{HCP1065} for full details, source, and references.
 }
 
+\section{License}{
+
+The HCP1065 data are redistributed under the
+\strong{Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)}
+license, as specified by the original DSI Studio / Fiber Data Hub release.
+See \url{https://creativecommons.org/licenses/by-sa/4.0/}.
+}
+
+\section{HCP Data Terms}{
+
+The atlas is derived from the \strong{Human Connectome Project Young Adult}
+dataset. Users must comply with the applicable
+\href{https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms}{HCP data-use terms}
+and acknowledgment requirements.
+}
+
+\section{Modifications}{
+
+The original \code{.trk} streamline files from the DSI Studio / Fiber Data Hub
+release have been converted to R \code{fiber::bundle} objects and serialised as
+\code{.rds} files. No spatial or statistical modifications were made to the
+streamline data. All 87 bundles are hosted together in the single
+\code{hcp1065} GitHub release of this repository.
+}
+
 \references{
 \itemize{
 \item Yeh, Fang-Cheng, et al. "Population-averaged atlas of the macroscale
