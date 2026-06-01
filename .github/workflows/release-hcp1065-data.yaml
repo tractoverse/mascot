@@ -32,7 +32,7 @@ jobs:
         run: Rscript data-raw/hcp1065.R
 
       - name: Create GitHub release and upload assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: hcp1065
           name: HCP1065 Population-Averaged Tractography Atlas
