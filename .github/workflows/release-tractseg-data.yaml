@@ -38,18 +38,35 @@ jobs:
         id: set-matrix
         run: |
           python3 - <<'EOF'
-          import json, os
+          import json, math, os
           with open("zip-index.json") as fh:
               index = json.load(fh)
           bundles = sorted(index.keys())
-          matrix = {"include": [{"bundle": b} for b in bundles]}
+          # Split each bundle into N_BATCHES subject-batches so that each
+          # runner finishes well within the 2-hour GitHub Actions timeout.
+          # 8 batches × ≈14 subjects × ~10 min ÷ 2 cores ≈ 70 min < 120 min.
+          N_BATCHES = 8
+          includes = []
+          for b in bundles:
+              n = len(index[b])
+              for i in range(N_BATCHES):
+                  batch_size = math.ceil(n / N_BATCHES)
+                  start = i * batch_size
+                  if start < n:
+                      includes.append({"bundle": b, "batch_index": i, "n_batches": N_BATCHES})
+          matrix = {"include": includes}
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               out.write("matrix=" + json.dumps(matrix) + "\n")
-          print(f"Matrix set: {len(bundles)} bundles")
+          print(f"Matrix set: {len(includes)} jobs ({len(bundles)} bundles × up to {N_BATCHES} batches)")
           EOF
 
   # ---------------------------------------------------------------------------
-  # Job 2 – one runner per bundle (up to 72 parallel jobs)
+  # Job 2 – one runner per bundle × batch (up to 72 × 8 = 576 jobs)
+  #
+  # Each job processes ≈14 subjects (1/8 of the 105-subject cohort).
+  # At ~10 min/subject on a 2-core runner that is ≈70 min, safely under the
+  # 2-hour timeout.  All batches for the same bundle upload to the same
+  # GitHub release tag, using an idempotent create-then-upload pattern.
   # ---------------------------------------------------------------------------
   process-bundle:
     needs: build-index
@@ -98,55 +115,60 @@ jobs:
       # fetch_bundle.py uses only the Python standard library.
       # It issues one HTTP range request per TRK file (local header + payload)
       # and writes decompressed .trk files to TRACTSEG_TRK_DIR.
-      - name: Fetch TRK files for bundle "${{ matrix.bundle }}"
+      - name: Fetch TRK files for bundle "${{ matrix.bundle }}" (batch ${{ matrix.batch_index }})
         run: |
           python3 data-raw/fetch_bundle.py \
             "$ZENODO_URL" \
             zip-index.json \
             "${{ matrix.bundle }}" \
             "${{ runner.temp }}/trk/${{ matrix.bundle }}" \
-            2
+            2 \
+            "${{ matrix.batch_index }}" \
+            "${{ matrix.n_batches }}"
 
       - name: Convert TRK → RDS
         env:
           TRACTSEG_BUNDLE:  ${{ matrix.bundle }}
           TRACTSEG_TRK_DIR: ${{ runner.temp }}/trk/${{ matrix.bundle }}
-          TRACTSEG_OUT_DIR: ${{ runner.temp }}/rds/${{ matrix.bundle }}
+          TRACTSEG_OUT_DIR: ${{ runner.temp }}/rds/${{ matrix.bundle }}-${{ matrix.batch_index }}
         run: Rscript data-raw/tractseg.R
 
       # Free up disk space before uploading (TRK files no longer needed).
       - name: Remove TRK files
-        run: rm -rf "${{ runner.temp }}/trk"
+        run: rm -rf "${{ runner.temp }}/trk/${{ matrix.bundle }}"
 
-      - name: Create or update GitHub release
+      - name: Upload RDS files to GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
           BUNDLE:   ${{ matrix.bundle }}
-          RDS_DIR:  ${{ runner.temp }}/rds/${{ matrix.bundle }}
+          RDS_DIR:  ${{ runner.temp }}/rds/${{ matrix.bundle }}-${{ matrix.batch_index }}
         run: |
           tag="tractseg-${BUNDLE}"
-          mapfile -t files < <(ls "$RDS_DIR"/*.rds)
+          mapfile -t files < <(ls "$RDS_DIR"/*.rds 2>/dev/null)
           n_files=${#files[@]}
+          if [[ $n_files -eq 0 ]]; then
+            echo "No RDS files produced (all subjects may have been empty TRKs). Skipping upload."
+            exit 0
+          fi
           echo "Publishing ${n_files} RDS files to release ${tag} …"
 
           notes="$(printf \
-            '## Overview\n\nPer-subject TractSeg bundle for **%s** from %s HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## License\n\nThis data is redistributed under the **CC BY-NC 4.0** license consistent with the original dataset.\n**Non-commercial use only.** See <https://creativecommons.org/licenses/by-nc/4.0/>.\n\n## Attribution\n\nPlease cite the original TractSeg publication when using or redistributing this data:\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data archived at Zenodo: <https://zenodo.org/records/1477956> (DOI: 10.5281/zenodo.1477956)\n\n## HCP Data Terms\n\nThe source tractograms are derived from the **Human Connectome Project Young Adult** dataset.\nUsers must comply with the applicable [HCP data-use terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms) and acknowledgment requirements.\n\n## Modifications\n\nThe original `.trk` streamline files (TRK format) from the Zenodo archive have been:\n\n- Converted to R `fiber::bundle` objects and serialised as `.rds` files using the [`mascot`](https://tractoverse.github.io/mascot/) R package.\n- Subsetted to one bundle per release tag; no spatial or statistical modifications were made to the streamline data.\n\n## Disclaimer\n\nThis redistribution is provided for non-commercial research purposes only.\nIt does not imply endorsement by the original authors, DKFZ, Zenodo, HCP, or any affiliated institution.' \
-            "$BUNDLE" "$n_files")"
+            '## Overview\n\nPer-subject TractSeg bundle for **%s** from 105 HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## License\n\nThis data is redistributed under the **CC BY-NC 4.0** license consistent with the original dataset.\n**Non-commercial use only.** See <https://creativecommons.org/licenses/by-nc/4.0/>.\n\n## Attribution\n\nPlease cite the original TractSeg publication when using or redistributing this data:\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data archived at Zenodo: <https://zenodo.org/records/1477956> (DOI: 10.5281/zenodo.1477956)\n\n## HCP Data Terms\n\nThe source tractograms are derived from the **Human Connectome Project Young Adult** dataset.\nUsers must comply with the applicable [HCP data-use terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms) and acknowledgment requirements.\n\n## Modifications\n\nThe original `.trk` streamline files (TRK format) from the Zenodo archive have been:\n\n- Converted to R `fiber::bundle` objects and serialised as `.rds` files using the [`mascot`](https://tractoverse.github.io/mascot/) R package.\n- Subsetted to one bundle per release tag; no spatial or statistical modifications were made to the streamline data.\n\n## Disclaimer\n\nThis redistribution is provided for non-commercial research purposes only.\nIt does not imply endorsement by the original authors, DKFZ, Zenodo, HCP, or any affiliated institution.' \
+            "$BUNDLE")"
 
-          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
-            # Update title + notes on the existing release, then replace assets.
-            gh release edit "$tag" \
-              --title "TractSeg – ${BUNDLE}" \
-              --notes "$notes" \
-              --repo "$GITHUB_REPOSITORY"
-            gh release upload "$tag" "${files[@]}" \
-              --repo "$GITHUB_REPOSITORY" \
-              --clobber
-          else
+          # Create the release if it does not yet exist.
+          # Multiple batches may race here; || true makes this idempotent.
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
             gh release create "$tag" \
               --title "TractSeg – ${BUNDLE}" \
               --notes "$notes" \
               --repo "$GITHUB_REPOSITORY" \
               --latest=false \
-              "${files[@]}"
+              || true   # another batch may have created it concurrently
           fi
+
+          # Upload this batch's RDS files (--clobber replaces by filename only,
+          # so batches uploading different subject files do not conflict).
+          gh release upload "$tag" "${files[@]}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --clobber

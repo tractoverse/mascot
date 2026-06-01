@@ -11,11 +11,17 @@ for *bundle_name*, and for each subject:
 No full ZIP download is ever needed.
 
 Usage:
-    python3 fetch_bundle.py <url> <index.json> <bundle_name> <out_dir> [workers]
+    python3 fetch_bundle.py <url> <index.json> <bundle_name> <out_dir> [workers [batch_index n_batches]]
 
 The optional *workers* argument (default: 16) controls how many TRK files are
 downloaded concurrently.  Increasing it speeds up the fetch step further, but
 be mindful of the remote server's rate limits.
+
+The optional *batch_index* / *n_batches* arguments (both required if either is
+given) split the subject list into *n_batches* roughly equal slices and process
+only the slice at position *batch_index* (0-based).  This lets a matrix CI job
+distribute work across multiple runners so that each job finishes well within
+the 2-hour GitHub Actions timeout.
 """
 
 import json
@@ -159,9 +165,10 @@ def fetch_entry(url: str, entry: dict, out_dir: str, bundle_name: str, index: in
 
 
 def main():
-    if len(sys.argv) not in (5, 6):
+    if len(sys.argv) not in (5, 6, 8):
         print(
-            f"Usage: {sys.argv[0]} <url> <index.json> <bundle_name> <out_dir> [workers]",
+            f"Usage: {sys.argv[0]} <url> <index.json> <bundle_name> <out_dir>"
+            " [workers [batch_index n_batches]]",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -170,7 +177,9 @@ def main():
     index_file  = sys.argv[2]
     bundle_name = sys.argv[3]
     out_dir     = sys.argv[4]
-    workers     = int(sys.argv[5]) if len(sys.argv) == 6 else 16
+    workers     = int(sys.argv[5]) if len(sys.argv) >= 6 else 16
+    batch_index = int(sys.argv[6]) if len(sys.argv) == 8 else None
+    n_batches   = int(sys.argv[7]) if len(sys.argv) == 8 else None
 
     with open(index_file) as fh:
         index = json.load(fh)
@@ -184,6 +193,19 @@ def main():
         sys.exit(1)
 
     files = index[bundle_name]
+
+    # Slice to the requested batch when batch args are provided.
+    if batch_index is not None and n_batches is not None:
+        import math
+        batch_size = math.ceil(len(files) / n_batches)
+        start = batch_index * batch_size
+        end   = min(start + batch_size, len(files))
+        files = files[start:end]
+        print(
+            f"Batch {batch_index + 1}/{n_batches}: subjects {start + 1}–{end} "
+            f"of {len(index[bundle_name])} ({len(files)} subjects)",
+            flush=True,
+        )
     os.makedirs(out_dir, exist_ok=True)
     total = len(files)
 
