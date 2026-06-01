@@ -65,16 +65,28 @@ results <- parallel::mclapply(
   mc.preschedule = FALSE   # let each worker pick up the next job as soon as it is free
 )
 
-# mclapply returns an "error" condition for any failed child process
-failed <- vapply(results, inherits, logical(1L), "error")
+# mclapply with mc.preschedule = FALSE returns failed workers as
+# class c("try-error", "character"), NOT c("error", "condition"), so we
+# must check for both classes.
+failed <- vapply(results, function(x) inherits(x, c("error", "try-error")), logical(1L))
 if (any(failed)) {
   for (idx in which(failed)) {
-    cli::cli_alert_danger("Subject {idx} failed: {conditionMessage(results[[idx]])}")
+    msg <- if (inherits(results[[idx]], "error")) {
+      conditionMessage(results[[idx]])
+    } else {
+      as.character(results[[idx]])
+    }
+    cli::cli_alert_danger("Subject {idx} failed: {msg}")
   }
   stop("One or more subjects failed to convert.")
 }
 
-rds_paths <- Filter(Negate(is.na), unlist(results, use.names = FALSE))
+# Only count paths that correspond to files that actually exist on disk.
+# (Unlisting try-error objects would otherwise produce spurious strings.)
+rds_paths <- Filter(
+  function(x) is.character(x) && length(x) == 1L && !is.na(x) && file.exists(x),
+  results
+)
 n_skipped  <- sum(vapply(results, function(x) identical(x, NA_character_), logical(1L)))
 
 cli::cli_alert_success(
