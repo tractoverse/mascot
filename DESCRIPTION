@@ -1,6 +1,6 @@
 Package: mascot
 Title: Macroscale Structural Connectomes via Tractography
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     c(person("Aymeric", "Stamm", role = c("aut", "cre"), 
              email = "aymeric.stamm@cnrs.fr", 
