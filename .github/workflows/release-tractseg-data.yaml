@@ -28,7 +28,7 @@ jobs:
         run: python3 data-raw/zip_index.py "$ZENODO_URL" zip-index.json
 
       - name: Upload index as workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: zip-index
           path: zip-index.json
