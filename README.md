@@ -46,13 +46,13 @@ contains 87 white matter bundles, each represented as a single
 population-level streamline set.
 
 ``` r
-library(mascot)
-
 # List all available bundles
 available_bundles("HCP1065")
 
 # Load one bundle directly by name
-cst_left <- HCP1065_CST_L()
+cst_left <- mascot::import_bundle(dataset = "HCP1065", bundle = "CST_left")
+# Or use the convenience function
+cst_left <- mascot::HCP1065_CST_L()
 ```
 
 **License:** [CC BY-SA
@@ -76,13 +76,13 @@ from the [Zenodo archive](https://zenodo.org/records/1477956) (DOI:
 bundle is downloaded on first use and cached locally.
 
 ``` r
-library(mascot)
-
 # List all available TractSeg bundles
 available_bundles("TractSeg")
 
 # Import one bundle (downloads on first call, cached afterwards)
-cst_left <- import_bundle("TractSeg", "CST_left")
+cst_left <- mascot::import_bundle(dataset = "TractSeg", bundle = "CST_left", subjects = 1L)
+# Or use the convenience function
+cst_left <- mascot::TractSeg_CST_left(subjects = 1L)
 ```
 
 **License:** [CC BY-NC
