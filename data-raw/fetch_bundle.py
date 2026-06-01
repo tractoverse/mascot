@@ -23,6 +23,7 @@ import os
 import struct
 import sys
 import time
+import urllib.error
 import urllib.request
 import zlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -46,6 +47,28 @@ def range_get(url: str, start: int, end: int, retries: int = 7) -> bytes:
                     f"Range request returned {len(data)} B, expected {expected} B"
                 )
             return data
+        except urllib.error.HTTPError as exc:
+            if attempt == retries - 1:
+                raise
+            if exc.code == 429:
+                # Respect Retry-After if the server provides it; otherwise use
+                # an aggressive exponential back-off so we don't keep hammering
+                # Zenodo and burning through the retry budget.
+                retry_after = exc.headers.get("Retry-After")
+                if retry_after is not None:
+                    try:
+                        wait = int(retry_after)
+                    except ValueError:
+                        wait = 60 * (attempt + 1)
+                else:
+                    wait = 60 * (attempt + 1)   # 60 s, 120 s, 180 s …
+            else:
+                wait = 10 * (attempt + 1)
+            print(
+                f"  [retry {attempt + 1}/{retries}] HTTP {exc.code}; waiting {wait}s…",
+                flush=True,
+            )
+            time.sleep(wait)
         except Exception as exc:
             if attempt == retries - 1:
                 raise

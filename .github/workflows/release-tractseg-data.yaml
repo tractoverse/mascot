@@ -55,9 +55,12 @@ jobs:
     needs: build-index
     runs-on: ubuntu-latest
 
+    timeout-minutes: 120
+
     strategy:
       matrix: ${{ fromJSON(needs.build-index.outputs.matrix) }}
       fail-fast: false    # let other bundles finish even if one fails
+      max-parallel: 10    # cap concurrent Zenodo connections; avoids 429 rate-limit errors
 
     permissions:
       contents: write
@@ -101,7 +104,8 @@ jobs:
             "$ZENODO_URL" \
             zip-index.json \
             "${{ matrix.bundle }}" \
-            "${{ runner.temp }}/trk/${{ matrix.bundle }}"
+            "${{ runner.temp }}/trk/${{ matrix.bundle }}" \
+            4
 
       - name: Convert TRK → RDS
         env:
