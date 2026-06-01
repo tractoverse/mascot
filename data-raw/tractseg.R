@@ -53,7 +53,7 @@ convert_one <- function(i) {
   }
 
   bdl <- riot::read_bundle(f)
-  saveRDS(bdl, rds_path, compress = "gz", version = 3)
+  saveRDS(bdl, rds_path, compress = "gzip", version = 3)
   message(sprintf("[%d/%d] %s", i, length(trk_files), rds_name))
   rds_path
 }
