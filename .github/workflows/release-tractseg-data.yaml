@@ -133,12 +133,20 @@ jobs:
             '## Overview\n\nPer-subject TractSeg bundle for **%s** from %s HCP subjects.\nEach `.rds` file stores a `fiber::bundle` object readable with `readRDS()`.\n\n> [!NOTE]\n> This is a **data release** and does not correspond to any version of the `mascot` R package.\n\n## License\n\nThis data is redistributed under the **CC BY-NC 4.0** license consistent with the original dataset.\n**Non-commercial use only.** See <https://creativecommons.org/licenses/by-nc/4.0/>.\n\n## Attribution\n\nPlease cite the original TractSeg publication when using or redistributing this data:\n\n> Wasserthal J, Neher P, Maier-Hein KH. TractSeg -- Fast and accurate white matter tract segmentation. *NeuroImage* **183**, 239–253 (2018). <https://doi.org/10.1016/j.neuroimage.2018.07.070>\n\nRaw data archived at Zenodo: <https://zenodo.org/records/1477956> (DOI: 10.5281/zenodo.1477956)\n\n## HCP Data Terms\n\nThe source tractograms are derived from the **Human Connectome Project Young Adult** dataset.\nUsers must comply with the applicable [HCP data-use terms](https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms) and acknowledgment requirements.\n\n## Modifications\n\nThe original `.trk` streamline files (TRK format) from the Zenodo archive have been:\n\n- Converted to R `fiber::bundle` objects and serialised as `.rds` files using the [`mascot`](https://tractoverse.github.io/mascot/) R package.\n- Subsetted to one bundle per release tag; no spatial or statistical modifications were made to the streamline data.\n\n## Disclaimer\n\nThis redistribution is provided for non-commercial research purposes only.\nIt does not imply endorsement by the original authors, DKFZ, Zenodo, HCP, or any affiliated institution.' \
             "$BUNDLE" "$n_files")"
 
-          # --clobber replaces existing assets; gh release create handles both
-          # the new-tag and existing-tag cases, so notes are always up to date.
-          gh release create "$tag" \
-            --title "TractSeg – ${BUNDLE}" \
-            --notes "$notes" \
-            --repo "$GITHUB_REPOSITORY" \
-            --latest=false \
-            --clobber \
-            "${files[@]}"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            # Update title + notes on the existing release, then replace assets.
+            gh release edit "$tag" \
+              --title "TractSeg – ${BUNDLE}" \
+              --notes "$notes" \
+              --repo "$GITHUB_REPOSITORY"
+            gh release upload "$tag" "${files[@]}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          else
+            gh release create "$tag" \
+              --title "TractSeg – ${BUNDLE}" \
+              --notes "$notes" \
+              --repo "$GITHUB_REPOSITORY" \
+              --latest=false \
+              "${files[@]}"
+          fi
