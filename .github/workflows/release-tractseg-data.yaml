@@ -43,9 +43,11 @@ jobs:
               index = json.load(fh)
           bundles = sorted(index.keys())
           # Split each bundle into N_BATCHES subject-batches so that each
-          # runner finishes well within the 2-hour GitHub Actions timeout.
-          # 8 batches × ≈14 subjects × ~10 min ÷ 2 cores ≈ 70 min < 120 min.
-          N_BATCHES = 8
+          # runner finishes within the GitHub Actions timeout.
+          # GitHub caps matrix configurations at 256; with 72 bundles the max
+          # is floor(256 / 72) = 3.  At ~12 min/subject on a 2-core runner,
+          # 3 batches × 35 subjects ÷ 2 cores ≈ 210 min < 300 min timeout.
+          N_BATCHES = 3
           includes = []
           for b in bundles:
               n = len(index[b])
@@ -57,22 +59,22 @@ jobs:
           matrix = {"include": includes}
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               out.write("matrix=" + json.dumps(matrix) + "\n")
-          print(f"Matrix set: {len(includes)} jobs ({len(bundles)} bundles × up to {N_BATCHES} batches)")
+          print(f"Matrix set: {len(includes)} jobs ({len(bundles)} bundles x up to {N_BATCHES} batches)")
           EOF
 
   # ---------------------------------------------------------------------------
-  # Job 2 – one runner per bundle × batch (up to 72 × 8 = 576 jobs)
+  # Job 2 – one runner per bundle × batch (up to 72 × 3 = 216 jobs)
   #
-  # Each job processes ≈14 subjects (1/8 of the 105-subject cohort).
-  # At ~10 min/subject on a 2-core runner that is ≈70 min, safely under the
-  # 2-hour timeout.  All batches for the same bundle upload to the same
+  # Each job processes ≈35 subjects (1/3 of the 105-subject cohort).
+  # At ~12 min/subject on a 2-core runner that is ≈210 min, safely under the
+  # 5-hour timeout.  All batches for the same bundle upload to the same
   # GitHub release tag, using an idempotent create-then-upload pattern.
   # ---------------------------------------------------------------------------
   process-bundle:
     needs: build-index
     runs-on: ubuntu-latest
 
-    timeout-minutes: 120
+    timeout-minutes: 300
 
     strategy:
       matrix: ${{ fromJSON(needs.build-index.outputs.matrix) }}
