@@ -29,6 +29,15 @@
 - **Timothy Verstynen**. Contributor.  
   Author of the HCP1065 atlas
 
+- **Jakob Wasserthal**. Contributor.  
+  Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)
+
+- **Peter Neher**. Contributor.  
+  Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)
+
+- **Klaus H. Maier-Hein**. Contributor.  
+  Author of the TractSeg dataset (Zenodo DOI: 10.5281/zenodo.1477956)
+
 ## Citation
 
 Source:

@@ -26,6 +26,7 @@ separately from the HCP website (free registration required)."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/astamm/mascot/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
@@ -75,6 +76,56 @@ of the <a href="https://tractoverse.github.io/fiber/" class="external-link">fibe
 105 HCP subjects. Each bundle is hosted in a dedicated GitHub release
 (<code>tractseg-&lt;bundle_name&gt;</code>). Assets are named
 <code>TractSeg_&lt;subject_id&gt;_&lt;bundle_name&gt;.rds</code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a></h2>
+
+
+<p>The TractSeg data are redistributed under the
+<strong>Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)</strong>
+license, consistent with the original Zenodo dataset.
+<strong>Non-commercial use only.</strong>
+See <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="external-link">https://creativecommons.org/licenses/by-nc/4.0/</a>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="attribution-and-citation">Attribution and Citation<a class="anchor" aria-label="anchor" href="#attribution-and-citation"></a></h2>
+
+
+<p>Please cite the original TractSeg publication when using or redistributing
+this data:</p>
+<p>Wasserthal, J., Neher, P., &amp; Maier-Hein, K. H. (2018). TractSeg – Fast and
+accurate white matter tract segmentation. <em>NeuroImage</em>, 183, 239–253.
+<a href="https://doi.org/10.1016/j.neuroimage.2018.07.070" class="external-link">https://doi.org/10.1016/j.neuroimage.2018.07.070</a></p>
+<p>Raw data archived at Zenodo: <a href="https://zenodo.org/records/1477956" class="external-link">https://zenodo.org/records/1477956</a>
+(DOI: 10.5281/zenodo.1477956).</p>
+    </div>
+    <div class="section level2">
+    <h2 id="hcp-data-terms">HCP Data Terms<a class="anchor" aria-label="anchor" href="#hcp-data-terms"></a></h2>
+
+
+<p>The source tractograms are derived from the <strong>Human Connectome Project
+Young Adult</strong> dataset. Users must comply with the applicable
+<a href="https://www.humanconnectome.org/study/hcp-young-adult/document/wu-minn-hcp-consortium-open-access-data-use-terms" class="external-link">HCP data-use terms</a>
+and acknowledgment requirements.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="modifications">Modifications<a class="anchor" aria-label="anchor" href="#modifications"></a></h2>
+
+
+<p>The original <code>.trk</code> streamline files from the Zenodo archive have been
+converted to R <code><a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a></code> objects and serialised as <code>.rds</code> files using
+the <code>mascot</code> package pipeline. No spatial or statistical modifications were
+made to the streamline data. Bundles are split one per GitHub release tag.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a></h2>
+
+
+<p>This redistribution does not imply endorsement by the original authors,
+DKFZ, Zenodo, HCP, or any affiliated institution. The original authors are
+listed as contributors (<code>ctb</code>) in the package <code>DESCRIPTION</code> to acknowledge
+their authorship of the source data; this does not imply their endorsement
+of the <code>mascot</code> package.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
