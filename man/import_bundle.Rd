@@ -14,20 +14,22 @@ import_bundle(dataset, bundle, subjects = NULL)
 \code{\link[=available_bundles]{available_bundles()}} for the chosen dataset.}
 
 \item{subjects}{Controls which subjects are loaded for multi-subject datasets (ignored for
-\code{"HCP1065"}). Three forms are accepted:
+\code{"HCP1065"}). Four forms are accepted:
 \describe{
-\item{\code{NULL} (default)}{All available subjects are loaded and returned as a named list
-whose names are the subject IDs.}
+\item{\code{NULL} (default)}{All available subjects are loaded and returned as a
+\link[fiber:bundle_set]{fiber::bundle_set}.}
 \item{An integer scalar \code{n}}{\code{n} subjects are drawn at random (without replacement) and
-returned as a named list.}
-\item{A character string}{The bundle for that single subject ID is returned directly as a
-\link[fiber:bundle]{fiber::bundle} object (not wrapped in a list).}
+returned as a \link[fiber:bundle_set]{fiber::bundle_set}.}
+\item{A character vector of length > 1}{The bundles for those subject IDs are returned as
+a \link[fiber:bundle_set]{fiber::bundle_set}.}
+\item{A character scalar}{The bundle for that single subject ID is returned directly as a
+\link[fiber:bundle]{fiber::bundle} object.}
 }}
 }
 \value{
-For \code{"HCP1065"}, or for \code{"TractSeg"} with a character \code{subjects} value: an object
-of class \link[fiber:bundle]{fiber::bundle}. For \code{"TractSeg"} with \code{subjects = NULL} or an integer: a named
-list of \link[fiber:bundle]{fiber::bundle} objects, one per subject.
+For \code{"HCP1065"}, or for \code{"TractSeg"} with a scalar character \code{subjects} value: an
+object of class \link[fiber:bundle]{fiber::bundle}. For \code{"TractSeg"} with \code{subjects = NULL}, an integer, or a
+character vector of length > 1: a \link[fiber:bundle_set]{fiber::bundle_set} with one bundle per subject.
 }
 \description{
 This function allows you to import a bundle from one of the available datasets by specifying
@@ -50,7 +52,10 @@ bdl <- import_bundle("HCP1065", "Left Cranial Nerve VII")
 # Single subject
 bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
 
-# Random sample of 10 subjects
+# Random sample of 10 subjects — returns a bundle_set
 bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+
+# Specific subjects by ID — returns a bundle_set
+bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = c("599469", "613538"))
 }
 }

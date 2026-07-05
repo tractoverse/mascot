@@ -111,7 +111,7 @@ jobs:
       - name: Install R dependencies
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/stable/")
-          pak::pkg_install(c("fs", "cli", "tractoverse/riot", "tractoverse/fiber"))
+          pak::pkg_install(c("fs", "cli", "fiber", "tractoverse/riot"))
         shell: Rscript {0}
 
       # fetch_bundle.py uses only the Python standard library.
