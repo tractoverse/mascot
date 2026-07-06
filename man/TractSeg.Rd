@@ -52,7 +52,7 @@ this data:
 
 Wasserthal, J., Neher, P., & Maier-Hein, K. H. (2018). TractSeg -- Fast and
 accurate white matter tract segmentation. \emph{NeuroImage}, 183, 239–253.
-\url{https://doi.org/10.1016/j.neuroimage.2018.07.070}
+\doi{doi:10.1016/j.neuroimage.2018.07.070}
 
 Raw data archived at Zenodo: \url{https://zenodo.org/records/1477956}
 (DOI: 10.5281/zenodo.1477956).

@@ -1,3 +1,10 @@
+## Resubmission
+
+This is a resubmission that fixes:
+
+- Wrong URLs;
+- Wrong way of referencing DOIs.
+
 ## Test environments
 
 **Local:**

@@ -11,9 +11,9 @@ A data package providing access to macroscale structural connectomes of the huma
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/astamm/mascot}
+  \item \url{https://github.com/tractoverse/mascot}
   \item \url{https://tractoverse.github.io/mascot/}
-  \item Report bugs at \url{https://github.com/astamm/mascot/issues}
+  \item Report bugs at \url{https://github.com/tractoverse/mascot/issues}
 }
 
 }
