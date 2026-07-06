@@ -30,7 +30,7 @@ bundle_fns <- bundle_fns[vapply(
 for (fn_name in bundle_fns) {
   result <- do.call(get(fn_name, envir = asNamespace("mascot")), list())
   expect_true(
-    is.list(result) && length(result) == length(fake_subjects),
+    fiber::is_bundle_set(result) && length(result) == length(fake_subjects),
     info = paste(fn_name, "returns list of subjects (default subjects=NULL)")
   )
   expect_equal(

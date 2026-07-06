@@ -11,14 +11,16 @@ TractSeg_ST_FO_right(subjects = NULL)
 }
 \arguments{
 \item{subjects}{Controls which subjects are loaded for multi-subject datasets (ignored for
-\code{"HCP1065"}). Three forms are accepted:
+\code{"HCP1065"}). Four forms are accepted:
 \describe{
-\item{\code{NULL} (default)}{All available subjects are loaded and returned as a named list
-whose names are the subject IDs.}
+\item{\code{NULL} (default)}{All available subjects are loaded and returned as a
+\link[fiber:bundle_set]{fiber::bundle_set}.}
 \item{An integer scalar \code{n}}{\code{n} subjects are drawn at random (without replacement) and
-returned as a named list.}
-\item{A character string}{The bundle for that single subject ID is returned directly as a
-\link[fiber:bundle]{fiber::bundle} object (not wrapped in a list).}
+returned as a \link[fiber:bundle_set]{fiber::bundle_set}.}
+\item{A character vector of length > 1}{The bundles for those subject IDs are returned as
+a \link[fiber:bundle_set]{fiber::bundle_set}.}
+\item{A character scalar}{The bundle for that single subject ID is returned directly as a
+\link[fiber:bundle]{fiber::bundle} object.}
 }}
 }
 \description{

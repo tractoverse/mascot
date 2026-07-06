@@ -93,10 +93,12 @@ constraints from the HCP1065 atlas.  Key design choices and trade-offs:
   gives users a clean, addressable unit and enables partial re-runs when only
   specific bundles need to be updated.
 
-* **GitHub Actions matrix parallelism (up to 72 concurrent jobs).**  Each
-  runner processes exactly one bundle end-to-end (fetch → convert → upload),
-  so the full 72-bundle conversion completes in roughly the time of the
-  slowest single bundle rather than 72 × that time.
+* **GitHub Actions matrix parallelism (up to 216 concurrent jobs).**  Each
+  bundle is split into 3 subject batches (≈ 35 subjects each), yielding
+  72 × 3 = 216 matrix configurations — just under GitHub's hard limit of 256.
+  Each runner handles one batch end-to-end (fetch → convert → upload), so the
+  full 72-bundle conversion completes in roughly the time of the slowest
+  single batch rather than 72 × 105 subject-jobs in sequence.
 
 * **HTTP range requests instead of a full archive download.**  The Zenodo
   archive is a large ZIP file.  `data-raw/zip_index.py` reads only the ZIP
@@ -115,7 +117,7 @@ constraints from the HCP1065 atlas.  Key design choices and trade-offs:
 * **Parallel `mclapply` within each runner.**  Subject-level TRK → RDS
   conversion is embarrassingly parallel; `parallel::mclapply` exploits all
   cores available on the GitHub-hosted runner (typically 2) to halve
-  per-bundle conversion time.
+  per-batch conversion time.
 
 * **Empty-TRK guard.**  A TRK file whose size is ≤ 1,000 bytes contains
   only a header with no streamlines.  Such files are silently skipped rather
@@ -124,7 +126,19 @@ constraints from the HCP1065 atlas.  Key design choices and trade-offs:
 ### Workflow reliability improvements
 
 The GitHub Actions workflow that publishes the 72 per-bundle TractSeg releases
-has been hardened against Zenodo rate-limiting:
+has been hardened against Zenodo rate-limiting and GitHub's matrix size limit:
+
+* **Subject batching.**  Each bundle's 105 subjects are split into 3 batches
+  (≈ 35 subjects each) processed by separate runners.  At ≈ 12 min/subject on
+  a 2-core runner this yields ≈ 210 min per job — within the 300-minute
+  timeout — and keeps the total matrix size at 72 × 3 = 216, below GitHub's
+  hard cap of 256 configurations.
+
+* **Race-safe release upload.**  Because multiple batches for the same bundle
+  run concurrently, release creation is idempotent: each batch attempts
+  `gh release create ... || true` (concurrent creators all succeed silently)
+  before calling `gh release upload --clobber`.  Since every per-subject RDS
+  filename is unique, `--clobber` never overwrites another batch's assets.
 
 * **429 retry floor.** `data-raw/fetch_bundle.py` now enforces a minimum
   back-off of 30 × (attempt + 1) seconds on every HTTP 429 response,
@@ -133,14 +147,9 @@ has been hardened against Zenodo rate-limiting:
   caused instant-retry thundering herds that exhausted the retry budget within
   seconds.  The floor prevents this.
 
-* **Reduced concurrency.**  The matrix is capped at `max-parallel: 5` (down
-  from the original 72) and each job uses 2 parallel download workers (down
-  from 16), keeping peak simultaneous Zenodo connections at ≤ 10.
-
-* **Release notes always refreshed.**  When a `tractseg-<bundle>` release
-  already exists, the workflow now calls `gh release edit` to update the
-  title and notes before uploading assets, so re-runs keep release metadata
-  in sync.
+* **Reduced concurrency.**  The matrix is capped at `max-parallel: 5` and
+  each job uses 2 parallel download workers, keeping peak simultaneous Zenodo
+  connections at ≤ 10.
 
 ## Comparison with HCP1065
 
@@ -150,7 +159,7 @@ has been hardened against Zenodo rate-limiting:
 | Total assets | 87 `.rds` files | 7,560 `.rds` files |
 | Release structure | 1 release, 87 assets | 72 releases, 105 assets each |
 | Compression | `xz` (slow, small) | `gzip` (fast, modest overhead) |
-| Workflow jobs | 1 sequential job | 72 parallel matrix jobs |
+| Workflow jobs | 1 sequential job | 216 parallel matrix jobs (72 bundles × 3 batches) |
 | Source download | Full ZIP once | Range requests per bundle |
 | In-runner parallelism | None needed | `mclapply` over subjects |
 | License | CC BY-SA 4.0 | CC BY-NC 4.0 |

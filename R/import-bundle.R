@@ -14,19 +14,21 @@
 #' @param bundle A string specifying the bundle to import. Must be one of the names returned by
 #'   [`available_bundles()`] for the chosen dataset.
 #' @param subjects Controls which subjects are loaded for multi-subject datasets (ignored for
-#'   `"HCP1065"`). Three forms are accepted:
+#'   `"HCP1065"`). Four forms are accepted:
 #'   \describe{
-#'     \item{`NULL` (default)}{All available subjects are loaded and returned as a named list
-#'       whose names are the subject IDs.}
+#'     \item{`NULL` (default)}{All available subjects are loaded and returned as a
+#'       [fiber::bundle_set].}
 #'     \item{An integer scalar `n`}{`n` subjects are drawn at random (without replacement) and
-#'       returned as a named list.}
-#'     \item{A character string}{The bundle for that single subject ID is returned directly as a
-#'       [fiber::bundle] object (not wrapped in a list).}
+#'       returned as a [fiber::bundle_set].}
+#'     \item{A character vector of length > 1}{The bundles for those subject IDs are returned as
+#'       a [fiber::bundle_set].}
+#'     \item{A character scalar}{The bundle for that single subject ID is returned directly as a
+#'       [fiber::bundle] object.}
 #'   }
 #' 
-#' @returns For `"HCP1065"`, or for `"TractSeg"` with a character `subjects` value: an object
-#'   of class [fiber::bundle]. For `"TractSeg"` with `subjects = NULL` or an integer: a named
-#'   list of [fiber::bundle] objects, one per subject.
+#' @returns For `"HCP1065"`, or for `"TractSeg"` with a scalar character `subjects` value: an
+#'   object of class [fiber::bundle]. For `"TractSeg"` with `subjects = NULL`, an integer, or a
+#'   character vector of length > 1: a [fiber::bundle_set] with one bundle per subject.
 #' 
 #' @export
 #' @examples
@@ -36,8 +38,11 @@
 #' # Single subject
 #' bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
 #' 
-#' # Random sample of 10 subjects
+#' # Random sample of 10 subjects — returns a bundle_set
 #' bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+#' 
+#' # Specific subjects by ID — returns a bundle_set
+#' bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = c("599469", "613538"))
 #' }
 import_bundle <- function(dataset, bundle, subjects = NULL) {
   if (!dataset %in% available_datasets()) {
@@ -45,7 +50,7 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
   }
 
   if (!bundle %in% available_bundles(dataset)) {
-    .mascot_abort(c(
+    cli::cli_abort(c(
       "The {dataset} dataset does not contain the bundle {.val {bundle}}.",
       "i" = "Available bundles:",
       "*" = available_bundles(dataset)
@@ -86,9 +91,10 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
     }
     subject_names <- sample(subject_names, n)
   } else if (is.character(subjects)) {
-    if (!subjects %in% subject_names) {
-      .mascot_abort(c(
-        "Subject {.val {subjects}} not found in the TractSeg dataset.",
+    bad <- subjects[!subjects %in% subject_names]
+    if (length(bad) > 0L) {
+      cli::cli_abort(c(
+        "{length(bad)} subject ID{?s} not found in the TractSeg dataset: {.val {bad}}.",
         "i" = "Available subjects:",
         "*" = subject_names
       ))
@@ -106,10 +112,11 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
     readRDS(tf)
   })
 
-  if (length(out) == 1L && is.character(subjects)) {
+  if (length(out) == 1L && is.character(subjects) && length(subjects) == 1L) {
     return(out[[1L]])
   }
 
   names(out) <- subject_names
-  out
+  print(out[[1]])
+  fiber::bundle_set(bundles = out)
 }

@@ -52,7 +52,7 @@ convert_one <- function(i) {
     return(NA_character_)
   }
 
-  bdl <- riot::read_bundle(f)
+  bdl <- riot::read_bundle(f, bundle_data = list(subject = subject_id))
   saveRDS(bdl, rds_path, compress = "gzip", version = 3)
   message(sprintf("[%d/%d] %s", i, length(trk_files), rds_name))
   rds_path

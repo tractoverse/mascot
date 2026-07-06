@@ -49,5 +49,3 @@ Imports:
 Suggests:
     cli,
     tinytest
-Remotes:
-    tractoverse/fiber
