@@ -13,7 +13,7 @@ You can install the development version of mascot from
 ``` r
 
 # install.packages("remotes")
-remotes::install_github("astamm/mascot")
+remotes::install_github("tractoverse/mascot")
 ```
 
 ## Datasets

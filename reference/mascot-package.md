@@ -15,11 +15,11 @@ streamline data.
 
 Useful links:
 
-- <https://github.com/astamm/mascot>
+- <https://github.com/tractoverse/mascot>
 
 - <https://tractoverse.github.io/mascot/>
 
-- Report bugs at <https://github.com/astamm/mascot/issues>
+- Report bugs at <https://github.com/tractoverse/mascot/issues>
 
 ## Author
 
