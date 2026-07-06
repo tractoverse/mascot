@@ -1,4 +1,5 @@
 library(mascot)
+library(tinytest)
 
 # ---------------------------------------------------------------------------
 # import_bundle() – error paths
