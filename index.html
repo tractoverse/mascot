@@ -108,9 +108,18 @@
 <p>All bundles are returned as <code><a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a></code> objects with two slots:</p>
 <ul>
 <li>
-<code>@streamlines</code> — a list of <code>streamline</code> objects, each carrying <code>@points</code>, <code>@point_data</code>, and <code>@streamline_data</code>.</li>
+<p><code>@streamlines</code> — a list of <code>streamline</code> objects, each carrying:</p>
+<ul>
 <li>
-<code>@bundle_data</code> — metadata about the bundle (name, source dataset, etc.).</li>
+<code>@points</code> - a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">P \times 3</annotation></semantics></math> matrix of 3D coordinates for the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> points along the streamline.</li>
+<li>
+<code>@point_data</code> - a list of numeric-only vectors of length <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> containing point-level data (e.g., FA, MD, etc.) for each point along the streamline.</li>
+<li>
+<code>@streamline_data</code> - a list of scalars (of any type) containing streamline data that are not common across all streamlines in the bundle.</li>
+</ul>
+</li>
+<li><p><code>@streamline_data</code> - a list of vectors containing streamline-level data that are common across all streamlines in the bundle.</p></li>
+<li><p><code>@bundle_data</code> — a list of scalars (of any type) containing metadata about the bundle (name, source dataset, etc.).</p></li>
 </ul>
 <p>See the <a href="https://tractoverse.github.io/fiber/" class="external-link">fiber package documentation</a> for full details on working with these objects.</p>
 </div>

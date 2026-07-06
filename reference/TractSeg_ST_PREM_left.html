@@ -67,17 +67,21 @@ separately from the HCP website (free registration required).</p>
 
 <dl><dt id="arg-subjects">subjects<a class="anchor" aria-label="anchor" href="#arg-subjects"></a></dt>
 <dd><p>Controls which subjects are loaded for multi-subject datasets (ignored for
-<code>"HCP1065"</code>). Three forms are accepted:</p><dl><dt><code>NULL</code> (default)</dt>
-<dd><p>All available subjects are loaded and returned as a named list
-whose names are the subject IDs.</p></dd>
+<code>"HCP1065"</code>). Four forms are accepted:</p><dl><dt><code>NULL</code> (default)</dt>
+<dd><p>All available subjects are loaded and returned as a
+<a href="https://tractoverse.github.io/fiber/reference/bundle_set.html" class="external-link">fiber::bundle_set</a>.</p></dd>
 
 <dt>An integer scalar <code>n</code></dt>
 <dd><p><code>n</code> subjects are drawn at random (without replacement) and
-returned as a named list.</p></dd>
+returned as a <a href="https://tractoverse.github.io/fiber/reference/bundle_set.html" class="external-link">fiber::bundle_set</a>.</p></dd>
 
-<dt>A character string</dt>
+<dt>A character vector of length &gt; 1</dt>
+<dd><p>The bundles for those subject IDs are returned as
+a <a href="https://tractoverse.github.io/fiber/reference/bundle_set.html" class="external-link">fiber::bundle_set</a>.</p></dd>
+
+<dt>A character scalar</dt>
 <dd><p>The bundle for that single subject ID is returned directly as a
-<a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a> object (not wrapped in a list).</p></dd>
+<a href="https://tractoverse.github.io/fiber/reference/bundle.html" class="external-link">fiber::bundle</a> object.</p></dd>
 
 
 </dl></dd>

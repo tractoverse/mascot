@@ -34,32 +34,39 @@ import_bundle(dataset, bundle, subjects = NULL)
 - subjects:
 
   Controls which subjects are loaded for multi-subject datasets (ignored
-  for `"HCP1065"`). Three forms are accepted:
+  for `"HCP1065"`). Four forms are accepted:
 
   `NULL` (default)
 
-  :   All available subjects are loaded and returned as a named list
-      whose names are the subject IDs.
+  :   All available subjects are loaded and returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
 
   An integer scalar `n`
 
   :   `n` subjects are drawn at random (without replacement) and
-      returned as a named list.
+      returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
 
-  A character string
+  A character vector of length \> 1
+
+  :   The bundles for those subject IDs are returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
+
+  A character scalar
 
   :   The bundle for that single subject ID is returned directly as a
       [fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
-      object (not wrapped in a list).
+      object.
 
 ## Value
 
-For `"HCP1065"`, or for `"TractSeg"` with a character `subjects` value:
-an object of class
+For `"HCP1065"`, or for `"TractSeg"` with a scalar character `subjects`
+value: an object of class
 [fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html).
-For `"TractSeg"` with `subjects = NULL` or an integer: a named list of
-[fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
-objects, one per subject.
+For `"TractSeg"` with `subjects = NULL`, an integer, or a character
+vector of length \> 1: a
+[fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html)
+with one bundle per subject.
 
 ## HCP1065
 
@@ -76,7 +83,10 @@ if (FALSE) { # \dontrun{
 # Single subject
 bdl <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = "599469")
 
-# Random sample of 10 subjects
+# Random sample of 10 subjects — returns a bundle_set
 bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = 10L)
+
+# Specific subjects by ID — returns a bundle_set
+bdls <- import_bundle("TractSeg", "Left Arcuate Fasciculus", subjects = c("599469", "613538"))
 } # }
 ```

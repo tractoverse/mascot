@@ -80,18 +80,19 @@
 <h4 id="asset-generation-design-notes-0-1-0-1">Asset-generation design notes<a class="anchor" aria-label="anchor" href="#asset-generation-design-notes-0-1-0-1"></a></h4>
 <p>The 72 × 105 = 7,560 per-subject bundle files present very different constraints from the HCP1065 atlas. Key design choices and trade-offs:</p>
 <ul><li><p><strong>One release per bundle (72 releases, <code>tractseg-&lt;bundle_name&gt;</code>).</strong> Putting all 7,560 files in a single release would be unwieldy (GitHub UI, API pagination, accidental full-release downloads). One release per bundle gives users a clean, addressable unit and enables partial re-runs when only specific bundles need to be updated.</p></li>
-<li><p><strong>GitHub Actions matrix parallelism (up to 72 concurrent jobs).</strong> Each runner processes exactly one bundle end-to-end (fetch → convert → upload), so the full 72-bundle conversion completes in roughly the time of the slowest single bundle rather than 72 × that time.</p></li>
+<li><p><strong>GitHub Actions matrix parallelism (up to 216 concurrent jobs).</strong> Each bundle is split into 3 subject batches (≈ 35 subjects each), yielding 72 × 3 = 216 matrix configurations — just under GitHub’s hard limit of 256. Each runner handles one batch end-to-end (fetch → convert → upload), so the full 72-bundle conversion completes in roughly the time of the slowest single batch rather than 72 × 105 subject-jobs in sequence.</p></li>
 <li><p><strong>HTTP range requests instead of a full archive download.</strong> The Zenodo archive is a large ZIP file. <code>data-raw/zip_index.py</code> reads only the ZIP central directory (two small HTTP range requests), then <code>data-raw/fetch_bundle.py</code> fetches each <code>.trk</code> entry individually via a further range request. This avoids downloading gigabytes of data per runner and keeps per-job bandwidth proportional to bundle size.</p></li>
 <li><p><strong><code>compress = "gzip"</code></strong> instead of <code>"xz"</code>. With 105 files to serialise per job (and all 72 jobs running in parallel in CI), gzip’s faster compression is the better trade-off: wall-clock time in CI is reduced while the size penalty relative to XZ is modest (typically 10–20 %). End-user download sizes remain acceptable because each release is fetched bundle-by-bundle through <code><a href="../reference/import_bundle.html">import_bundle()</a></code>.</p></li>
-<li><p><strong>Parallel <code>mclapply</code> within each runner.</strong> Subject-level TRK → RDS conversion is embarrassingly parallel; <code><a href="https://rdrr.io/r/parallel/mclapply.html" class="external-link">parallel::mclapply</a></code> exploits all cores available on the GitHub-hosted runner (typically 2) to halve per-bundle conversion time.</p></li>
+<li><p><strong>Parallel <code>mclapply</code> within each runner.</strong> Subject-level TRK → RDS conversion is embarrassingly parallel; <code><a href="https://rdrr.io/r/parallel/mclapply.html" class="external-link">parallel::mclapply</a></code> exploits all cores available on the GitHub-hosted runner (typically 2) to halve per-batch conversion time.</p></li>
 <li><p><strong>Empty-TRK guard.</strong> A TRK file whose size is ≤ 1,000 bytes contains only a header with no streamlines. Such files are silently skipped rather than producing a corrupt <code>.rds</code>, keeping the subject count accurate.</p></li>
 </ul></div>
 <div class="section level4">
 <h4 id="workflow-reliability-improvements-0-1-0">Workflow reliability improvements<a class="anchor" aria-label="anchor" href="#workflow-reliability-improvements-0-1-0"></a></h4>
-<p>The GitHub Actions workflow that publishes the 72 per-bundle TractSeg releases has been hardened against Zenodo rate-limiting:</p>
-<ul><li><p><strong>429 retry floor.</strong> <code>data-raw/fetch_bundle.py</code> now enforces a minimum back-off of 30 × (attempt + 1) seconds on every HTTP 429 response, regardless of the value in the <code>Retry-After</code> header. Zenodo occasionally returns <code>Retry-After: 0</code> on repeated throttling responses, which previously caused instant-retry thundering herds that exhausted the retry budget within seconds. The floor prevents this.</p></li>
-<li><p><strong>Reduced concurrency.</strong> The matrix is capped at <code>max-parallel: 5</code> (down from the original 72) and each job uses 2 parallel download workers (down from 16), keeping peak simultaneous Zenodo connections at ≤ 10.</p></li>
-<li><p><strong>Release notes always refreshed.</strong> When a <code>tractseg-&lt;bundle&gt;</code> release already exists, the workflow now calls <code>gh release edit</code> to update the title and notes before uploading assets, so re-runs keep release metadata in sync.</p></li>
+<p>The GitHub Actions workflow that publishes the 72 per-bundle TractSeg releases has been hardened against Zenodo rate-limiting and GitHub’s matrix size limit:</p>
+<ul><li><p><strong>Subject batching.</strong> Each bundle’s 105 subjects are split into 3 batches (≈ 35 subjects each) processed by separate runners. At ≈ 12 min/subject on a 2-core runner this yields ≈ 210 min per job — within the 300-minute timeout — and keeps the total matrix size at 72 × 3 = 216, below GitHub’s hard cap of 256 configurations.</p></li>
+<li><p><strong>Race-safe release upload.</strong> Because multiple batches for the same bundle run concurrently, release creation is idempotent: each batch attempts <code>gh release create ... || true</code> (concurrent creators all succeed silently) before calling <code>gh release upload --clobber</code>. Since every per-subject RDS filename is unique, <code>--clobber</code> never overwrites another batch’s assets.</p></li>
+<li><p><strong>429 retry floor.</strong> <code>data-raw/fetch_bundle.py</code> now enforces a minimum back-off of 30 × (attempt + 1) seconds on every HTTP 429 response, regardless of the value in the <code>Retry-After</code> header. Zenodo occasionally returns <code>Retry-After: 0</code> on repeated throttling responses, which previously caused instant-retry thundering herds that exhausted the retry budget within seconds. The floor prevents this.</p></li>
+<li><p><strong>Reduced concurrency.</strong> The matrix is capped at <code>max-parallel: 5</code> and each job uses 2 parallel download workers, keeping peak simultaneous Zenodo connections at ≤ 10.</p></li>
 </ul></div>
 </div>
 <div class="section level3">
@@ -115,7 +116,7 @@
 <code>gzip</code> (fast, modest overhead)</td>
 </tr><tr><td>Workflow jobs</td>
 <td>1 sequential job</td>
-<td>72 parallel matrix jobs</td>
+<td>216 parallel matrix jobs (72 bundles × 3 batches)</td>
 </tr><tr><td>Source download</td>
 <td>Full ZIP once</td>
 <td>Range requests per bundle</td>

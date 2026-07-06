@@ -22,23 +22,29 @@ TractSeg_ST_FO_right(subjects = NULL)
 - subjects:
 
   Controls which subjects are loaded for multi-subject datasets (ignored
-  for `"HCP1065"`). Three forms are accepted:
+  for `"HCP1065"`). Four forms are accepted:
 
   `NULL` (default)
 
-  :   All available subjects are loaded and returned as a named list
-      whose names are the subject IDs.
+  :   All available subjects are loaded and returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
 
   An integer scalar `n`
 
   :   `n` subjects are drawn at random (without replacement) and
-      returned as a named list.
+      returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
 
-  A character string
+  A character vector of length \> 1
+
+  :   The bundles for those subject IDs are returned as a
+      [fiber::bundle_set](https://tractoverse.github.io/fiber/reference/bundle_set.html).
+
+  A character scalar
 
   :   The bundle for that single subject ID is returned directly as a
       [fiber::bundle](https://tractoverse.github.io/fiber/reference/bundle.html)
-      object (not wrapped in a list).
+      object.
 
 ## Details
 

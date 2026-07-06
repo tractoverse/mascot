@@ -93,10 +93,22 @@ All bundles are returned as
 [`fiber::bundle`](https://tractoverse.github.io/fiber/reference/bundle.html)
 objects with two slots:
 
-- `@streamlines` — a list of `streamline` objects, each carrying
-  `@points`, `@point_data`, and `@streamline_data`.
-- `@bundle_data` — metadata about the bundle (name, source dataset,
-  etc.).
+- `@streamlines` — a list of `streamline` objects, each carrying:
+
+  - `@points` - a $`P \times 3`$ matrix of 3D coordinates for the $`P`$
+    points along the streamline.
+  - `@point_data` - a list of numeric-only vectors of length $`P`$
+    containing point-level data (e.g., FA, MD, etc.) for each point
+    along the streamline.
+  - `@streamline_data` - a list of scalars (of any type) containing
+    streamline data that are not common across all streamlines in the
+    bundle.
+
+- `@streamline_data` - a list of vectors containing streamline-level
+  data that are common across all streamlines in the bundle.
+
+- `@bundle_data` — a list of scalars (of any type) containing metadata
+  about the bundle (name, source dataset, etc.).
 
 See the [fiber package
 documentation](https://tractoverse.github.io/fiber/) for full details on
