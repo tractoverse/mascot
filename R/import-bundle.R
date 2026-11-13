@@ -46,7 +46,7 @@
 #' }
 import_bundle <- function(dataset, bundle, subjects = NULL) {
   if (!dataset %in% available_datasets()) {
-    .mascot_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
+    .toad_abort("Dataset not supported. Currently available datasets are {available_datasets()}.")
   }
 
   if (!bundle %in% available_bundles(dataset)) {
@@ -61,8 +61,8 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
     short_bundle <- HCP1065_ACRONYM_LIST[[bundle]]
     tf <- tempfile(fileext = ".rds")
     on.exit(unlink(tf), add = TRUE)
-    .mascot_download_file(
-      url = paste0("https://github.com/tractoverse/mascot/releases/download/hcp1065/HCP1065_", short_bundle, ".rds"),
+    .toad_download_file(
+      url = paste0("https://github.com/tractoverse/toad/releases/download/hcp1065/HCP1065_", short_bundle, ".rds"),
       destfile = tf
     )
     return(readRDS(tf))
@@ -75,7 +75,7 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
   # call — avoids per-subject URL probing entirely.
   subject_names <- .tractseg_subject_list(bundle_stem)
   if (length(subject_names) == 0L) {
-    .mascot_abort(c(
+    .toad_abort(c(
       "No subjects found for bundle {.val {bundle}}.",
       "i" = "The GitHub release \"tractseg-{bundle_stem}\" may not have been published yet.",
       "i" = "Run the \"Release TractSeg Data\" GitHub Actions workflow to generate the release assets."
@@ -87,7 +87,7 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
   } else if (is.numeric(subjects)) {
     n <- as.integer(subjects)
     if (n < 1L || n > length(subject_names)) {
-      .mascot_abort("`subjects` must be between 1 and {length(subject_names)} (total available subjects).")
+      .toad_abort("`subjects` must be between 1 and {length(subject_names)} (total available subjects).")
     }
     subject_names <- sample(subject_names, n)
   } else if (is.character(subjects)) {
@@ -101,14 +101,14 @@ import_bundle <- function(dataset, bundle, subjects = NULL) {
     }
     subject_names <- subjects
   } else {
-    .mascot_abort("`subjects` must be NULL, an integer count, or a subject ID string.")
+    .toad_abort("`subjects` must be NULL, an integer count, or a subject ID string.")
   }
 
   out <- lapply(subject_names, function(subject) {
-    url <- paste0("https://github.com/tractoverse/mascot/releases/download/tractseg-", bundle_stem, "/TractSeg_", subject, "_", bundle_stem, ".rds")
+    url <- paste0("https://github.com/tractoverse/toad/releases/download/tractseg-", bundle_stem, "/TractSeg_", subject, "_", bundle_stem, ".rds")
     tf <- tempfile(fileext = ".rds")
     on.exit(unlink(tf), add = TRUE)
-    .mascot_download_file(url, tf)
+    .toad_download_file(url, tf)
     readRDS(tf)
   })
 

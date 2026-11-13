@@ -1,4 +1,4 @@
-library(mascot)
+library(toad)
 library(tinytest)
 
 # ---------------------------------------------------------------------------
@@ -19,16 +19,16 @@ expect_error(
 # ---------------------------------------------------------------------------
 fake_bundle <- list(dataset = "HCP1065", bundle = "Anterior Commissure")
 
-orig_dl <- get(".mascot_download_file", envir = asNamespace("mascot"))
+orig_dl <- get(".toad_download_file", envir = asNamespace("toad"))
 assignInNamespace(
-  ".mascot_download_file",
+  ".toad_download_file",
   function(url, destfile) saveRDS(fake_bundle, destfile),
-  ns = "mascot"
+  ns = "toad"
 )
 
 result <- import_bundle("HCP1065", "Anterior Commissure")
 
-assignInNamespace(".mascot_download_file", orig_dl, ns = "mascot")
+assignInNamespace(".toad_download_file", orig_dl, ns = "toad")
 
 expect_equal(
   result,
@@ -42,16 +42,16 @@ expect_equal(
 fake_ts_bundle <- list(dataset = "TractSeg", bundle = "Left Arcuate Fasciculus")
 fake_subjects <- c("100307", "100408", "101006")
 
-orig_tsl <- get(".tractseg_subject_list", envir = asNamespace("mascot"))
+orig_tsl <- get(".tractseg_subject_list", envir = asNamespace("toad"))
 assignInNamespace(
   ".tractseg_subject_list",
   function(bundle_stem) fake_subjects,
-  ns = "mascot"
+  ns = "toad"
 )
 assignInNamespace(
-  ".mascot_download_file",
+  ".toad_download_file",
   function(url, destfile) saveRDS(fake_ts_bundle, destfile),
-  ns = "mascot"
+  ns = "toad"
 )
 
 # subjects = NULL  →  named list of all subjects
@@ -110,12 +110,12 @@ expect_error(
 assignInNamespace(
   ".tractseg_subject_list",
   function(bundle_stem) character(0L),
-  ns = "mascot"
+  ns = "toad"
 )
 expect_error(
   import_bundle("TractSeg", "Left Arcuate Fasciculus"),
   info = "TractSeg import errors when release assets are not yet published"
 )
 
-assignInNamespace(".tractseg_subject_list", orig_tsl, ns = "mascot")
-assignInNamespace(".mascot_download_file", orig_dl, ns = "mascot")
+assignInNamespace(".tractseg_subject_list", orig_tsl, ns = "toad")
+assignInNamespace(".toad_download_file", orig_dl, ns = "toad")

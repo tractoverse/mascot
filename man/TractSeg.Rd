@@ -70,7 +70,7 @@ and acknowledgment requirements.
 
 The original \code{.trk} streamline files from the Zenodo archive have been
 converted to R \code{fiber::bundle} objects and serialised as \code{.rds} files using
-the \code{mascot} package pipeline. No spatial or statistical modifications were
+the \code{toad} package pipeline. No spatial or statistical modifications were
 made to the streamline data. Bundles are split one per GitHub release tag.
 }
 
@@ -80,7 +80,7 @@ This redistribution does not imply endorsement by the original authors,
 DKFZ, Zenodo, HCP, or any affiliated institution. The original authors are
 listed as contributors (\code{ctb}) in the package \code{DESCRIPTION} to acknowledge
 their authorship of the source data; this does not imply their endorsement
-of the \code{mascot} package.
+of the \code{toad} package.
 }
 
 \references{

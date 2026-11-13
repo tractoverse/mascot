@@ -1,4 +1,4 @@
-library(mascot)
+library(toad)
 
 # ---------------------------------------------------------------------------
 # available_datasets()
@@ -59,47 +59,47 @@ expect_true(
 # .tractseg_subject_list() – network mocked via assignInNamespace on url()
 # ---------------------------------------------------------------------------
 # Mock by patching .tractseg_subject_list directly
-orig_tsl <- get(".tractseg_subject_list", envir = asNamespace("mascot"))
+orig_tsl <- get(".tractseg_subject_list", envir = asNamespace("toad"))
 assignInNamespace(
   ".tractseg_subject_list",
   function(bundle_stem) c("100307", "100408", "101006"),
-  ns = "mascot"
+  ns = "toad"
 )
 
-subjects <- mascot:::.tractseg_subject_list("AF_left")
+subjects <- toad:::.tractseg_subject_list("AF_left")
 expect_equal(
   subjects,
   c("100307", "100408", "101006"),
   info = ".tractseg_subject_list returns mocked subject IDs"
 )
 
-assignInNamespace(".tractseg_subject_list", orig_tsl, ns = "mascot")
+assignInNamespace(".tractseg_subject_list", orig_tsl, ns = "toad")
 
 # Real call to a non-existent release should return character(0) (not error)
-result_missing <- mascot:::.tractseg_subject_list("BUNDLE_DOES_NOT_EXIST_XYZ")
+result_missing <- toad:::.tractseg_subject_list("BUNDLE_DOES_NOT_EXIST_XYZ")
 expect_equal(
   result_missing, character(0L),
   info = ".tractseg_subject_list returns character(0) when release does not exist"
 )
 
 # ---------------------------------------------------------------------------
-# .mascot_interp()
+# .toad_interp()
 # ---------------------------------------------------------------------------
-interp <- mascot:::.mascot_interp
+interp <- toad:::.toad_interp
 
 # plain {var} interpolation
 x <- "HCP1065"
 expect_equal(
   interp("{x}"),
   "HCP1065",
-  info = ".mascot_interp interpolates {var}"
+  info = ".toad_interp interpolates {var}"
 )
 
 # unknown variable returns the raw token unchanged
 expect_equal(
   interp("{no_such_var_xyz}"),
   "{no_such_var_xyz}",
-  info = ".mascot_interp leaves unknown vars unchanged"
+  info = ".toad_interp leaves unknown vars unchanged"
 )
 
 # {.val {var}} pattern
@@ -107,62 +107,62 @@ bundle_name <- "Left Fornix"
 result <- interp("{.val {bundle_name}}")
 expect_true(
   grepl("Left Fornix", result),
-  info = ".mascot_interp handles {.val {var}} pattern"
+  info = ".toad_interp handles {.val {var}} pattern"
 )
 
 # ---------------------------------------------------------------------------
-# .mascot_abort() – cli-available branch
+# .toad_abort() – cli-available branch
 # ---------------------------------------------------------------------------
 expect_error(
-  mascot:::.mascot_abort("test error message"),
-  info = ".mascot_abort throws an error with cli available"
+  toad:::.toad_abort("test error message"),
+  info = ".toad_abort throws an error with cli available"
 )
 
 # ---------------------------------------------------------------------------
-# .mascot_abort_base() – base-R fallback (tested directly for coverage)
+# .toad_abort_base() – base-R fallback (tested directly for coverage)
 # ---------------------------------------------------------------------------
 # single-message fallback
 expect_error(
-  mascot:::.mascot_abort_base("single line error", env = environment()),
-  info = ".mascot_abort_base: single message stops"
+  toad:::.toad_abort_base("single line error", env = environment()),
+  info = ".toad_abort_base: single message stops"
 )
 
 # multi-message with named and unnamed elements
 msg_multi <- c("header line", i = "info line", x = "extra line")
 expect_error(
-  mascot:::.mascot_abort_base(msg_multi, env = environment()),
-  info = ".mascot_abort_base: multi-message stops"
+  toad:::.toad_abort_base(msg_multi, env = environment()),
+  info = ".toad_abort_base: multi-message stops"
 )
 
 # multi-message element with empty-string prefix (nchar == 0 path)
 msg_empty_prefix <- c("first line", "second line")
 names(msg_empty_prefix) <- c("i", "")
 expect_error(
-  mascot:::.mascot_abort_base(msg_empty_prefix, env = environment()),
-  info = ".mascot_abort_base: empty-string prefix treated as plain line"
+  toad:::.toad_abort_base(msg_empty_prefix, env = environment()),
+  info = ".toad_abort_base: empty-string prefix treated as plain line"
 )
 
 # ---------------------------------------------------------------------------
-# .mascot_abort() – else branch (cli suppressed via option)
+# .toad_abort() – else branch (cli suppressed via option)
 # ---------------------------------------------------------------------------
-old_opt <- options(mascot.no_cli = TRUE)
+old_opt <- options(toad.no_cli = TRUE)
 expect_error(
-  mascot:::.mascot_abort("no-cli single error"),
-  info = ".mascot_abort else branch dispatches to base fallback"
+  toad:::.toad_abort("no-cli single error"),
+  info = ".toad_abort else branch dispatches to base fallback"
 )
 options(old_opt)
 # ---------------------------------------------------------------------------
-# .mascot_download_file() – exercised with a file:// URL (no network)
+# .toad_download_file() – exercised with a file:// URL (no network)
 # ---------------------------------------------------------------------------
 fake_obj <- list(check = "download_file_coverage")
 src_file <- tempfile(fileext = ".rds")
 dst_file <- tempfile(fileext = ".rds")
 saveRDS(fake_obj, src_file)
-mascot:::.mascot_download_file(paste0("file://", src_file), dst_file)
+toad:::.toad_download_file(paste0("file://", src_file), dst_file)
 expect_equal(
   readRDS(dst_file),
   fake_obj,
-  info = ".mascot_download_file downloads and the rds round-trips correctly"
+  info = ".toad_download_file downloads and the rds round-trips correctly"
 )
 unlink(c(src_file, dst_file))
 

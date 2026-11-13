@@ -43,7 +43,7 @@
 #' @section Modifications:
 #' The original `.trk` streamline files from the Zenodo archive have been
 #' converted to R `fiber::bundle` objects and serialised as `.rds` files using
-#' the `mascot` package pipeline. No spatial or statistical modifications were
+#' the `toad` package pipeline. No spatial or statistical modifications were
 #' made to the streamline data. Bundles are split one per GitHub release tag.
 #'
 #' @section Disclaimer:
@@ -51,7 +51,7 @@
 #' DKFZ, Zenodo, HCP, or any affiliated institution. The original authors are
 #' listed as contributors (`ctb`) in the package `DESCRIPTION` to acknowledge
 #' their authorship of the source data; this does not imply their endorsement
-#' of the `mascot` package.
+#' of the `toad` package.
 #'
 #' @source \url{https://zenodo.org/records/1477956}
 #' @references Wasserthal, J., Neher, P., & Maier-Hein, K. H. (2018).

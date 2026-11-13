@@ -1,4 +1,4 @@
-# mascot 0.1.0
+# toad 0.1.0
 
 ## HCP1065 atlas
 
@@ -80,7 +80,7 @@ This redistribution does not imply endorsement by the original authors, DKFZ,
 Zenodo, HCP, or any affiliated institution.  Jakob Wasserthal, Peter Neher,
 and Klaus H. Maier-Hein are listed as contributors (`ctb`) in `DESCRIPTION`
 to acknowledge their authorship of the source data; this does not imply their
-endorsement of the `mascot` package.
+endorsement of the `toad` package.
 
 ### Asset-generation design notes
 
