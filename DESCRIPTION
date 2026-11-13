@@ -1,5 +1,5 @@
 Package: toad
-Title: Macroscale Structural Connectomes via Tractography
+Title: Tractography Open Atlas Data
 Version: 0.1.0
 Authors@R: 
     c(person("Aymeric", "Stamm", role = c("aut", "cre"), 

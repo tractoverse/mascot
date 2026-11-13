@@ -4,8 +4,10 @@
 \name{toad-package}
 \alias{toad}
 \alias{toad-package}
-\title{toad: Macroscale Structural Connectomes via Tractography}
+\title{toad: Tractography Open Atlas Data}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 A data package providing access to macroscale structural connectomes of the human brain derived from diffusion MRI via tractography. Includes two datasets: (1) the HCP1065 population-averaged tractography atlas (Yeh 2022, CC BY-SA 4.0) and (2) per-subject TractSeg white matter bundle segmentations from 105 HCP Young Adult subjects (Wasserthal et al. 2018, CC BY-NC 4.0 -- non-commercial use only). Both datasets originate from the Human Connectome Project and are subject to the applicable HCP data-use terms. Source TRK files have been converted to R fiber::bundle objects (.rds); no spatial modifications were made to the streamline data.
 }
 \seealso{
