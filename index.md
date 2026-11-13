@@ -1,24 +1,24 @@
-# mascot
+# toad
 
-The goal of [**mascot**](https://tractoverse.github.io/mascot/) is to
+The goal of [**toad**](https://tractoverse.github.io/toad/) is to
 provide easy access to recent macroscale structural connectomes of the
 Human brain obtained from diffusion MRI data through diffusion modeling
 and subsequent so-called tractography.
 
 ## Installation
 
-You can install the development version of mascot from
+You can install the development version of toad from
 [GitHub](https://github.com/) with:
 
 ``` r
 
 # install.packages("remotes")
-remotes::install_github("tractoverse/mascot")
+remotes::install_github("tractoverse/toad")
 ```
 
 ## Datasets
 
-**mascot** provides access to two large white matter tractography
+**toad** provides access to two large white matter tractography
 datasets, both stored as
 [`fiber::bundle`](https://tractoverse.github.io/fiber/) objects and
 fetched on demand — no bulky data files are bundled with the package
@@ -38,9 +38,9 @@ population-level streamline set.
 available_bundles("HCP1065")
 
 # Load one bundle directly by name
-cst_left <- mascot::import_bundle(dataset = "HCP1065", bundle = "CST_left")
+cst_left <- toad::import_bundle(dataset = "HCP1065", bundle = "CST_left")
 # Or use the convenience function
-cst_left <- mascot::HCP1065_CST_L()
+cst_left <- toad::HCP1065_CST_L()
 ```
 
 **License:** [CC BY-SA
@@ -69,9 +69,9 @@ bundle is downloaded on first use and cached locally.
 available_bundles("TractSeg")
 
 # Import one bundle (downloads on first call, cached afterwards)
-cst_left <- mascot::import_bundle(dataset = "TractSeg", bundle = "CST_left", subjects = 1L)
+cst_left <- toad::import_bundle(dataset = "TractSeg", bundle = "CST_left", subjects = 1L)
 # Or use the convenience function
-cst_left <- mascot::TractSeg_CST_left(subjects = 1L)
+cst_left <- toad::TractSeg_CST_left(subjects = 1L)
 ```
 
 **License:** [CC BY-NC

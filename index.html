@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Macroscale Structural Connectomes via Tractography • mascot</title>
+<title>Macroscale Structural Connectomes via Tractography • toad</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">mascot</a>
+    <a class="navbar-brand me-2" href="index.html">toad</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
@@ -37,7 +37,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/tractoverse/mascot/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/tractoverse/toad/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -46,23 +46,23 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="mascot">mascot<a class="anchor" aria-label="anchor" href="#mascot"></a>
+<div class="page-header"><h1 id="toad">toad<a class="anchor" aria-label="anchor" href="#toad"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of <a href="https://tractoverse.github.io/mascot/"><strong>mascot</strong></a> is to provide easy access to recent macroscale structural connectomes of the Human brain obtained from diffusion MRI data through diffusion modeling and subsequent so-called tractography.</p>
+<p>The goal of <a href="https://tractoverse.github.io/toad/"><strong>toad</strong></a> is to provide easy access to recent macroscale structural connectomes of the Human brain obtained from diffusion MRI data through diffusion modeling and subsequent so-called tractography.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of mascot from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of toad from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"tractoverse/mascot"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"tractoverse/toad"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a>
 </h2>
-<p><strong>mascot</strong> provides access to two large white matter tractography datasets, both stored as <a href="https://tractoverse.github.io/fiber/" class="external-link"><code>fiber::bundle</code></a> objects and fetched on demand — no bulky data files are bundled with the package itself.</p>
+<p><strong>toad</strong> provides access to two large white matter tractography datasets, both stored as <a href="https://tractoverse.github.io/fiber/" class="external-link"><code>fiber::bundle</code></a> objects and fetched on demand — no bulky data files are bundled with the package itself.</p>
 <div class="section level3">
 <h3 id="hcp1065-population-averaged-atlas">HCP1065 population-averaged atlas<a class="anchor" aria-label="anchor" href="#hcp1065-population-averaged-atlas"></a>
 </h3>
@@ -72,9 +72,9 @@
 <span><span class="fu"><a href="reference/available_bundles.html">available_bundles</a></span><span class="op">(</span><span class="st">"HCP1065"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load one bundle directly by name</span></span>
-<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">mascot</span><span class="fu">::</span><span class="fu"><a href="reference/import_bundle.html">import_bundle</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"HCP1065"</span>, bundle <span class="op">=</span> <span class="st">"CST_left"</span><span class="op">)</span></span>
+<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">toad</span><span class="fu">::</span><span class="fu"><a href="reference/import_bundle.html">import_bundle</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"HCP1065"</span>, bundle <span class="op">=</span> <span class="st">"CST_left"</span><span class="op">)</span></span>
 <span><span class="co"># Or use the convenience function</span></span>
-<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">mascot</span><span class="fu">::</span><span class="fu"><a href="reference/HCP1065_CST_L.html">HCP1065_CST_L</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">toad</span><span class="fu">::</span><span class="fu"><a href="reference/HCP1065_CST_L.html">HCP1065_CST_L</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC BY-SA 4.0</a>.</p>
 <p><strong>Citation:</strong></p>
 <blockquote>
@@ -91,9 +91,9 @@
 <span><span class="fu"><a href="reference/available_bundles.html">available_bundles</a></span><span class="op">(</span><span class="st">"TractSeg"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Import one bundle (downloads on first call, cached afterwards)</span></span>
-<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">mascot</span><span class="fu">::</span><span class="fu"><a href="reference/import_bundle.html">import_bundle</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"TractSeg"</span>, bundle <span class="op">=</span> <span class="st">"CST_left"</span>, subjects <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span>
+<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">toad</span><span class="fu">::</span><span class="fu"><a href="reference/import_bundle.html">import_bundle</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"TractSeg"</span>, bundle <span class="op">=</span> <span class="st">"CST_left"</span>, subjects <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span>
 <span><span class="co"># Or use the convenience function</span></span>
-<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">mascot</span><span class="fu">::</span><span class="fu"><a href="reference/TractSeg_CST_left.html">TractSeg_CST_left</a></span><span class="op">(</span>subjects <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">cst_left</span> <span class="op">&lt;-</span> <span class="fu">toad</span><span class="fu">::</span><span class="fu"><a href="reference/TractSeg_CST_left.html">TractSeg_CST_left</a></span><span class="op">(</span>subjects <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
 <p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/4.0/" class="external-link">CC BY-NC 4.0</a> — <strong>non-commercial use only.</strong></p>
 <p><strong>Citation:</strong></p>
 <blockquote>
@@ -127,9 +127,8 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://cloud.r-project.org/package=mascot" class="external-link">View on CRAN</a></li>
-<li><a href="https://github.com/tractoverse/mascot/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/tractoverse/mascot/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/tractoverse/toad/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/tractoverse/toad/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -145,7 +144,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing mascot</a></li>
+<li><a href="authors.html#citation">Citing toad</a></li>
 </ul>
 </div>
 
@@ -160,10 +159,10 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/tractoverse/mascot/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/tractoverse/mascot" class="external-link"><img src="https://codecov.io/gh/tractoverse/mascot/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://github.com/tractoverse/mascot/actions/workflows/pkgdown.yaml/badge.svg" alt="pkgdown"></a></li>
-<li><a href="https://CRAN.R-project.org/package=mascot" class="external-link"><img src="https://www.r-pkg.org/badges/version/mascot" alt="CRAN status"></a></li>
+<li><a href="https://github.com/tractoverse/toad/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/tractoverse/toad/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/tractoverse/toad" class="external-link"><img src="https://codecov.io/gh/tractoverse/toad/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/tractoverse/toad/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://github.com/tractoverse/toad/actions/workflows/pkgdown.yaml/badge.svg" alt="pkgdown"></a></li>
+<li><a href="https://CRAN.R-project.org/package=toad" class="external-link"><img src="https://www.r-pkg.org/badges/version/toad" alt="CRAN status"></a></li>
 </ul>
 </div>
 

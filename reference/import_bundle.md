@@ -3,9 +3,9 @@
 This function allows you to import a bundle from one of the available
 datasets by specifying the dataset and the bundle name. Available
 datasets can be queried using
-[`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md).
+[`available_datasets()`](https://tractoverse.github.io/toad/reference/available_datasets.md).
 Available bundles for a given dataset can be queried using
-[`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md),
+[`available_bundles()`](https://tractoverse.github.io/toad/reference/available_bundles.md),
 which will return the list of bundles in the specified dataset. For
 multi-subject datasets (e.g. `"TractSeg"`), the `subjects` argument
 controls which subjects are loaded. For single-atlas datasets (e.g.
@@ -28,7 +28,7 @@ import_bundle(dataset, bundle, subjects = NULL)
 
   A string specifying the bundle to import. Must be one of the names
   returned by
-  [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md)
+  [`available_bundles()`](https://tractoverse.github.io/toad/reference/available_bundles.md)
   for the chosen dataset.
 
 - subjects:
@@ -71,7 +71,7 @@ with one bundle per subject.
 ## HCP1065
 
 A population-averaged tractography atlas based on 1,065 HCP subjects.
-See [HCP1065](https://tractoverse.github.io/mascot/reference/HCP1065.md)
+See [HCP1065](https://tractoverse.github.io/toad/reference/HCP1065.md)
 for full details, source, and references.
 
 ## Examples

@@ -41,16 +41,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tractoverse/mascot/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tractoverse/toad/blob/master/DESCRIPTION)
 
-Stamm A (2026). *mascot: Macroscale Structural Connectomes via
+Stamm A (2026). *toad: Macroscale Structural Connectomes via
 Tractography*. R package version 0.1.0,
-<https://github.com/tractoverse/mascot>.
+<https://github.com/tractoverse/toad>.
 
     @Manual{,
-      title = {mascot: Macroscale Structural Connectomes via Tractography},
+      title = {toad: Macroscale Structural Connectomes via Tractography},
       author = {Aymeric Stamm},
       year = {2026},
       note = {R package version 0.1.0},
-      url = {https://github.com/tractoverse/mascot},
+      url = {https://github.com/tractoverse/toad},
     }

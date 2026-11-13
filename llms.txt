@@ -1,24 +1,24 @@
-# mascot
+# toad
 
-The goal of [**mascot**](https://tractoverse.github.io/mascot/) is to
+The goal of [**toad**](https://tractoverse.github.io/toad/) is to
 provide easy access to recent macroscale structural connectomes of the
 Human brain obtained from diffusion MRI data through diffusion modeling
 and subsequent so-called tractography.
 
 ## Installation
 
-You can install the development version of mascot from
+You can install the development version of toad from
 [GitHub](https://github.com/) with:
 
 ``` r
 
 # install.packages("remotes")
-remotes::install_github("tractoverse/mascot")
+remotes::install_github("tractoverse/toad")
 ```
 
 ## Datasets
 
-**mascot** provides access to two large white matter tractography
+**toad** provides access to two large white matter tractography
 datasets, both stored as
 [`fiber::bundle`](https://tractoverse.github.io/fiber/) objects and
 fetched on demand — no bulky data files are bundled with the package
@@ -38,9 +38,9 @@ population-level streamline set.
 available_bundles("HCP1065")
 
 # Load one bundle directly by name
-cst_left <- mascot::import_bundle(dataset = "HCP1065", bundle = "CST_left")
+cst_left <- toad::import_bundle(dataset = "HCP1065", bundle = "CST_left")
 # Or use the convenience function
-cst_left <- mascot::HCP1065_CST_L()
+cst_left <- toad::HCP1065_CST_L()
 ```
 
 **License:** [CC BY-SA
@@ -69,9 +69,9 @@ bundle is downloaded on first use and cached locally.
 available_bundles("TractSeg")
 
 # Import one bundle (downloads on first call, cached afterwards)
-cst_left <- mascot::import_bundle(dataset = "TractSeg", bundle = "CST_left", subjects = 1L)
+cst_left <- toad::import_bundle(dataset = "TractSeg", bundle = "CST_left", subjects = 1L)
 # Or use the convenience function
-cst_left <- mascot::TractSeg_CST_left(subjects = 1L)
+cst_left <- toad::TractSeg_CST_left(subjects = 1L)
 ```
 
 **License:** [CC BY-NC
@@ -118,332 +118,332 @@ working with these objects.
 
 ## All functions
 
-- [`HCP1065`](https://tractoverse.github.io/mascot/reference/HCP1065.md)
-  : HCP1065 Population-Averaged Tractography Atlas
-- [`HCP1065_AC()`](https://tractoverse.github.io/mascot/reference/HCP1065_AC.md)
+- [`HCP1065`](https://tractoverse.github.io/toad/reference/HCP1065.md) :
+  HCP1065 Population-Averaged Tractography Atlas
+- [`HCP1065_AC()`](https://tractoverse.github.io/toad/reference/HCP1065_AC.md)
   : HCP1065 Anterior Commissure
-- [`HCP1065_AF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_L.md)
+- [`HCP1065_AF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_AF_L.md)
   : HCP1065 Left Arcuate Fasciculus
-- [`HCP1065_AF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_AF_R.md)
+- [`HCP1065_AF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_AF_R.md)
   : HCP1065 Right Arcuate Fasciculus
-- [`HCP1065_AR_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_AR_L.md)
+- [`HCP1065_AR_L()`](https://tractoverse.github.io/toad/reference/HCP1065_AR_L.md)
   : HCP1065 Left Acoustic Radiation
-- [`HCP1065_AR_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_AR_R.md)
+- [`HCP1065_AR_R()`](https://tractoverse.github.io/toad/reference/HCP1065_AR_R.md)
   : HCP1065 Right Acoustic Radiation
-- [`HCP1065_CBT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CBT_L.md)
+- [`HCP1065_CBT_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CBT_L.md)
   : HCP1065 Left Corticobulbar Tract
-- [`HCP1065_CBT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CBT_R.md)
+- [`HCP1065_CBT_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CBT_R.md)
   : HCP1065 Right Corticobulbar Tract
-- [`HCP1065_CB_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CB_L.md)
+- [`HCP1065_CB_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CB_L.md)
   : HCP1065 Left Cerebellum
-- [`HCP1065_CB_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CB_R.md)
+- [`HCP1065_CB_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CB_R.md)
   : HCP1065 Right Cerebellum
-- [`HCP1065_CC()`](https://tractoverse.github.io/mascot/reference/HCP1065_CC.md)
+- [`HCP1065_CC()`](https://tractoverse.github.io/toad/reference/HCP1065_CC.md)
   : HCP1065 Corpus Callosum
-- [`HCP1065_CNIII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_L.md)
+- [`HCP1065_CNIII_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CNIII_L.md)
   : HCP1065 Left Cranial Nerve III
-- [`HCP1065_CNIII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNIII_R.md)
+- [`HCP1065_CNIII_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CNIII_R.md)
   : HCP1065 Right Cranial Nerve III
-- [`HCP1065_CNII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNII_L.md)
+- [`HCP1065_CNII_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CNII_L.md)
   : HCP1065 Left Cranial Nerve II
-- [`HCP1065_CNII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNII_R.md)
+- [`HCP1065_CNII_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CNII_R.md)
   : HCP1065 Right Cranial Nerve II
-- [`HCP1065_CNVIII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_L.md)
+- [`HCP1065_CNVIII_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CNVIII_L.md)
   : HCP1065 Left Cranial Nerve VIII
-- [`HCP1065_CNVIII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVIII_R.md)
+- [`HCP1065_CNVIII_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CNVIII_R.md)
   : HCP1065 Right Cranial Nerve VIII
-- [`HCP1065_CNVII_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_L.md)
+- [`HCP1065_CNVII_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CNVII_L.md)
   : HCP1065 Left Cranial Nerve VII
-- [`HCP1065_CNVII_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNVII_R.md)
+- [`HCP1065_CNVII_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CNVII_R.md)
   : HCP1065 Right Cranial Nerve VII
-- [`HCP1065_CNV_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNV_L.md)
+- [`HCP1065_CNV_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CNV_L.md)
   : HCP1065 Left Cranial Nerve V
-- [`HCP1065_CNV_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CNV_R.md)
+- [`HCP1065_CNV_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CNV_R.md)
   : HCP1065 Right Cranial Nerve V
-- [`HCP1065_CPT_F_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_L.md)
+- [`HCP1065_CPT_F_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_F_L.md)
   : HCP1065 Left Frontal Corticopontine Tract
-- [`HCP1065_CPT_F_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_F_R.md)
+- [`HCP1065_CPT_F_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_F_R.md)
   : HCP1065 Right Frontal Corticopontine Tract
-- [`HCP1065_CPT_O_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_L.md)
+- [`HCP1065_CPT_O_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_O_L.md)
   : HCP1065 Left Occipital Corticopontine Tract
-- [`HCP1065_CPT_O_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_O_R.md)
+- [`HCP1065_CPT_O_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_O_R.md)
   : HCP1065 Right Occipital Corticopontine Tract
-- [`HCP1065_CPT_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_L.md)
+- [`HCP1065_CPT_P_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_P_L.md)
   : HCP1065 Left Parietal Corticopontine Tract
-- [`HCP1065_CPT_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CPT_P_R.md)
+- [`HCP1065_CPT_P_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CPT_P_R.md)
   : HCP1065 Right Parietal Corticopontine Tract
-- [`HCP1065_CST_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CST_L.md)
+- [`HCP1065_CST_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CST_L.md)
   : HCP1065 Left Corticospinal Tract
-- [`HCP1065_CST_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CST_R.md)
+- [`HCP1065_CST_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CST_R.md)
   : HCP1065 Right Corticospinal Tract
-- [`HCP1065_CS_A_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_L.md)
+- [`HCP1065_CS_A_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_A_L.md)
   : HCP1065 Left Anterior Corticostriatal Tract
-- [`HCP1065_CS_A_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_A_R.md)
+- [`HCP1065_CS_A_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_A_R.md)
   : HCP1065 Right Anterior Corticostriatal Tract
-- [`HCP1065_CS_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_L.md)
+- [`HCP1065_CS_P_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_P_L.md)
   : HCP1065 Left Posterior Corticostriatal Tract
-- [`HCP1065_CS_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_P_R.md)
+- [`HCP1065_CS_P_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_P_R.md)
   : HCP1065 Right Posterior Corticostriatal Tract
-- [`HCP1065_CS_S_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_L.md)
+- [`HCP1065_CS_S_L()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_S_L.md)
   : HCP1065 Left Superior Corticostriatal Tract
-- [`HCP1065_CS_S_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_CS_S_R.md)
+- [`HCP1065_CS_S_R()`](https://tractoverse.github.io/toad/reference/HCP1065_CS_S_R.md)
   : HCP1065 Right Superior Corticostriatal Tract
-- [`HCP1065_C_FPH_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_L.md)
+- [`HCP1065_C_FPH_L()`](https://tractoverse.github.io/toad/reference/HCP1065_C_FPH_L.md)
   : HCP1065 Left Frontal Parahippocampal Cingulum
-- [`HCP1065_C_FPH_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FPH_R.md)
+- [`HCP1065_C_FPH_R()`](https://tractoverse.github.io/toad/reference/HCP1065_C_FPH_R.md)
   : HCP1065 Right Frontal Parahippocampal Cingulum
-- [`HCP1065_C_FP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_L.md)
+- [`HCP1065_C_FP_L()`](https://tractoverse.github.io/toad/reference/HCP1065_C_FP_L.md)
   : HCP1065 Left Frontal Parietal Cingulum
-- [`HCP1065_C_FP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_FP_R.md)
+- [`HCP1065_C_FP_R()`](https://tractoverse.github.io/toad/reference/HCP1065_C_FP_R.md)
   : HCP1065 Right Frontal Parietal Cingulum
-- [`HCP1065_C_PHP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_L.md)
+- [`HCP1065_C_PHP_L()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PHP_L.md)
   : HCP1065 Left Parahippocampal Parietal Cingulum
-- [`HCP1065_C_PHP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PHP_R.md)
+- [`HCP1065_C_PHP_R()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PHP_R.md)
   : HCP1065 Right Parahippocampal Parietal Cingulum
-- [`HCP1065_C_PH_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_L.md)
+- [`HCP1065_C_PH_L()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PH_L.md)
   : HCP1065 Left Parahippocampal Cingulum
-- [`HCP1065_C_PH_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PH_R.md)
+- [`HCP1065_C_PH_R()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PH_R.md)
   : HCP1065 Right Parahippocampal Cingulum
-- [`HCP1065_C_PO_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_L.md)
+- [`HCP1065_C_PO_L()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PO_L.md)
   : HCP1065 Left Parolfactory Cingulum
-- [`HCP1065_C_PO_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_C_PO_R.md)
+- [`HCP1065_C_PO_R()`](https://tractoverse.github.io/toad/reference/HCP1065_C_PO_R.md)
   : HCP1065 Right Parolfactory Cingulum
-- [`HCP1065_DRTT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_L.md)
+- [`HCP1065_DRTT_L()`](https://tractoverse.github.io/toad/reference/HCP1065_DRTT_L.md)
   : HCP1065 Left Dentatorubrothalamic Tract
-- [`HCP1065_DRTT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_DRTT_R.md)
+- [`HCP1065_DRTT_R()`](https://tractoverse.github.io/toad/reference/HCP1065_DRTT_R.md)
   : HCP1065 Right Dentatorubrothalamic Tract
-- [`HCP1065_EMC_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_EMC_L.md)
+- [`HCP1065_EMC_L()`](https://tractoverse.github.io/toad/reference/HCP1065_EMC_L.md)
   : HCP1065 Left Extreme Capsule
-- [`HCP1065_EMC_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_EMC_R.md)
+- [`HCP1065_EMC_R()`](https://tractoverse.github.io/toad/reference/HCP1065_EMC_R.md)
   : HCP1065 Right Extreme Capsule
-- [`HCP1065_FAT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_FAT_L.md)
+- [`HCP1065_FAT_L()`](https://tractoverse.github.io/toad/reference/HCP1065_FAT_L.md)
   : HCP1065 Left Frontal Aslant Tract
-- [`HCP1065_FAT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_FAT_R.md)
+- [`HCP1065_FAT_R()`](https://tractoverse.github.io/toad/reference/HCP1065_FAT_R.md)
   : HCP1065 Right Frontal Aslant Tract
-- [`HCP1065_F_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_F_L.md)
+- [`HCP1065_F_L()`](https://tractoverse.github.io/toad/reference/HCP1065_F_L.md)
   : HCP1065 Left Fornix
-- [`HCP1065_F_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_F_R.md)
+- [`HCP1065_F_R()`](https://tractoverse.github.io/toad/reference/HCP1065_F_R.md)
   : HCP1065 Right Fornix
-- [`HCP1065_ICP_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ICP_L.md)
+- [`HCP1065_ICP_L()`](https://tractoverse.github.io/toad/reference/HCP1065_ICP_L.md)
   : HCP1065 Left Inferior Cerebellar Peduncle
-- [`HCP1065_ICP_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ICP_R.md)
+- [`HCP1065_ICP_R()`](https://tractoverse.github.io/toad/reference/HCP1065_ICP_R.md)
   : HCP1065 Right Inferior Cerebellar Peduncle
-- [`HCP1065_IFOF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_L.md)
+- [`HCP1065_IFOF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_IFOF_L.md)
   : HCP1065 Left Inferior Fronto-Occipital Fasciculus
-- [`HCP1065_IFOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_IFOF_R.md)
+- [`HCP1065_IFOF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_IFOF_R.md)
   : HCP1065 Right Inferior Fronto-Occipital Fasciculus
-- [`HCP1065_ILF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ILF_L.md)
+- [`HCP1065_ILF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_ILF_L.md)
   : HCP1065 Left Inferior Longitudinal Fasciculus
-- [`HCP1065_ILF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ILF_R.md)
+- [`HCP1065_ILF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_ILF_R.md)
   : HCP1065 Right Inferior Longitudinal Fasciculus
-- [`HCP1065_MCP()`](https://tractoverse.github.io/mascot/reference/HCP1065_MCP.md)
+- [`HCP1065_MCP()`](https://tractoverse.github.io/toad/reference/HCP1065_MCP.md)
   : HCP1065 Middle Cerebellar Peduncle
-- [`HCP1065_ML_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_ML_L.md)
+- [`HCP1065_ML_L()`](https://tractoverse.github.io/toad/reference/HCP1065_ML_L.md)
   : HCP1065 Left Medial Lemniscus
-- [`HCP1065_ML_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_ML_R.md)
+- [`HCP1065_ML_R()`](https://tractoverse.github.io/toad/reference/HCP1065_ML_R.md)
   : HCP1065 Right Medial Lemniscus
-- [`HCP1065_MdLF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_L.md)
+- [`HCP1065_MdLF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_MdLF_L.md)
   : HCP1065 Left Middle Longitudinal Fasciculus
-- [`HCP1065_MdLF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_MdLF_R.md)
+- [`HCP1065_MdLF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_MdLF_R.md)
   : HCP1065 Right Middle Longitudinal Fasciculus
-- [`HCP1065_OR_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_OR_L.md)
+- [`HCP1065_OR_L()`](https://tractoverse.github.io/toad/reference/HCP1065_OR_L.md)
   : HCP1065 Left Optic Radiation
-- [`HCP1065_OR_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_OR_R.md)
+- [`HCP1065_OR_R()`](https://tractoverse.github.io/toad/reference/HCP1065_OR_R.md)
   : HCP1065 Right Optic Radiation
-- [`HCP1065_PAT_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_PAT_L.md)
+- [`HCP1065_PAT_L()`](https://tractoverse.github.io/toad/reference/HCP1065_PAT_L.md)
   : HCP1065 Left Parietal Aslant Tract
-- [`HCP1065_PAT_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_PAT_R.md)
+- [`HCP1065_PAT_R()`](https://tractoverse.github.io/toad/reference/HCP1065_PAT_R.md)
   : HCP1065 Right Parietal Aslant Tract
-- [`HCP1065_RST_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_RST_L.md)
+- [`HCP1065_RST_L()`](https://tractoverse.github.io/toad/reference/HCP1065_RST_L.md)
   : HCP1065 Left Reticulospinal Tract
-- [`HCP1065_RST_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_RST_R.md)
+- [`HCP1065_RST_R()`](https://tractoverse.github.io/toad/reference/HCP1065_RST_R.md)
   : HCP1065 Right Reticulospinal Tract
-- [`HCP1065_SCP()`](https://tractoverse.github.io/mascot/reference/HCP1065_SCP.md)
+- [`HCP1065_SCP()`](https://tractoverse.github.io/toad/reference/HCP1065_SCP.md)
   : HCP1065 Superior Cerebellar Peduncle
-- [`HCP1065_SLF1_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_L.md)
+- [`HCP1065_SLF1_L()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF1_L.md)
   : HCP1065 Left Superior Longitudinal Fasciculus I
-- [`HCP1065_SLF1_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF1_R.md)
+- [`HCP1065_SLF1_R()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF1_R.md)
   : HCP1065 Right Superior Longitudinal Fasciculus I
-- [`HCP1065_SLF2_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_L.md)
+- [`HCP1065_SLF2_L()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF2_L.md)
   : HCP1065 Left Superior Longitudinal Fasciculus II
-- [`HCP1065_SLF2_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF2_R.md)
+- [`HCP1065_SLF2_R()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF2_R.md)
   : HCP1065 Right Superior Longitudinal Fasciculus II
-- [`HCP1065_SLF3_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_L.md)
+- [`HCP1065_SLF3_L()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF3_L.md)
   : HCP1065 Left Superior Longitudinal Fasciculus III
-- [`HCP1065_SLF3_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_SLF3_R.md)
+- [`HCP1065_SLF3_R()`](https://tractoverse.github.io/toad/reference/HCP1065_SLF3_R.md)
   : HCP1065 Right Superior Longitudinal Fasciculus III
-- [`HCP1065_TR_A_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_L.md)
+- [`HCP1065_TR_A_L()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_A_L.md)
   : HCP1065 Left Anterior Thalamic Radiation
-- [`HCP1065_TR_A_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_A_R.md)
+- [`HCP1065_TR_A_R()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_A_R.md)
   : HCP1065 Right Anterior Thalamic Radiation
-- [`HCP1065_TR_P_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_L.md)
+- [`HCP1065_TR_P_L()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_P_L.md)
   : HCP1065 Left Posterior Thalamic Radiation
-- [`HCP1065_TR_P_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_P_R.md)
+- [`HCP1065_TR_P_R()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_P_R.md)
   : HCP1065 Right Posterior Thalamic Radiation
-- [`HCP1065_TR_S_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_L.md)
+- [`HCP1065_TR_S_L()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_S_L.md)
   : HCP1065 Left Superior Thalamic Radiation
-- [`HCP1065_TR_S_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_TR_S_R.md)
+- [`HCP1065_TR_S_R()`](https://tractoverse.github.io/toad/reference/HCP1065_TR_S_R.md)
   : HCP1065 Right Superior Thalamic Radiation
-- [`HCP1065_UF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_UF_L.md)
+- [`HCP1065_UF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_UF_L.md)
   : HCP1065 Left Uncinate Fasciculus
-- [`HCP1065_UF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_UF_R.md)
+- [`HCP1065_UF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_UF_R.md)
   : HCP1065 Right Uncinate Fasciculus
-- [`HCP1065_V()`](https://tractoverse.github.io/mascot/reference/HCP1065_V.md)
+- [`HCP1065_V()`](https://tractoverse.github.io/toad/reference/HCP1065_V.md)
   : HCP1065 Vermis
-- [`HCP1065_VOF_L()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_L.md)
+- [`HCP1065_VOF_L()`](https://tractoverse.github.io/toad/reference/HCP1065_VOF_L.md)
   : HCP1065 Left Vertical Occipital Fasciculus
-- [`HCP1065_VOF_R()`](https://tractoverse.github.io/mascot/reference/HCP1065_VOF_R.md)
+- [`HCP1065_VOF_R()`](https://tractoverse.github.io/toad/reference/HCP1065_VOF_R.md)
   : HCP1065 Right Vertical Occipital Fasciculus
-- [`TractSeg`](https://tractoverse.github.io/mascot/reference/TractSeg.md)
+- [`TractSeg`](https://tractoverse.github.io/toad/reference/TractSeg.md)
   : TractSeg High-Quality White Matter Reference Tracts
-- [`TractSeg_AF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_AF_left.md)
+- [`TractSeg_AF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_AF_left.md)
   : TractSeg Left Arcuate Fasciculus
-- [`TractSeg_AF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_AF_right.md)
+- [`TractSeg_AF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_AF_right.md)
   : TractSeg Right Arcuate Fasciculus
-- [`TractSeg_ATR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ATR_left.md)
+- [`TractSeg_ATR_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ATR_left.md)
   : TractSeg Left Anterior Thalamic Radiation
-- [`TractSeg_ATR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ATR_right.md)
+- [`TractSeg_ATR_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ATR_right.md)
   : TractSeg Right Anterior Thalamic Radiation
-- [`TractSeg_CA()`](https://tractoverse.github.io/mascot/reference/TractSeg_CA.md)
+- [`TractSeg_CA()`](https://tractoverse.github.io/toad/reference/TractSeg_CA.md)
   : TractSeg Commissure Anterior
-- [`TractSeg_CC()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC.md)
+- [`TractSeg_CC()`](https://tractoverse.github.io/toad/reference/TractSeg_CC.md)
   : TractSeg Corpus Callosum
-- [`TractSeg_CC_1()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_1.md)
+- [`TractSeg_CC_1()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_1.md)
   : TractSeg Corpus Callosum Rostrum
-- [`TractSeg_CC_2()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_2.md)
+- [`TractSeg_CC_2()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_2.md)
   : TractSeg Corpus Callosum Genu
-- [`TractSeg_CC_3()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_3.md)
+- [`TractSeg_CC_3()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_3.md)
   : TractSeg Corpus Callosum Rostral Body
-- [`TractSeg_CC_4()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_4.md)
+- [`TractSeg_CC_4()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_4.md)
   : TractSeg Corpus Callosum Anterior Midbody
-- [`TractSeg_CC_5()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_5.md)
+- [`TractSeg_CC_5()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_5.md)
   : TractSeg Corpus Callosum Posterior Midbody
-- [`TractSeg_CC_6()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_6.md)
+- [`TractSeg_CC_6()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_6.md)
   : TractSeg Corpus Callosum Isthmus
-- [`TractSeg_CC_7()`](https://tractoverse.github.io/mascot/reference/TractSeg_CC_7.md)
+- [`TractSeg_CC_7()`](https://tractoverse.github.io/toad/reference/TractSeg_CC_7.md)
   : TractSeg Corpus Callosum Splenium
-- [`TractSeg_CG_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_CG_left.md)
+- [`TractSeg_CG_left()`](https://tractoverse.github.io/toad/reference/TractSeg_CG_left.md)
   : TractSeg Left Cingulum
-- [`TractSeg_CG_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_CG_right.md)
+- [`TractSeg_CG_right()`](https://tractoverse.github.io/toad/reference/TractSeg_CG_right.md)
   : TractSeg Right Cingulum
-- [`TractSeg_CST_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_CST_left.md)
+- [`TractSeg_CST_left()`](https://tractoverse.github.io/toad/reference/TractSeg_CST_left.md)
   : TractSeg Left Corticospinal Tract
-- [`TractSeg_CST_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_CST_right.md)
+- [`TractSeg_CST_right()`](https://tractoverse.github.io/toad/reference/TractSeg_CST_right.md)
   : TractSeg Right Corticospinal Tract
-- [`TractSeg_FPT_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_FPT_left.md)
+- [`TractSeg_FPT_left()`](https://tractoverse.github.io/toad/reference/TractSeg_FPT_left.md)
   : TractSeg Left Fronto-Pontine Tract
-- [`TractSeg_FPT_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_FPT_right.md)
+- [`TractSeg_FPT_right()`](https://tractoverse.github.io/toad/reference/TractSeg_FPT_right.md)
   : TractSeg Right Fronto-Pontine Tract
-- [`TractSeg_FX_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_FX_left.md)
+- [`TractSeg_FX_left()`](https://tractoverse.github.io/toad/reference/TractSeg_FX_left.md)
   : TractSeg Left Fornix
-- [`TractSeg_FX_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_FX_right.md)
+- [`TractSeg_FX_right()`](https://tractoverse.github.io/toad/reference/TractSeg_FX_right.md)
   : TractSeg Right Fornix
-- [`TractSeg_ICP_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ICP_left.md)
+- [`TractSeg_ICP_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ICP_left.md)
   : TractSeg Left Inferior Cerebellar Peduncle
-- [`TractSeg_ICP_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ICP_right.md)
+- [`TractSeg_ICP_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ICP_right.md)
   : TractSeg Right Inferior Cerebellar Peduncle
-- [`TractSeg_IFO_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_IFO_left.md)
+- [`TractSeg_IFO_left()`](https://tractoverse.github.io/toad/reference/TractSeg_IFO_left.md)
   : TractSeg Left Inferior Fronto-Occipital Fasciculus
-- [`TractSeg_IFO_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_IFO_right.md)
+- [`TractSeg_IFO_right()`](https://tractoverse.github.io/toad/reference/TractSeg_IFO_right.md)
   : TractSeg Right Inferior Fronto-Occipital Fasciculus
-- [`TractSeg_ILF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ILF_left.md)
+- [`TractSeg_ILF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ILF_left.md)
   : TractSeg Left Inferior Longitudinal Fasciculus
-- [`TractSeg_ILF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ILF_right.md)
+- [`TractSeg_ILF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ILF_right.md)
   : TractSeg Right Inferior Longitudinal Fasciculus
-- [`TractSeg_MCP()`](https://tractoverse.github.io/mascot/reference/TractSeg_MCP.md)
+- [`TractSeg_MCP()`](https://tractoverse.github.io/toad/reference/TractSeg_MCP.md)
   : TractSeg Middle Cerebellar Peduncle
-- [`TractSeg_MLF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_MLF_left.md)
+- [`TractSeg_MLF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_MLF_left.md)
   : TractSeg Left Middle Longitudinal Fasciculus
-- [`TractSeg_MLF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_MLF_right.md)
+- [`TractSeg_MLF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_MLF_right.md)
   : TractSeg Right Middle Longitudinal Fasciculus
-- [`TractSeg_OR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_OR_left.md)
+- [`TractSeg_OR_left()`](https://tractoverse.github.io/toad/reference/TractSeg_OR_left.md)
   : TractSeg Left Optic Radiation
-- [`TractSeg_OR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_OR_right.md)
+- [`TractSeg_OR_right()`](https://tractoverse.github.io/toad/reference/TractSeg_OR_right.md)
   : TractSeg Right Optic Radiation
-- [`TractSeg_POPT_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_POPT_left.md)
+- [`TractSeg_POPT_left()`](https://tractoverse.github.io/toad/reference/TractSeg_POPT_left.md)
   : TractSeg Left Parieto-Occipital Pontine Tract
-- [`TractSeg_POPT_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_POPT_right.md)
+- [`TractSeg_POPT_right()`](https://tractoverse.github.io/toad/reference/TractSeg_POPT_right.md)
   : TractSeg Right Parieto-Occipital Pontine Tract
-- [`TractSeg_SCP_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SCP_left.md)
+- [`TractSeg_SCP_left()`](https://tractoverse.github.io/toad/reference/TractSeg_SCP_left.md)
   : TractSeg Left Superior Cerebellar Peduncle
-- [`TractSeg_SCP_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SCP_right.md)
+- [`TractSeg_SCP_right()`](https://tractoverse.github.io/toad/reference/TractSeg_SCP_right.md)
   : TractSeg Right Superior Cerebellar Peduncle
-- [`TractSeg_SLF_III_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_III_left.md)
+- [`TractSeg_SLF_III_left()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_III_left.md)
   : TractSeg Left Superior Longitudinal Fasciculus III
-- [`TractSeg_SLF_III_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_III_right.md)
+- [`TractSeg_SLF_III_right()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_III_right.md)
   : TractSeg Right Superior Longitudinal Fasciculus III
-- [`TractSeg_SLF_II_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_II_left.md)
+- [`TractSeg_SLF_II_left()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_II_left.md)
   : TractSeg Left Superior Longitudinal Fasciculus II
-- [`TractSeg_SLF_II_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_II_right.md)
+- [`TractSeg_SLF_II_right()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_II_right.md)
   : TractSeg Right Superior Longitudinal Fasciculus II
-- [`TractSeg_SLF_I_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_I_left.md)
+- [`TractSeg_SLF_I_left()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_I_left.md)
   : TractSeg Left Superior Longitudinal Fasciculus I
-- [`TractSeg_SLF_I_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_SLF_I_right.md)
+- [`TractSeg_SLF_I_right()`](https://tractoverse.github.io/toad/reference/TractSeg_SLF_I_right.md)
   : TractSeg Right Superior Longitudinal Fasciculus I
-- [`TractSeg_STR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_STR_left.md)
+- [`TractSeg_STR_left()`](https://tractoverse.github.io/toad/reference/TractSeg_STR_left.md)
   : TractSeg Left Superior Thalamic Radiation
-- [`TractSeg_STR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_STR_right.md)
+- [`TractSeg_STR_right()`](https://tractoverse.github.io/toad/reference/TractSeg_STR_right.md)
   : TractSeg Right Superior Thalamic Radiation
-- [`TractSeg_ST_FO_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_FO_left.md)
+- [`TractSeg_ST_FO_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_FO_left.md)
   : TractSeg Left Striato-Fronto-Orbital Tract
-- [`TractSeg_ST_FO_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_FO_right.md)
+- [`TractSeg_ST_FO_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_FO_right.md)
   : TractSeg Right Striato-Fronto-Orbital Tract
-- [`TractSeg_ST_OCC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_OCC_left.md)
+- [`TractSeg_ST_OCC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_OCC_left.md)
   : TractSeg Left Striato-Occipital Tract
-- [`TractSeg_ST_OCC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_OCC_right.md)
+- [`TractSeg_ST_OCC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_OCC_right.md)
   : TractSeg Right Striato-Occipital Tract
-- [`TractSeg_ST_PAR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PAR_left.md)
+- [`TractSeg_ST_PAR_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PAR_left.md)
   : TractSeg Left Striato-Parietal Tract
-- [`TractSeg_ST_PAR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PAR_right.md)
+- [`TractSeg_ST_PAR_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PAR_right.md)
   : TractSeg Right Striato-Parietal Tract
-- [`TractSeg_ST_POSTC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_POSTC_left.md)
+- [`TractSeg_ST_POSTC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_POSTC_left.md)
   : TractSeg Left Striato-Postcentral Tract
-- [`TractSeg_ST_POSTC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_POSTC_right.md)
+- [`TractSeg_ST_POSTC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_POSTC_right.md)
   : TractSeg Right Striato-Postcentral Tract
-- [`TractSeg_ST_PREC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREC_left.md)
+- [`TractSeg_ST_PREC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREC_left.md)
   : TractSeg Left Striato-Precentral Tract
-- [`TractSeg_ST_PREC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREC_right.md)
+- [`TractSeg_ST_PREC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREC_right.md)
   : TractSeg Right Striato-Precentral Tract
-- [`TractSeg_ST_PREF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREF_left.md)
+- [`TractSeg_ST_PREF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREF_left.md)
   : TractSeg Left Striato-Prefrontal Tract
-- [`TractSeg_ST_PREF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREF_right.md)
+- [`TractSeg_ST_PREF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREF_right.md)
   : TractSeg Right Striato-Prefrontal Tract
-- [`TractSeg_ST_PREM_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREM_left.md)
+- [`TractSeg_ST_PREM_left()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREM_left.md)
   : TractSeg Left Striato-Premotor Tract
-- [`TractSeg_ST_PREM_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_ST_PREM_right.md)
+- [`TractSeg_ST_PREM_right()`](https://tractoverse.github.io/toad/reference/TractSeg_ST_PREM_right.md)
   : TractSeg Right Striato-Premotor Tract
-- [`TractSeg_T_OCC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_OCC_left.md)
+- [`TractSeg_T_OCC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_OCC_left.md)
   : TractSeg Left Thalamo-Occipital Tract
-- [`TractSeg_T_OCC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_OCC_right.md)
+- [`TractSeg_T_OCC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_OCC_right.md)
   : TractSeg Right Thalamo-Occipital Tract
-- [`TractSeg_T_PAR_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PAR_left.md)
+- [`TractSeg_T_PAR_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PAR_left.md)
   : TractSeg Left Thalamo-Parietal Tract
-- [`TractSeg_T_PAR_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PAR_right.md)
+- [`TractSeg_T_PAR_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PAR_right.md)
   : TractSeg Right Thalamo-Parietal Tract
-- [`TractSeg_T_POSTC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_POSTC_left.md)
+- [`TractSeg_T_POSTC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_POSTC_left.md)
   : TractSeg Left Thalamo-Postcentral Tract
-- [`TractSeg_T_POSTC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_POSTC_right.md)
+- [`TractSeg_T_POSTC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_POSTC_right.md)
   : TractSeg Right Thalamo-Postcentral Tract
-- [`TractSeg_T_PREC_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREC_left.md)
+- [`TractSeg_T_PREC_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREC_left.md)
   : TractSeg Left Thalamo-Precentral Tract
-- [`TractSeg_T_PREC_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREC_right.md)
+- [`TractSeg_T_PREC_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREC_right.md)
   : TractSeg Right Thalamo-Precentral Tract
-- [`TractSeg_T_PREF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREF_left.md)
+- [`TractSeg_T_PREF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREF_left.md)
   : TractSeg Left Thalamo-Prefrontal Tract
-- [`TractSeg_T_PREF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREF_right.md)
+- [`TractSeg_T_PREF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREF_right.md)
   : TractSeg Right Thalamo-Prefrontal Tract
-- [`TractSeg_T_PREM_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREM_left.md)
+- [`TractSeg_T_PREM_left()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREM_left.md)
   : TractSeg Left Thalamo-Premotor Tract
-- [`TractSeg_T_PREM_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_T_PREM_right.md)
+- [`TractSeg_T_PREM_right()`](https://tractoverse.github.io/toad/reference/TractSeg_T_PREM_right.md)
   : TractSeg Right Thalamo-Premotor Tract
-- [`TractSeg_UF_left()`](https://tractoverse.github.io/mascot/reference/TractSeg_UF_left.md)
+- [`TractSeg_UF_left()`](https://tractoverse.github.io/toad/reference/TractSeg_UF_left.md)
   : TractSeg Left Uncinate Fasciculus
-- [`TractSeg_UF_right()`](https://tractoverse.github.io/mascot/reference/TractSeg_UF_right.md)
+- [`TractSeg_UF_right()`](https://tractoverse.github.io/toad/reference/TractSeg_UF_right.md)
   : TractSeg Right Uncinate Fasciculus
-- [`available_bundles()`](https://tractoverse.github.io/mascot/reference/available_bundles.md)
+- [`available_bundles()`](https://tractoverse.github.io/toad/reference/available_bundles.md)
   : List available bundles for a dataset
-- [`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md)
+- [`available_datasets()`](https://tractoverse.github.io/toad/reference/available_datasets.md)
   : List available datasets
-- [`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md)
+- [`import_bundle()`](https://tractoverse.github.io/toad/reference/import_bundle.md)
   : Import a bundle hosted in GitHub releases
 

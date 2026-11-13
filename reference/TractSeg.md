@@ -72,7 +72,7 @@ and acknowledgment requirements.
 The original `.trk` streamline files from the Zenodo archive have been
 converted to R
 [`fiber::bundle`](https://tractoverse.github.io/fiber/reference/bundle.html)
-objects and serialised as `.rds` files using the `mascot` package
+objects and serialised as `.rds` files using the `toad` package
 pipeline. No spatial or statistical modifications were made to the
 streamline data. Bundles are split one per GitHub release tag.
 
@@ -82,7 +82,7 @@ This redistribution does not imply endorsement by the original authors,
 DKFZ, Zenodo, HCP, or any affiliated institution. The original authors
 are listed as contributors (`ctb`) in the package `DESCRIPTION` to
 acknowledge their authorship of the source data; this does not imply
-their endorsement of the `mascot` package.
+their endorsement of the `toad` package.
 
 ## References
 

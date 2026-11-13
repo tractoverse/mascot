@@ -1,8 +1,6 @@
 # Changelog
 
-## mascot 0.1.0
-
-CRAN release: 2026-11-12
+## toad 0.1.0
 
 ### HCP1065 atlas
 
@@ -13,7 +11,7 @@ Fang-Cheng Yeh under the **Creative Commons Attribution-ShareAlike 4.0
 International (CC BY-SA 4.0)** license
 (<https://creativecommons.org/licenses/by-sa/4.0/>), not CC BY 4.0 as
 previously documented. `DESCRIPTION`, the roxygen block in
-[`R/HCP1065.R`](https://tractoverse.github.io/mascot/news/R/HCP1065.R),
+[`R/HCP1065.R`](https://tractoverse.github.io/toad/news/R/HCP1065.R),
 and the GitHub release notes for the `hcp1065` tag have all been
 corrected accordingly. A no-endorsement disclaimer has also been added
 to the release notes.
@@ -86,7 +84,7 @@ This redistribution does not imply endorsement by the original authors,
 DKFZ, Zenodo, HCP, or any affiliated institution. Jakob Wasserthal,
 Peter Neher, and Klaus H. Maier-Hein are listed as contributors (`ctb`)
 in `DESCRIPTION` to acknowledge their authorship of the source data;
-this does not imply their endorsement of the `mascot` package.
+this does not imply their endorsement of the `toad` package.
 
 #### Asset-generation design notes
 
@@ -120,7 +118,7 @@ constraints from the HCP1065 atlas. Key design choices and trade-offs:
   while the size penalty relative to XZ is modest (typically 10–20 %).
   End-user download sizes remain acceptable because each release is
   fetched bundle-by-bundle through
-  [`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md).
+  [`import_bundle()`](https://tractoverse.github.io/toad/reference/import_bundle.md).
 
 - **Parallel `mclapply` within each runner.** Subject-level TRK → RDS
   conversion is embarrassingly parallel;

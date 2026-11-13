@@ -2,7 +2,7 @@
 
 Returns the names of all tractography atlas datasets that can be
 accessed via
-[`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md).
+[`import_bundle()`](https://tractoverse.github.io/toad/reference/import_bundle.md).
 
 ## Usage
 

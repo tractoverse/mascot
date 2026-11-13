@@ -3,7 +3,7 @@
 Returns the full names of all white-matter bundles available in the
 specified dataset. The returned names are the values to supply to the
 `bundle` argument of
-[`import_bundle()`](https://tractoverse.github.io/mascot/reference/import_bundle.md).
+[`import_bundle()`](https://tractoverse.github.io/toad/reference/import_bundle.md).
 
 ## Usage
 
@@ -16,7 +16,7 @@ available_bundles(dataset)
 - dataset:
 
   A string naming the dataset. Must be one of the values returned by
-  [`available_datasets()`](https://tractoverse.github.io/mascot/reference/available_datasets.md).
+  [`available_datasets()`](https://tractoverse.github.io/toad/reference/available_datasets.md).
 
 ## Value
 
