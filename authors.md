@@ -41,7 +41,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/tractoverse/toad/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/tractoverse/toad/blob/main/DESCRIPTION)
 
 Stamm A (2026). *toad: Macroscale Structural Connectomes via
 Tractography*. R package version 0.1.0,
