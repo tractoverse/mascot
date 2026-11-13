@@ -1,4 +1,4 @@
-# toad: Macroscale Structural Connectomes via Tractography
+# toad: Tractography Open Atlas Data
 
 A data package providing access to macroscale structural connectomes of
 the human brain derived from diffusion MRI via tractography. Includes

@@ -43,12 +43,11 @@
 Source:
 [`DESCRIPTION`](https://github.com/tractoverse/toad/blob/main/DESCRIPTION)
 
-Stamm A (2026). *toad: Macroscale Structural Connectomes via
-Tractography*. R package version 0.1.0,
-<https://github.com/tractoverse/toad>.
+Stamm A (2026). *toad: Tractography Open Atlas Data*. R package version
+0.1.0, <https://github.com/tractoverse/toad>.
 
     @Manual{,
-      title = {toad: Macroscale Structural Connectomes via Tractography},
+      title = {toad: Tractography Open Atlas Data},
       author = {Aymeric Stamm},
       year = {2026},
       note = {R package version 0.1.0},
