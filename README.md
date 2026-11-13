@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# toad
+# toad <a href="https://tractoverse.github.io/toad/"><img src="man/figures/logo.png" align="right" height="138" alt="toad website" /></a>
 
 <!-- badges: start -->
 
