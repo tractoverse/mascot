@@ -2,6 +2,8 @@
 
 ## mascot 0.1.0
 
+CRAN release: 2026-11-12
+
 ### HCP1065 atlas
 
 #### License correction
